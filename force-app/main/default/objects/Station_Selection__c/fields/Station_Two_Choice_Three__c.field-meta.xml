@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Station_Two_Choice_Three__c</fullName>
+    <externalId>false</externalId>
+    <label>Station Two Choice Three</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unicycle</fullName>
+                <default>false</default>
+                <label>Unicycle</label>
+            </value>
+            <value>
+                <fullName>Manipulation</fullName>
+                <default>false</default>
+                <label>Manipulation</label>
+            </value>
+            <value>
+                <fullName>Mini Trampoline</fullName>
+                <default>false</default>
+                <label>Mini Trampoline</label>
+            </value>
+            <value>
+                <fullName>Lyra</fullName>
+                <default>false</default>
+                <label>Lyra</label>
+            </value>
+            <value>
+                <fullName>Silks</fullName>
+                <default>false</default>
+                <label>Silks</label>
+            </value>
+            <value>
+                <fullName>Partner Acrobatics</fullName>
+                <default>false</default>
+                <label>Partner Acrobatics</label>
+            </value>
+            <value>
+                <fullName>Clowning</fullName>
+                <default>false</default>
+                <label>Clowning</label>
+            </value>
+            <value>
+                <fullName>Open to any of the above skills!</fullName>
+                <default>false</default>
+                <label>Open to any of the above skills!</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
