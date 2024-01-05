@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Station_Three_Assignment__c</fullName>
+    <externalId>false</externalId>
+    <label>Station Three Assignment</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Tumbling</fullName>
+                <default>false</default>
+                <label>Tumbling</label>
+            </value>
+            <value>
+                <fullName>Trapeze</fullName>
+                <default>false</default>
+                <label>Trapeze</label>
+            </value>
+            <value>
+                <fullName>Lyra</fullName>
+                <default>false</default>
+                <label>Lyra</label>
+            </value>
+            <value>
+                <fullName>Gym Wheel</fullName>
+                <default>false</default>
+                <label>Gym Wheel</label>
+            </value>
+            <value>
+                <fullName>Balance</fullName>
+                <default>false</default>
+                <label>Balance</label>
+            </value>
+            <value>
+                <fullName>Open to any of the above skills!</fullName>
+                <default>false</default>
+                <label>Open to any of the above skills!</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
