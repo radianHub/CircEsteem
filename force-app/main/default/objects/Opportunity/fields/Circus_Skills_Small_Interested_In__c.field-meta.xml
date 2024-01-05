@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Circus_Skills_Small_Interested_In__c</fullName>
+    <externalId>false</externalId>
+    <label>Circus Skills - Small - Interested In</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Diabolo</fullName>
+                <default>false</default>
+                <label>Diabolo</label>
+            </value>
+            <value>
+                <fullName>Juggling</fullName>
+                <default>false</default>
+                <label>Juggling</label>
+            </value>
+            <value>
+                <fullName>Feather Balancing</fullName>
+                <default>false</default>
+                <label>Feather Balancing</label>
+            </value>
+            <value>
+                <fullName>Clowning</fullName>
+                <default>false</default>
+                <label>Clowning</label>
+            </value>
+            <value>
+                <fullName>Rola Bola</fullName>
+                <default>false</default>
+                <label>Rola Bola</label>
+            </value>
+            <value>
+                <fullName>Plate Spinning</fullName>
+                <default>false</default>
+                <label>Plate Spinning</label>
+            </value>
+            <value>
+                <fullName>Stilts (Group must be &lt;20)</fullName>
+                <default>false</default>
+                <label>Stilts (Group must be &lt;20)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
