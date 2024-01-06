@@ -4,17 +4,6 @@
     <active>true</active>
     <label>General Release Form</label>
     <picklistValues>
-        <picklist>Children_12_Can_Leave_By_Themselves__c</picklist>
-        <values>
-            <fullName>I authorize my child%28ren%29 aged 12%2B to leave CircEsteem classes by themselves</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>My child%28ren%29 aged 12%2B must be picked up by one of the individuals listed below</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Children_s_Ethnicity__c</picklist>
         <values>
             <fullName>Hispanic or Latina%2Fo%2Fx</fullName>
