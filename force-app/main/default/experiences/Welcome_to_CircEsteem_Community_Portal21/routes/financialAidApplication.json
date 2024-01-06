@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "522c7076-8edf-43e8-9e8b-904e81d84ae2",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Financial_Aid_Application__c",
+  "id" : "4df53626-1468-44ea-80ca-d2c06d862f79",
+  "label" : "Financial Aid Application",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-financial-aid-application",
+  "type" : "route",
+  "urlPrefix" : "financial-aid-application"
+}

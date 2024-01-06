@@ -1,0 +1,73 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "3d169076-2eb1-4a84-a285-260e26cf45df",
+  "label" : "CircEsteem School Program",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "018335e4-795e-4832-a4c1-f8fea9f100f5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "769490f0-bc6c-4390-8da2-70331ea2a390",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordDetail",
+      "id" : "7135bdc9-99f2-416d-aca8-cd939b9d3fcc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a49213a0-5304-4aa1-ab23-caeee854cea3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}",
+        "width" : "MEDIUM"
+      },
+      "componentName" : "forceCommunity:relatedRecords",
+      "id" : "a36a6c92-bdec-4e5e-b27e-d1b6d5fa2525",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f82d359f-8599-4915-8d74-df7e47029738",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "eaf16abd-ff4c-46c2-8894-1e4cc6890467",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ed6f85b2-1e8b-4538-ad1c-5165bd40c19c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a1d1be2c-1a33-4b3b-9502-56454e73ef0c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-a0G"
+}

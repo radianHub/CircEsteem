@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "96d4300d-bf8d-43fe-9f54-980151d59e99",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Shop__c",
+  "id" : "d020e512-51a7-4d60-a753-d81104b4a88c",
+  "label" : "Shop",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-shop",
+  "type" : "route",
+  "urlPrefix" : "shop"
+}

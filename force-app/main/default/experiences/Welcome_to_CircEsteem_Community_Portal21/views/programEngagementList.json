@@ -1,0 +1,74 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4c9ff0c9-f838-48d9-a2c3-5138445e97e3",
+  "label" : "Program Engagement List",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<h1 style=\"text-align: center;\"><span style=\"font-size: 36px;\">My Current Enrollments</span></h1><p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "d4ec7af3-930f-440a-a9d3-189073c9d7a1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 16px;\">To see more details please click one of your enrollments below, and to submit a withdrawal request, please scroll to the bottom of the site.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "84448671-6d12-49e1-8726-d7d3f3eef9ec",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ff834833-9546-4842-8b40-a1ebeee92699",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "My_Program_Engagement",
+        "layout" : "STANDARD",
+        "pageSize" : 25,
+        "scope" : "Program_Engagement__c",
+        "showActionBar" : true,
+        "showChartsPanel" : true,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "6cab72c0-fe13-475d-bbf0-9cfedafd2159",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p>Would you like to submit a withdrawal request?&nbsp;&nbsp;If so please click here: <a href=\"https://circesteem--eddev.sandbox.builder.salesforce-experience.com/sfsites/picasso/core/config/commeditor.jsp?exitURL=https%3A%2F%2Fcircesteem--eddev.sandbox.my.salesforce.com%2Fservlet%2Fnetworks%2Fswitch%3FnetworkId%3D0DBDw000000GmdD%26startURL%3D%252FcommunitySetup%252FcwApp.app%2523%252Fc%252Fhome\" rel=\"noopener noreferrer\" target=\"_blank\"><strong><u>WITHDRAWAL REQUEST FORM</u></strong></a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "c22c4943-8465-4e47-b6dd-f0161e5a21ab",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "487fb3ea-f8ad-45c1-a7be-5952f0cd8c81",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d972520b-f9e1-45e2-94a2-6fe915c1653c",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-a0F"
+}

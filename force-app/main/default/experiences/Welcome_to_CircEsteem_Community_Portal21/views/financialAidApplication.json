@@ -1,0 +1,71 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "522c7076-8edf-43e8-9e8b-904e81d84ae2",
+  "label" : "Financial Aid Application",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "9fcdf221-3515-464b-98c9-565fd6cb1c5e",
+          "columns" : [ {
+            "UUID" : "7018d6cd-85a3-4a11-b9fd-5ae7f80fd90c",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "9fcdf221-3515-464b-98c9-565fd6cb1c5e",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "",
+            "flowName" : "Screen_Flow_Financial_Aid_Application"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "57db865e-903e-407d-98d5-e9ec3ecd5fdf",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "7018d6cd-85a3-4a11-b9fd-5ae7f80fd90c",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0cf79a92-14b6-4734-aa6a-ca6558e93907",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Financial Aid Application"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9d0fa75f-067d-4206-a6eb-35c23ef8fde6",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e68e23ae-b638-41a3-807a-f40ff35c9d88",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-financial-aid-application"
+}

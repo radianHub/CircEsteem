@@ -1,0 +1,68 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "96d4300d-bf8d-43fe-9f54-980151d59e99",
+  "label" : "Shop",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "001be180-7ed6-48d4-a128-988a15bd3065",
+          "columns" : [ {
+            "UUID" : "1455683f-fce2-475a-8fb5-b9bf61ce1f8a",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "001be180-7ed6-48d4-a128-988a15bd3065",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:productDisplay",
+          "id" : "b8e32f4c-41c8-48a1-931b-e25483d6e206",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "1455683f-fce2-475a-8fb5-b9bf61ce1f8a",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bf6bfc47-0540-457a-a199-64e5fb9dda50",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Shop"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "d168054d-b314-405e-bdf0-fa44ee79da6d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "94822edb-d916-493a-af04-00ec45bdc902",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-shop"
+}

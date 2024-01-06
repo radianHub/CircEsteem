@@ -1,0 +1,48 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b1231456-b93a-4189-86d0-97ebec2b6b6c",
+  "label" : "General Release Form",
+  "regions" : [ {
+    "id" : "9fd34be1-de34-48dd-be44-b1331a473720",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "appDevName" : "General_Release_Form"
+      },
+      "componentName" : "c:univApp",
+      "id" : "3b4cf7e6-b748-47b6-8d68-11104e92550c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9be40980-1805-49ee-946e-c26fe07c0c2c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "547b5867-8a61-4df0-9c18-00d765e036c5",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "General Release Form"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "07102ba9-b4c0-4e54-a345-aa7a7b846128",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "97e36cc6-771d-4a9a-8f8d-25c03547987a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-general-release-form"
+}

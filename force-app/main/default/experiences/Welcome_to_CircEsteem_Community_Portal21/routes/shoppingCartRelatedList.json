@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "264b41fc-e417-4a76-b7b7-a82b245f4b46",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Shopping_Cart_Related_List__c",
+  "id" : "d5370e87-73a8-4fac-939c-1901c3cb63f8",
+  "label" : "Shopping Cart Related List",
+  "objectApiName" : "Shopping_Cart__c",
+  "routeType" : "relatedlist-a0I",
+  "type" : "route",
+  "urlPrefix" : "shopping-cart"
+}

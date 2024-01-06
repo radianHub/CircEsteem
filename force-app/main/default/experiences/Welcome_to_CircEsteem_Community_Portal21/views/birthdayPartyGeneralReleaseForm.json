@@ -1,0 +1,70 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "190ff0f3-1a42-4518-b805-62c1d4439f88",
+  "label" : "Birthday Party General Release Form",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "157aac5e-86b1-45a7-8b08-1047a68b6e92",
+          "columns" : [ {
+            "UUID" : "36afde7f-da50-4193-a397-85363c9abf23",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "157aac5e-86b1-45a7-8b08-1047a68b6e92",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "appDevName" : "General_Release_Form_Bday_and_Workshop"
+          },
+          "componentName" : "c:univApp",
+          "id" : "05f68237-fa22-43b7-a4f1-dbf59c1d94c5",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "36afde7f-da50-4193-a397-85363c9abf23",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c9070fdf-dcb4-49f3-9fe0-bc1800b23ca8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Birthday Party General Release Form"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c434fe35-1d9a-47c1-9da2-cf0430914755",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f87c061e-00b4-463f-958d-e2d6521445af",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-birthday-party-general-release-form"
+}

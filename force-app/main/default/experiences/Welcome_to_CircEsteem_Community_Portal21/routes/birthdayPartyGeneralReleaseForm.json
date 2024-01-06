@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "190ff0f3-1a42-4518-b805-62c1d4439f88",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Birthday_Party_General_Release_Form__c",
+  "id" : "df723685-ea82-40fb-9745-fed74140a5eb",
+  "label" : "Birthday Party General Release Form",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-birthday-party-general-release-form",
+  "type" : "route",
+  "urlPrefix" : "birthday-party-general-release-form"
+}

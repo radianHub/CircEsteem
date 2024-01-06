@@ -1,0 +1,111 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsTwoCol66Layout",
+  "dataProviders" : [ ],
+  "id" : "49cc0792-5fc5-4ae0-a5a3-10072f298468",
+  "label" : "Available Programs",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"color: rgb(0, 41, 102); font-size: 26px;\"><u>CircEsteem Programs</u></strong></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "cb6954e2-0404-4f30-990e-c745f9836aa0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 41, 102); font-size: 16px;\">Featured Below are the CircEsteem Programs that are currently accepting Enrollment (left), as well as all of our program offerings (right).&nbsp;&nbsp;</span></p><p style=\"text-align: center;\"><span style=\"color: rgb(0, 41, 102); font-size: 16px;\">To see more information, please click on the program name.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "852b7a86-d3b1-47b5-8304-c7dd73ba222e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "384ebefb-9500-4e36-958d-c848b8e41a67",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "All",
+        "layout" : "COMPACT",
+        "pageSize" : 10,
+        "scope" : "Program__c",
+        "showActionBar" : true,
+        "showChartsPanel" : true,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "1c4dcfce-eb35-4782-beb7-ffcca31ff16f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bc9c5b75-0941-48d1-8b00-629aac9ad8eb",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "Active_Programs",
+        "layout" : "COMPACT",
+        "pageSize" : 25,
+        "scope" : "Program__c",
+        "showActionBar" : true,
+        "showChartsPanel" : true,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "e2a5940b-5890-4c24-99fa-328fdb81eb01",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c7fa75e7-f144-477c-b22e-f397577bc2be",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "eb6f095b-998e-4132-ab4c-905b0694af2e",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "0a347648-2def-43ee-9ee6-1ac3fbeb9ce7",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Available Programs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2c970adb-2c58-4fc4-9292-a8c84284b2f7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d84d0ca2-d8b8-460f-9e04-81c0a947af3a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-available-programs"
+}

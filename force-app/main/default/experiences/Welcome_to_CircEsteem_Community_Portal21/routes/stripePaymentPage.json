@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8dae7f60-50ff-4d5e-94e8-2873e91cb9ba",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Stripe_Payment_Page__c",
+  "id" : "95844fc0-5ce4-46c5-9ac4-ace3e60273b1",
+  "label" : "Stripe Payment Page",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-stripe-payment-page",
+  "type" : "route",
+  "urlPrefix" : "stripe-payment-page"
+}

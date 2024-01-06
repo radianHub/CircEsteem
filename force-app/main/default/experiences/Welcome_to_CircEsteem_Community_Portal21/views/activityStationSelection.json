@@ -1,0 +1,71 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "6ec1dec5-cc5a-450e-b06a-b7abb77300dd",
+  "label" : "Activity Station Selection",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "6e5d1a5b-ac2a-43e4-8b36-44a280f17b4e",
+          "columns" : [ {
+            "UUID" : "cb3ac425-50d0-48b5-8474-00e77b2581c2",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "6e5d1a5b-ac2a-43e4-8b36-44a280f17b4e",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "",
+            "flowName" : "Activity_Station_Selection"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "3f36c80f-dc04-47e7-8288-bb7c02603134",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "cb3ac425-50d0-48b5-8474-00e77b2581c2",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "124b7317-552c-407e-9ea2-3172c7410c81",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Activity Station Selection"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f5699b98-d1af-404d-89b6-d20454b5f834",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d7e96b0e-1fe4-4d6e-8d3e-9df1ea503406",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-activity-station-selection"
+}

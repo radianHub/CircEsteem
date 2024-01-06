@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "6ec1dec5-cc5a-450e-b06a-b7abb77300dd",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Activity_Station_Selection__c",
+  "id" : "729bc692-c5bb-43b5-9195-3f60c5d548d0",
+  "label" : "Activity Station Selection",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-activity-station-selection",
+  "type" : "route",
+  "urlPrefix" : "activity-station-selection"
+}

@@ -1,0 +1,76 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "a3baacf2-52e0-4c83-b9f2-be27dcc58ccc",
+  "label" : "Application Page",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<h1 style=\"text-align: center;\"><span style=\"font-size: 36px;\">CircEsteem Student Application Page</span></h1>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "e7fe2e50-68f8-4a22-bf03-d4a26483e7dc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<h5 style=\"text-align: center;\"><strong>Welcome to the CircEsteem Application Page!&nbsp;&nbsp;We are thrilled you are interested in applying to one of our many Program Offerings.&nbsp;&nbsp;To Enroll One or more of your children into a program, please continue below to fill out your application:</strong></h5>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "a4e878eb-5680-4bb9-98e2-8079ed3ec17e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1efdabd6-ee02-4dcd-a53a-da7fcda37270",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "c422921b-b975-4a99-8679-4bb2853f227a",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Application_Creation"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "98c25ec1-0ccf-41b5-b46c-1637cd1e241d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ddfe97e0-44ac-401a-8c80-f4edfdde79ee",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "5f557f52-2bc2-464e-afe4-4720fa1dbc27",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "1696caae-d0c0-4e4f-875e-6e085487bfed",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Application Page"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e584f047-a729-46bb-8b86-597f0be91d68",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "65282865-6acb-4265-8d27-cffa37926389",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-application-page"
+}

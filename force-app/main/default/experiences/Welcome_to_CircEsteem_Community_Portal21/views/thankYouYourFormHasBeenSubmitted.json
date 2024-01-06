@@ -1,0 +1,70 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "263368c5-c9bf-4aac-ad13-4df96ab3d39c",
+  "label" : "Thank You! Your Form Has Been Submitted.",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "d1fe5d59-8755-42e6-a815-17371784bdbc",
+          "columns" : [ {
+            "UUID" : "5afa2933-3b02-4eae-9933-81581b2c82e0",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "d1fe5d59-8755-42e6-a815-17371784bdbc",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<h1 style=\"text-align: center;\">Thank You! Your Form Has Been Submitted.</h1><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\">We will be in touch in the case that we need more information from you. You can return the the home screen by clicking here.</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "ec1d4aa4-43bd-4f13-8c0d-f5db021dd7d0",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "5afa2933-3b02-4eae-9933-81581b2c82e0",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "07061085-fcd9-488b-b8f5-74af258983ed",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Thank You! Your Form Has Been Submitted."
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2ad13193-277e-4bfc-b638-434996ad24ef",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4c7bd10d-7d02-4060-92e9-bb8441d7493a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-thank-you-form-submitted"
+}

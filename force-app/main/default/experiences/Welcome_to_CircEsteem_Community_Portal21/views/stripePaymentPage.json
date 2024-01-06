@@ -1,0 +1,68 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "8dae7f60-50ff-4d5e-94e8-2873e91cb9ba",
+  "label" : "Stripe Payment Page",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "c4301a39-c4cc-4e4d-872f-173ca71ff9a1",
+          "columns" : [ {
+            "UUID" : "8a159f46-6cc5-4783-aca5-0663e8f38ebc",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "c4301a39-c4cc-4e4d-872f-173ca71ff9a1",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:stripePayment",
+          "id" : "a4596d63-e0b4-4ffc-a0ff-33790ae15357",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "8a159f46-6cc5-4783-aca5-0663e8f38ebc",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d5be4ee9-d409-4ed9-abcf-c24e8af6aada",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Stripe Payment Page"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a18671ef-c92b-4083-af71-2b718d06e3fd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7b0f06fd-6dd4-4cc9-bbf1-b46e66394609",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-stripe-payment-page"
+}

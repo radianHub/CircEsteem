@@ -1,0 +1,39 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "1eb7fb8c-e23c-4db0-a046-3b4afa0d4ab7",
+  "label" : "CircEsteem Program Related List",
+  "regions" : [ {
+    "id" : "47d826d1-81a8-49d0-ae13-ddce4476eca4",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "",
+        "parentRecordId" : "{!recordId}",
+        "relatedListName" : "{!relationshipApiName}",
+        "showBreadCrumbs" : true,
+        "showCustomTitle" : false,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "da33f068-d928-4aec-b7ea-bb1045c71184",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "33bfd82a-e1f0-48e4-883a-ece8c056aef5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c49935ae-de75-4355-b00e-f7be389cec2b",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-a0G"
+}

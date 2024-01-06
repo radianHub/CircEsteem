@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "05f15921-32a1-4f7b-b883-a43d1778843e",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Submit_Pickup_Instructions__c",
+  "id" : "1c0b9a28-9939-4785-bbce-1b51887d8a8f",
+  "label" : "Submit Pickup Instructions",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-submit-pickup-instructions",
+  "type" : "route",
+  "urlPrefix" : "submit-pickup-instructions"
+}

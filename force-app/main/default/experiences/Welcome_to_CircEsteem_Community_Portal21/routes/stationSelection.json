@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "39395861-f9db-4dc0-8c08-064e440e01e2",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Station_Selection__c",
+  "id" : "440cbf68-f3da-453e-b31e-ce8f8872846d",
+  "label" : "Station Selection",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-station-selection",
+  "type" : "route",
+  "urlPrefix" : "station-selection"
+}

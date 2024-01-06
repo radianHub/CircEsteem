@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "6986a5bf-f986-4b02-a6f7-2dddf4c5e8bc",
+    "propertyOverrides" : {
+      "activeViewId" : "9c322113-3626-40e9-ba4c-ad3f065b8378"
+    },
+    "targetId" : "97d08399-5ca0-4dca-a498-e2dc6c13bff9",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Shopping_Cart_Detail_Shopping_Cart_Detail_Page",
+  "id" : "efd26bb2-56a6-493c-a6f6-773384ccc758",
+  "type" : "experienceVariation"
+}

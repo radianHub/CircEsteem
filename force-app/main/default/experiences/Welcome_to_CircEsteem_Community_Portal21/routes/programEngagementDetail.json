@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "327f7b0a-8bbc-4fc5-9949-2dad6bee3239",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Program_Engagement_Detail__c",
+  "id" : "b9f5dc33-07f4-4dd3-926f-cf476530d31d",
+  "label" : "Program Engagement Detail",
+  "objectApiName" : "Program_Engagement__c",
+  "routeType" : "detail-a0F",
+  "type" : "route",
+  "urlPrefix" : "program-engagement"
+}

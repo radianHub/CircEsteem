@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c3e57630-d121-4871-a9ab-722505e646a0",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Child_Related_List__c",
+  "id" : "519347b0-b2c8-45eb-9a85-4c9f7ebe9ff3",
+  "label" : "Child Related List",
+  "objectApiName" : "Child__c",
+  "routeType" : "relatedlist-a05",
+  "type" : "route",
+  "urlPrefix" : "child"
+}

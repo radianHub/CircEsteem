@@ -1,0 +1,67 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "39395861-f9db-4dc0-8c08-064e440e01e2",
+  "label" : "Station Selection",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<h1 style=\"text-align: center;\"><span style=\"font-size: 36px;\">Activity Station Selection</span></h1><p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "039af13a-b1a8-4c07-b65f-13efe9dc225e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e4d598a8-8bbb-4305-a88f-cda6300290d8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "3dcc2d47-2c75-4c52-8761-201f76cf0e61",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Activity_Station_Selection"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "94508cc8-85fc-4f61-bab3-3855d545fc24",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "10f031ac-c73f-4d37-8518-4f51c982e37f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f11ab7f8-4eaf-460d-a8d8-8772279b7f49",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "38e81c76-7a1d-4a8f-a6c4-d4fe044c199b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Station Selection"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1c2bcc44-c4b6-433d-b197-02add3cd80fa",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "91b2621f-9997-4930-9530-a2020f52c7b8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-station-selection"
+}

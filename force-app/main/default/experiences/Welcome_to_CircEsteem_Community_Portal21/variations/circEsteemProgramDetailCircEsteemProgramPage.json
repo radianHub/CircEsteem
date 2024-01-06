@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "1e781631-f98f-4173-9bde-cef240688b6d",
+    "propertyOverrides" : {
+      "activeViewId" : "3d169076-2eb1-4a84-a285-260e26cf45df"
+    },
+    "targetId" : "0034e9b9-52ee-4575-a116-52104b03f3d2",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "CircEsteem_Program_Detail_CircEsteem_Program_Page",
+  "id" : "364dcbc0-9ac4-46fd-9705-e75271f6ed4e",
+  "type" : "experienceVariation"
+}

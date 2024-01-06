@@ -1,0 +1,72 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsTwoCol84SidebarFeaturedLayout",
+  "dataProviders" : [ ],
+  "id" : "327f7b0a-8bbc-4fc5-9949-2dad6bee3239",
+  "label" : "Program Engagement Detail",
+  "regions" : [ {
+    "id" : "4cb4e55f-774c-4b74-93b5-4715efec7ce5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordDetail",
+      "id" : "bc47aab4-fa20-4a4a-bb71-51527a9670e9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e0da4fec-4bdf-4595-bddb-e1c7dc315cfb",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "28c671bb-c166-49b5-a3e3-66655fe07611",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "d3aef1cb-9082-45db-89b3-4038974cb167",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dd55e06a-a9a2-42f2-927c-a6db6daca019",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "",
+        "parentRecordId" : "{!recordId}",
+        "relatedListName" : "Children",
+        "showBreadCrumbs" : true,
+        "showCustomTitle" : false,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "a3a1925f-e9fd-4ef9-b6d2-2b4c0dbde7ee",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fb410171-52d4-42b7-a704-523cf3b4cffc",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "id" : "e03f2b66-178e-4d89-8fca-50788206690f",
+    "regionName" : "sidebar",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-a0F"
+}

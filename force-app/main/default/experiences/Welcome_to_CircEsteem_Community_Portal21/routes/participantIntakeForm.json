@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "dbd1bb2b-60b9-4c4a-931c-f2349aee915e",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Participant_Intake_Form__c",
+  "id" : "3eb4b163-94d9-455c-8d40-e9e7de0f362a",
+  "label" : "Participant Intake Form",
+  "pageAccess" : "Public",
+  "routeType" : "custom-participant-intake-form",
+  "type" : "route",
+  "urlPrefix" : "participant-intake-form"
+}

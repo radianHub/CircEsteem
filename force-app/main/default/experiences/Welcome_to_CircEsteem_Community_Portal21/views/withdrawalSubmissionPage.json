@@ -1,0 +1,76 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "f70725e3-f17e-4edf-b819-389475a824c6",
+  "label" : "Withdrawal Submission Page",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"color: rgb(0, 41, 102); font-size: 24px;\">Enrollment Withdrawal Page</strong></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "a5323d5e-51cf-40ee-8cc3-63dfab7e4457",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 41, 102); background-color: rgb(255, 255, 255); font-size: 18px;\">To submit a withdrawal request, please follow the instructions below:</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1515e368-5c7b-4964-b8c0-8800def4ff65",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c7e506e9-984a-488c-a51b-a56af38eb31c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "191eb9e5-2dc0-4729-af97-993f4aac82ed",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Withdrawl_Request"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "67a0000f-766a-4ff8-b130-968fa79f161b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e7f69f96-a554-4d3c-8779-c66fb4f8c1d1",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f88da72d-66fe-480c-bbdf-d55851af8bcf",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "2a43706f-5490-497d-88dd-9bd8890bdb50",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Withdrawal Submission Page"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "af5d0c69-7566-403a-9123-feb31df4792e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e636b164-7bb5-4367-8566-c4d7855e8ed2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-withdrawal-submission-page"
+}

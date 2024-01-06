@@ -1,0 +1,49 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "dbd1bb2b-60b9-4c4a-931c-f2349aee915e",
+  "label" : "Participant Intake Form",
+  "regions" : [ {
+    "id" : "569dad93-f01a-4ded-a5cc-761208aad513",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Screen_Flow_CircEsteem_Participant_Intake_Form"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "786ce701-9173-4605-afda-b5c4f202f803",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d563007b-da30-43d4-bf32-2b29dd403021",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "5ddab6eb-091e-4b4a-9ab9-9df0b2f586e1",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Participant Intake Form"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "33804d6a-fdb4-4e87-b362-5a16f50312ab",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "56025b84-74a1-40f0-9ecb-6e7f3b58dce9",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-participant-intake-form"
+}

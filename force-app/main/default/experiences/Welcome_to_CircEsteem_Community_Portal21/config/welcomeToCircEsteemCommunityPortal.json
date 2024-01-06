@@ -1,0 +1,24 @@
+{
+  "forgotPasswordRouteId" : "ef36e2dc-e67c-4438-8caa-07eb65ccbe5b",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "0a50521c-e26d-4288-81b8-5bf70b183c51",
+  "mainAppPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "preferredDomain" : "none",
+  "selfRegistrationRouteId" : "77ff14ca-e26d-4706-b8f1-f02f743ee436",
+  "trustedSitesForScript" : [ {
+    "id" : "1cd37a87-87ec-455b-bb2c-3164d88e9d7f",
+    "isActive" : true,
+    "trustedSiteName" : "BaseSite",
+    "trustedSiteUrl" : "https://circesteem--rhdev.sandbox.my.salesforce.com/",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "4fe4fffb-9365-4d13-80a7-9b21c9847eab",
+    "isActive" : true,
+    "trustedSiteName" : "OtherBaseSite",
+    "trustedSiteUrl" : "https://circesteem--rhdev--c.documentforce.com/",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

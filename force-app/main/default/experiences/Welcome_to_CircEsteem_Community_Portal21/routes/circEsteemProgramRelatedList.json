@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "1eb7fb8c-e23c-4db0-a046-3b4afa0d4ab7",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "CircEsteem_Program_Related_List__c",
+  "id" : "21347d2f-09e7-472b-9860-57a57483b86f",
+  "label" : "CircEsteem Program Related List",
+  "objectApiName" : "Program__c",
+  "routeType" : "relatedlist-a0G",
+  "type" : "route",
+  "urlPrefix" : "program"
+}

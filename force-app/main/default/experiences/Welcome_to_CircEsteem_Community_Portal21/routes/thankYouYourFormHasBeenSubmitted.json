@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "263368c5-c9bf-4aac-ad13-4df96ab3d39c",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Thank_You_Your_Form_Has_Been_Submitted__c",
+  "id" : "7a2aba2e-ca0c-4509-86ed-ab05f3f0760e",
+  "label" : "Thank You! Your Form Has Been Submitted.",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-thank-you-form-submitted",
+  "type" : "route",
+  "urlPrefix" : "thank-you-form-submitted"
+}

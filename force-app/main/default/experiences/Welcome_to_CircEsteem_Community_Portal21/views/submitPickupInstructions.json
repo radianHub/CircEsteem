@@ -1,0 +1,53 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "05f15921-32a1-4f7b-b883-a43d1778843e",
+  "label" : "Submit Pickup Instructions",
+  "regions" : [ {
+    "id" : "7c165d74-cdde-4934-bade-3c05b77312b9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "Screen_Flow_Submit_Pickup_Instructions"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "8c4c014b-7040-4834-9596-7526f7b7e9ff",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e6aad813-baf2-460d-b40f-1b5b36932c5a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d76f94d4-85ff-4467-bfe6-0af1008c99ff",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "ddefab5e-59fd-4c95-8aee-c53c0e507f1a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Submit Pickup Instructions"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e962d224-f892-4e1e-9632-21c422f5b638",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a01fd359-ea46-4838-81ef-2c1a2f87feb5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-submit-pickup-instructions"
+}

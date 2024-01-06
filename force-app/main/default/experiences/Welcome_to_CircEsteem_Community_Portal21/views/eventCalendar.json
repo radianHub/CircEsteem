@@ -1,0 +1,60 @@
+{
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4ddc4189-0ba7-45be-897b-4a9af42d9c2a",
+  "label" : "Event Calendar",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 24px; color: rgb(0, 41, 102);\"><u>Event Calendar</u></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 16px; color: rgb(0, 41, 102);\">Below is our event calendar.&nbsp;&nbsp;To see more details about an event please select the event below.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "a70d4d31-455b-4b81-8489-b5f452d4c944",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "505aa575-dd66-43d7-969c-8634432a0864",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "showCreateNewCalendar" : false,
+        "showOtherCalendars" : false,
+        "showSidebar" : false
+      },
+      "componentName" : "forceCommunity:calendar",
+      "id" : "955d5bed-b35e-4af2-b4c6-8281c86119b2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4dec0097-e8cc-4dfd-ab69-977ea824094e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "dfb5a8af-b80c-4b3d-89fc-47c98135d9d6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Event Calendar"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5b7f1a55-c712-4e1d-82a8-13bc3dd67e10",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3a1978ee-ede2-4529-9e37-bd51c0289faf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-event-calendar"
+}

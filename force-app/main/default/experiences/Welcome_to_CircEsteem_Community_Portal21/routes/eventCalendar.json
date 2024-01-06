@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "4ddc4189-0ba7-45be-897b-4a9af42d9c2a",
+  "appPageId" : "61658b33-d1e0-4dc5-9ec5-b318beb0038e",
+  "configurationTags" : [ ],
+  "devName" : "Event_Calendar__c",
+  "id" : "ae649d3b-c754-4707-a1e4-5d3c17e97688",
+  "label" : "Event Calendar",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-event-calendar",
+  "type" : "route",
+  "urlPrefix" : "event-calendar"
+}
