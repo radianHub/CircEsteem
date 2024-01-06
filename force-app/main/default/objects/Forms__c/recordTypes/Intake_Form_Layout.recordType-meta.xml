@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake_Form_Layout</fullName>
+    <active>true</active>
+    <label>Intake Form Layout</label>
+    <picklistValues>
+        <picklist>Children_12_Can_Leave_By_Themselves__c</picklist>
+        <values>
+            <fullName>I authorize my child%28ren%29 aged 12%2B to leave CircEsteem classes by themselves</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>My child%28ren%29 aged 12%2B must be picked up by one of the individuals listed below</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Children_s_Ethnicity__c</picklist>
+        <values>
+            <fullName>Hispanic or Latina%2Fo%2Fx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Hispanic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Food_Stamps__c</picklist>
+        <values>
+            <fullName>I prefer not to say</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Free_or_Reduced_Lunch__c</picklist>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Languages_Spoken_at_Home__c</picklist>
+        <values>
+            <fullName>Amharic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>English</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ewe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spanish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twi</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Parent_Guardian_Preferred_Contact__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Programs_that_Apply_to_Children__c</picklist>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Gage Park %28Sawyer%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Garfield Park %28Hefferan%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Humboldt Park %28Morton%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - North Lawndale %28Kellman%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Rogers Park %28Jordan%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Uptown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - CYC %28ages 8-18%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - CYC - Minis %28ages 5-7%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - CYC - Tots %28ages 3-5%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - Performance Troupe - Club</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - Performance Troupe - Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Summer Camp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29 - CYC %28ages 8-18%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29 - CYC - Minis %28ages 5-7%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29 - Performance Troupe - Club</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Race_Children_Identifies_As__c</picklist>
+        <values>
+            <fullName>American Indian or Alaska Native</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Asian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Black or African American</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexican American</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Middle Eastern</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Native Hawaiian or Pacific Islander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>White or Caucasian</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
