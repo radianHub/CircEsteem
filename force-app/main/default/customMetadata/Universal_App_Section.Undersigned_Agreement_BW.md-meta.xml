@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Undersigned Agreement BW</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Include_Signature__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:20px;&gt; &lt;p&gt; 
+1. Hereby releases, waives, discharges and covenants Not To Sue CircEsteem and each of its officers, employees and agents, all for purposes herein referred to as Releasees, from liability to the Undersigned, their personal representatives, assigns, heirs and next of kin for all loss or damage and any claim or demands therefore, on account of injury to the person or property or resulting in death of the Undersigned, whether caused by the negligence of Releasees or otherwise while the Undersigned is upon the premises of CircEsteem and/or a participant in CircEsteem classes; and,&lt;br&gt;&lt;br&gt;
+2. Hereby agrees to indemnify and save and hold harmless the Releasees and each of them for any loss, liability, damage or cost they may incur (1) due to the presence or any action of the Undersigned in or about CircEsteem and/or (2) due to participation in CircEsteem classes whether caused by the negligence of the Releasees or otherwise. The Undersigned expressly agrees that the foregoing Release, Waiver and Indemnity Agreement is intended to be as broad and inclusive as is permitted by the law of the State of Illinois and that if any portion thereof is held invalid, it is agreed that the balance shall, notwithstanding, continue in full legal force and effect. The Undersigned warrants the following statements are true and correct and understands that the Releasees have relied on them entering into the foregoing Release, Waiver, and Indemnity Agreement and in giving the Undersigned permission to enter the premises of CircEsteem and participate in CircEsteem classes:&lt;br&gt;&lt;br&gt;
+3. No oral representatives, statements or inducements apart from this written agreement have been made.&lt;br&gt;&lt;br&gt;
+4. The Undersigned individual is fully aware of the risks and hazards inherent in entering upon the premises of CircEsteem and hereby elects voluntarily to enter upon said premises, knowing the present condition and knowing that said condition may become more hazardous and dangerous during the time that the Undersigned is upon said premises. The Undersigned is fully aware that trapeze and circus stunts and all activities associated with participation in CircEsteem classes is a calculated risk sport and contains inherent risks and dangers (including serious injury and death) that no amount of care, caution, instruction, or expertise can eliminate. The participant knows and understands the scope, nature, and extent of the risks involved in the activities contemplated by this agreement. The Undersigned individual hereby voluntarily assumes all risks of loss, damage or injury that may be sustained by them, or any of them, any damage to any property of the Undersigned, or any of them while in or upon the premises of CircEsteem or a participant of CircEsteem classes.&lt;br&gt;&lt;br&gt;
+5. That they give consent to whatever medical care might be provided or available on the premises and further agrees &lt;/p&gt; &lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Empty_Fieldset</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">General_Release_Form_Bday_and_Workshop</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>
