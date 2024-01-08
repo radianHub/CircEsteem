@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Party_Extras__c</fullName>
+    <externalId>false</externalId>
+    <label>Party Extras</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Popcorn_Machine_100</fullName>
+                <default>false</default>
+                <label>Popcorn Machine - $100</label>
+            </value>
+            <value>
+                <fullName>Snow Cone Machine_150</fullName>
+                <default>false</default>
+                <label>Snow Cone Machine - $150</label>
+            </value>
+            <value>
+                <fullName>Time to Shine!_200</fullName>
+                <default>false</default>
+                <label>Time to Shine! - $200</label>
+            </value>
+            <value>
+                <fullName>15 Minute Circus Show_500</fullName>
+                <default>false</default>
+                <label>15 Minute Circus Show - $500</label>
+            </value>
+            <value>
+                <fullName>45 Minute Circus Show_1000</fullName>
+                <default>false</default>
+                <label>45 Minute Circus Show - $1000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

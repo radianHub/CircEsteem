@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Circus_Skills_Large_Interested_In__c</fullName>
+    <externalId>false</externalId>
+    <label>Circus Skills - Large - Interested In</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Tight Wire</fullName>
+                <default>false</default>
+                <label>Tight Wire</label>
+            </value>
+            <value>
+                <fullName>Rolling Globe</fullName>
+                <default>false</default>
+                <label>Rolling Globe</label>
+            </value>
+            <value>
+                <fullName>Partner Acrobatics</fullName>
+                <default>false</default>
+                <label>Partner Acrobatics</label>
+            </value>
+            <value>
+                <fullName>Gym Wheel</fullName>
+                <default>false</default>
+                <label>Gym Wheel</label>
+            </value>
+            <value>
+                <fullName>Lyra</fullName>
+                <default>false</default>
+                <label>Lyra</label>
+            </value>
+            <value>
+                <fullName>Trapeze</fullName>
+                <default>false</default>
+                <label>Trapeze</label>
+            </value>
+            <value>
+                <fullName>Aerial Skills</fullName>
+                <default>false</default>
+                <label>Aerial Skills</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
