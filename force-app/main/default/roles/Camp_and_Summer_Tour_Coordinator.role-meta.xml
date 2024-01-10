@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Camp and Summer Tour Coordinator</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Camp_and_Summer_Tour_Manager_Director</parentRole>
+</Role>

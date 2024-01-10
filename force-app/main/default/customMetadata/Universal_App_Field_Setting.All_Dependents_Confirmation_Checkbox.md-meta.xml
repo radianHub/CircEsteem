@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>All Dependents Confirmation Checkbox</label>
+    <protected>false</protected>
+    <values>
+        <field>Expected_Field_Label__c</field>
+        <value xsi:type="xsd:string">I confirm that all of the children listed as dependents under my name are included in the list above,</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">All_Dependents_Listed__c</value>
+    </values>
+    <values>
+        <field>Universal_App_Section__c</field>
+        <value xsi:type="xsd:string">All_Dependents_Listed_Checkbox_Section</value>
+    </values>
+</CustomMetadata>

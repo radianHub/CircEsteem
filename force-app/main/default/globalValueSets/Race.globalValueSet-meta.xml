@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>American Indian or Alaskan Native</fullName>
+        <default>false</default>
+        <label>American Indian or Alaskan Native</label>
+    </customValue>
+    <customValue>
+        <fullName>Asian</fullName>
+        <default>false</default>
+        <label>Asian</label>
+    </customValue>
+    <customValue>
+        <fullName>Black or African American</fullName>
+        <default>false</default>
+        <label>Black or African American</label>
+    </customValue>
+    <customValue>
+        <fullName>Mexican American</fullName>
+        <default>false</default>
+        <label>Mexican American</label>
+    </customValue>
+    <customValue>
+        <fullName>Middle Eastern</fullName>
+        <default>false</default>
+        <label>Middle Eastern</label>
+    </customValue>
+    <customValue>
+        <fullName>Native Hawaiian or Pacific Islander</fullName>
+        <default>false</default>
+        <label>Native Hawaiian or Pacific Islander</label>
+    </customValue>
+    <customValue>
+        <fullName>White or Caucasian</fullName>
+        <default>false</default>
+        <label>White or Caucasian</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>I prefer not to answer</fullName>
+        <default>false</default>
+        <label>I prefer not to answer</label>
+    </customValue>
+    <masterLabel>Race</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

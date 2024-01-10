@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Photo_Release_Initials</fullName>
+    <description>The initial field used for the photo release section on the General Release UA form.</description>
+    <displayedFields>
+        <field>Photo_Release_Initials__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Photo Release Initials</label>
+</FieldSet>

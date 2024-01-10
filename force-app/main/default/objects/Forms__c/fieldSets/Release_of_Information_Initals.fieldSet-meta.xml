@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Release_of_Information_Initals</fullName>
+    <description>The initial field used in the General Release UA form.</description>
+    <displayedFields>
+        <field>Release_of_Information_Initials__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Release of Information Initals</label>
+</FieldSet>

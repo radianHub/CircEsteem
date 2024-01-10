@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>None</fullName>
+        <default>false</default>
+        <label>None</label>
+    </customValue>
+    <customValue>
+        <fullName>North (Uptown)- CYC Tots (3-5)</fullName>
+        <default>false</default>
+        <label>North (Uptown)- CYC Tots (3-5)</label>
+    </customValue>
+    <customValue>
+        <fullName>North (Uptown)- CYC Minis (5-7)</fullName>
+        <default>false</default>
+        <label>North (Uptown)- CYC Minis (5-7)</label>
+    </customValue>
+    <customValue>
+        <fullName>North (Uptown)- CYC (8-18)</fullName>
+        <default>false</default>
+        <label>North (Uptown)- CYC (8-18)</label>
+    </customValue>
+    <customValue>
+        <fullName>North (Uptown)- Performance Troupe Club</fullName>
+        <default>false</default>
+        <label>North (Uptown)- Performance Troupe Club</label>
+    </customValue>
+    <customValue>
+        <fullName>North (Uptown)- Performance Troupe Team</fullName>
+        <default>false</default>
+        <label>North (Uptown)- Performance Troupe Team</label>
+    </customValue>
+    <customValue>
+        <fullName>West (Humboldt Park)- CYC Minis (5-7)</fullName>
+        <default>false</default>
+        <label>West (Humboldt Park)- CYC Minis (5-7)</label>
+    </customValue>
+    <customValue>
+        <fullName>West (Humboldt Park)- CYC (8-18)</fullName>
+        <default>false</default>
+        <label>West (Humboldt Park)- CYC (8-18)</label>
+    </customValue>
+    <customValue>
+        <fullName>West (Humboldt Park)- Performance Troupe Club</fullName>
+        <default>false</default>
+        <label>West (Humboldt Park)- Performance Troupe Club</label>
+    </customValue>
+    <customValue>
+        <fullName>HomeWork &amp; CircusWork- Gage Park (Sawyer)</fullName>
+        <default>false</default>
+        <label>HomeWork &amp; CircusWork- Gage Park (Sawyer)</label>
+    </customValue>
+    <customValue>
+        <fullName>HomeWork &amp; CircusWork- Garfield Park (Hefferan)</fullName>
+        <default>false</default>
+        <label>HomeWork &amp; CircusWork- Garfield Park (Hefferan)</label>
+    </customValue>
+    <customValue>
+        <fullName>HomeWork &amp; CircusWork- Humboldt Park (Morton)</fullName>
+        <default>false</default>
+        <label>HomeWork &amp; CircusWork- Humboldt Park (Morton)</label>
+    </customValue>
+    <customValue>
+        <fullName>HomeWork &amp; CircusWork- Uptown</fullName>
+        <default>false</default>
+        <label>HomeWork &amp; CircusWork- Uptown</label>
+    </customValue>
+    <customValue>
+        <fullName>HomeWork &amp; CircusWork- North Lawndale (Keilman)</fullName>
+        <default>false</default>
+        <label>HomeWork &amp; CircusWork- North Lawndale (Keilman)</label>
+    </customValue>
+    <customValue>
+        <fullName>HomeWork &amp; CircusWork- Rogers Park (Jordan)</fullName>
+        <default>false</default>
+        <label>HomeWork &amp; CircusWork- Rogers Park (Jordan)</label>
+    </customValue>
+    <customValue>
+        <fullName>Summer- Summer Camp 2024</fullName>
+        <default>false</default>
+        <label>Summer- Summer Camp 2024</label>
+    </customValue>
+    <masterLabel>CircEsteem Programs</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

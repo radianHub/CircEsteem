@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Dependents_Listed_Checkbox_Section</fullName>
+    <description>Used in the General Release Universal App Form.</description>
+    <displayedFields>
+        <field>All_Dependents_Listed__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>All Dependents Listed Checkbox Section</label>
+</FieldSet>
