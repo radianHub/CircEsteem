@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vfPageRedirect__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Determines the type of page to direct to. If checked redirect options will redirect to a given VisualForce Page otherwise redirect options will redirect to a given Digital Experience (Community) Page.</inlineHelpText>
+    <label>VF Page Redirect</label>
+    <type>Checkbox</type>
+</CustomField>
