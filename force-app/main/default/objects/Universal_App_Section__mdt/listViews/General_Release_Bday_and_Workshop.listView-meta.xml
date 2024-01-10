@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Release_Bday_and_Workshop</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>NamespacePrefix</columns>
+    <columns>Order__c</columns>
+    <columns>Page__c</columns>
+    <columns>Universal_App__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Universal_App__c</field>
+        <operation>equals</operation>
+        <value>General_Release_Form_Bday_and_Workshop</value>
+    </filters>
+    <label>General Release - Bday and Workshop</label>
+</ListView>
