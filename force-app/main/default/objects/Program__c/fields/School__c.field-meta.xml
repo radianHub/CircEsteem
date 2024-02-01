@@ -5,8 +5,8 @@
     <externalId>false</externalId>
     <label>School</label>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Programs</relationshipLabel>
-    <relationshipName>CircEsteem_Programs</relationshipName>
+    <relationshipLabel>School Programs</relationshipLabel>
+    <relationshipName>School_Programs</relationshipName>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
