@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Station_Selection</fullName>
+    <active>true</active>
+    <description>Stations ranked and assigned for a program engagement</description>
+    <label>Station Selection</label>
+</RecordType>
