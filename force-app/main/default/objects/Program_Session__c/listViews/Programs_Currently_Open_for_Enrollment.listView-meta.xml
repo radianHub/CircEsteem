@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Programs_Currently_Open_for_Enrollment</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Start_Time__c</columns>
+    <columns>End_Time__c</columns>
+    <columns>Days_of_the_Week__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Open_for_Enrollment__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Programs Currently Open for Enrollment</label>
+</ListView>
