@@ -3,7 +3,7 @@
     <fullName>Program_Engagement_Details__c</fullName>
     <description>Used as the label for program engagements in several parent portal flows</description>
     <externalId>false</externalId>
-    <formula>Child__r.LastName + &apos; - &apos; +  Program_Session__r.Name</formula>
+    <formula>&quot;Child Name&quot;</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Program Engagement Details</label>
     <required>false</required>
