@@ -5,8 +5,8 @@
     <externalId>false</externalId>
     <label>Household</label>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Forms</relationshipLabel>
-    <relationshipName>Forms</relationshipName>
+    <relationshipLabel>Household Form</relationshipLabel>
+    <relationshipName>Household_Forms</relationshipName>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
