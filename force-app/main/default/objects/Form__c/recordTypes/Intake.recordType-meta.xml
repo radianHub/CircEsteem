@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake</fullName>
+    <active>true</active>
+    <label>Intake</label>
+    <picklistValues>
+        <picklist>Absence_Type__c</picklist>
+        <values>
+            <fullName>Parent Reported</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Teacher Reported</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Annual_Household_Income__c</picklist>
+        <values>
+            <fullName>%240-16%2E900</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2416%2C901-21%2C300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2421%2C301-25%2C750</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2425%2C751-30%2C700</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2430%2C701-34%2C590</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2434%2C591-39%2C000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2439%2C001-45%2C000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2445%2C001-%2475%2C000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2475%2C001-100%2C000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%2B%24100%2C000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Authorized_Pickup__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Children_s_Ethnicity__c</picklist>
+        <values>
+            <fullName>Hispanic or Latina%2Fo%2Fx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Hispanic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Credit_Percentage__c</picklist>
+        <values>
+            <fullName>100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>75</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Food_Stamps__c</picklist>
+        <values>
+            <fullName>I prefer not to say</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Free_Reduced_Lunch_pick_one__c</picklist>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Free_or_Reduced_Lunch__c</picklist>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Grade__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>K</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Languages_Spoken_at_Home__c</picklist>
+        <values>
+            <fullName>Amharic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>English</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ewe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spanish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twi</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Languages__c</picklist>
+        <values>
+            <fullName>Amharic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>English</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ewe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spanish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twi</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>My_child_is_a_member_of__c</picklist>
+        <values>
+            <fullName>HomeWork %26 CircusWork- Gage Park %28Sawyer%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork- Garfield Park %28Hefferan%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork- Humboldt Park %28Morton%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork- North Lawndale %28Keilman%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork- Rogers Park %28Jordan%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork- Uptown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29- CYC %288-18%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29- CYC Minis %285-7%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29- CYC Tots %283-5%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29- Performance Troupe Club</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29- Performance Troupe Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Summer- Summer Camp 2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29- CYC %288-18%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29- CYC Minis %285-7%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29- Performance Troupe Club</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Parent_Guardian_Preferred_Contact__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Preferred_Contact__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Programs_that_Apply_to_Children__c</picklist>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Gage Park %28Sawyer%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Garfield Park %28Hefferan%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Humboldt Park %28Morton%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - North Lawndale %28Kellman%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Rogers Park %28Jordan%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HomeWork %26 CircusWork - Uptown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - CYC %28ages 8-18%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - CYC - Minis %28ages 5-7%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - CYC - Tots %28ages 3-5%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - Performance Troupe - Club</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>North %28Uptown%29 - Performance Troupe - Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Summer Camp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29 - CYC %28ages 8-18%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29 - CYC - Minis %28ages 5-7%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West %28Humboldt Park%29 - Performance Troupe - Club</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Race_Children_Identifies_As__c</picklist>
+        <values>
+            <fullName>American Indian or Alaska Native</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Asian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Black or African American</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexican American</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Middle Eastern</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Native Hawaiian or Pacific Islander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>White or Caucasian</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>What_is_your_child_s_ethnicity__c</picklist>
+        <values>
+            <fullName>Hispanic or Latina%2Fo%2Fx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Hispanic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>What_race_does_your_child_identify_as__c</picklist>
+        <values>
+            <fullName>American Indian or Alaskan Native</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Asian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Black or African American</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexican American</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Middle Eastern</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Native Hawaiian or Pacific Islander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>White or Caucasian</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Which_Pronouns_Does_Your_Child_Prefer__c</picklist>
+        <values>
+            <fullName>He%2F him</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I prefer not to answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>She%2F her</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>They%2F them</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
