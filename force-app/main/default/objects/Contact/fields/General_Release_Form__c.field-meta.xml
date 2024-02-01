@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Release_Form__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>General Release Form</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Form__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Release</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Form__c</referenceTo>
+    <relationshipLabel>Contacts (General Release Form)</relationshipLabel>
+    <relationshipName>Child</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>
