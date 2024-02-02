@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial_Aid_Approved_Credit_Percentage</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    RecordType.DeveloperName = &apos;Financial_Aid&apos;,
+    ISPICKVAL(Status__c, &apos;Approved&apos;),
+    ISBLANK(TEXT(Credit_Percentage__c))
+)</errorConditionFormula>
+    <errorMessage>You must provide a credit percentage before approving a financial aid applicaiton</errorMessage>
+</ValidationRule>
