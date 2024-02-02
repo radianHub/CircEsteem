@@ -42,10 +42,7 @@ export default class UnivAppChildObject extends LightningElement {
 				if (result.error) {
 					this.throwAlertEvent(result.error, 'error');
 				} else if (result.fielddata) {
-					console.log('result.fielddata');
-					console.log(result.fielddata);
 					this.fieldData = result.fielddata;
-					//console.log(this.fieldData);
 
 					this.records.push(this.createNewRecord());
 				}
@@ -57,17 +54,7 @@ export default class UnivAppChildObject extends LightningElement {
 
 	addChild() {
 		this.records.push(this.createNewRecord());
-		console.log(this.records);
 	}
-
-	// TODO Future Enhancement: remove rows
-	/*removeChild(event) {
-		console.log(JSON.parse(JSON.stringify(event.target.dataset)));
-		console.log(JSON.parse(JSON.stringify(this.records)));
-		let removedRecord = this.records.splice(event.target.dataset.index, 1);
-		console.log(JSON.parse(JSON.stringify(this.records)));
-		console.log(JSON.parse(JSON.stringify(removedRecord)));
-	}*/
 
 	createNewRecord() {
 		let newRecord = {
@@ -87,19 +74,9 @@ export default class UnivAppChildObject extends LightningElement {
 	}
 
 	onChangeHandler(event) {
-		console.log('univAppChild onChangeHandler');
 		let dataset = event.target.dataset;
 
 		this.records[dataset.index][dataset.fieldapi] = event.target.value;
-		//console.log(JSON.parse(JSON.stringify(this.records)));
-		//this.objectMap.set('records', this.records);
-
-		//console.log('objectMap');
-		//console.log(this.objectMap);
-
-		console.log(this.objectName);
-		console.log(this.parentField);
-		console.log(JSON.parse(JSON.stringify(this.records)));
 
 		let changeEvent = new CustomEvent('update', {
 			detail: {
@@ -117,15 +94,12 @@ export default class UnivAppChildObject extends LightningElement {
 	}
 
 	get fieldCount() {
-		console.log('in get fieldCount');
 		return this.fieldData.length;
 	}
 
 	get fieldSizeClass() {
-		console.log('in fieldSizeClass');
 		let classString = 'slds-size_' & Math.floor(11 / this.fieldCount) & '-of-12';
 		//let classString = 'slds-size_1-of-' + (this.fieldCount + 1);
-		console.log(classString);
 		return classString;
 	}
 }
