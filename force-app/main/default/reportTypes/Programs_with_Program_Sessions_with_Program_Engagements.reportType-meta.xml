@@ -300,6 +300,11 @@
             <field>Engagements_Belong_to_My_Account__c</field>
             <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Child_Contact__c</field>
+            <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
+        </columns>
         <masterLabel>Program Engagements</masterLabel>
     </sections>
 </ReportType>
