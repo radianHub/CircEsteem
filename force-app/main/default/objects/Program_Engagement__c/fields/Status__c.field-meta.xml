@@ -25,6 +25,16 @@
                 <default>false</default>
                 <label>Complete</label>
             </value>
+            <value>
+                <fullName>Withdrawal</fullName>
+                <default>false</default>
+                <label>Withdrawal</label>
+            </value>
+            <value>
+                <fullName>Unenrolled</fullName>
+                <default>false</default>
+                <label>Unenrolled</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

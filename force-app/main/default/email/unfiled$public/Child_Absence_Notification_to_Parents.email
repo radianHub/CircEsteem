@@ -1,0 +1,7 @@
+Hi {!Form__c.Parent__c}, 
+
+Your child, {!Form__c.Child__c}, was absent from class. We wanted to let you know as we were not informed beforehand.
+
+We look forward to seeing you in our next class!
+
+The CircEsteem Team
