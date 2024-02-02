@@ -1,0 +1,6 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">After reviewing your application for financial aid, we have approved your request with a discounted percentage of&nbsp;{{{Form__c.Credit_Percentage__c}}} for the remainder of the year.</body>
+</html>
