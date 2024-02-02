@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>Object__c</field>
-        <value xsi:type="xsd:string">Forms__c</value>
+        <value xsi:type="xsd:string">Form__c</value>
     </values>
     <values>
         <field>Object_with_Boolean__c</field>
@@ -44,10 +44,7 @@
     </values>
     <values>
         <field>Post_Submit_Fields__c</field>
-        <value xsi:type="xsd:string">{&quot;Fields&quot;: [
-{&quot;RecordTypeId&quot;:&quot;012Dw000000Gs0xIAC&quot;}
-]
-}</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>isSaveForLater__c</field>
