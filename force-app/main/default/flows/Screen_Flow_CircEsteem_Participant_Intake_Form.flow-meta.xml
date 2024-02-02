@@ -1,50 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>Send_Welcome_Email</name>
-        <label>Send Welcome Email</label>
-        <locationX>182</locationX>
-        <locationY>866</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Intake_Success</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>emailAddresses</name>
-            <value>
-                <elementReference>ParticipantIntake.Parent_Guardian_Email__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <stringValue>developer@radianhub.com</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailSubject</name>
-            <value>
-                <stringValue>Welcome to CircEsteem!</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailBody</name>
-            <value>
-                <elementReference>ParentWelcomeEmail</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>59.0</apiVersion>
+    <assignments>
+        <name>Assign_Intake_Record_Type</name>
+        <label>Assign Intake Record Type</label>
+        <locationX>176</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>Intake.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Intake_Record_Type.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_First_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_First_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Last_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Last_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Phone__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Phone.value</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Email.value</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Relationship__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Relationship</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Street__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Address.street</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_City__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Address.city</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_State__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Address.province</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Zip_Code__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Address.postalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Intake.Parent_Guardian_Preferred_Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Parent_Guardian_Preferred_Contact_Method</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Participant_Intake_Record</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>No</name>
         <choiceText>No</choiceText>
@@ -61,31 +103,14 @@
             <stringValue>Yes</stringValue>
         </value>
     </choices>
-    <decisions>
-        <name>Emergency_Contact_Info_Same_as_Parent</name>
-        <label>Emergency Contact Info Same as Parent</label>
-        <locationX>182</locationX>
-        <locationY>350</locationY>
-        <defaultConnector>
-            <targetReference>FInal_Screen</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Emergency_Contact_Info_is_Different_Than_Parent</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Is_Emergency_Contact_Info_Same_as_Parent</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>No</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Enter_Emergency_Contact_Info</targetReference>
-            </connector>
-            <label>Emergency Contact Info is Different Than Parent</label>
-        </rules>
-    </decisions>
+    <dynamicChoiceSets>
+        <name>FormParentGuardianPreferredContactChoices</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Parent_Guardian_Preferred_Contact__c</picklistField>
+        <picklistObject>Form__c</picklistObject>
+    </dynamicChoiceSets>
     <environments>Default</environments>
     <interviewLabel>Screen Flow: CircEsteem Participant Intake Form {!$Flow.CurrentDateTime}</interviewLabel>
     <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
@@ -112,158 +137,201 @@
     <recordCreates>
         <name>Create_Participant_Intake_Record</name>
         <label>Create Participant Intake Record</label>
-        <locationX>182</locationX>
-        <locationY>758</locationY>
+        <locationX>176</locationX>
+        <locationY>782</locationY>
         <connector>
-            <targetReference>Send_Welcome_Email</targetReference>
+            <targetReference>Intake_Success</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Intake_Error_Screen</targetReference>
         </faultConnector>
-        <inputReference>ParticipantIntake</inputReference>
+        <inputReference>Intake</inputReference>
     </recordCreates>
-    <screens>
-        <name>Emergency_Contact_Info_Different_From_Parent</name>
-        <label>Emergency Contact Info Different From Parent</label>
-        <locationX>182</locationX>
-        <locationY>242</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+    <recordLookups>
+        <name>Get_Intake_Record_Type</name>
+        <label>Get Intake Record Type</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Emergency_Contact_Info_Same_as_Parent</targetReference>
+            <targetReference>Intro_Screen</targetReference>
         </connector>
-        <fields>
-            <name>Is_Emergency_Contact_Info_Same_as_Parent</name>
-            <choiceReferences>Yes</choiceReferences>
-            <choiceReferences>No</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Is Emergency Contact Info Same as Parent?</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-        </fields>
-        <helpText>&lt;p&gt;Is the emergency contact information different from the parent/guardian info?&lt;/p&gt;</helpText>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Intake</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <screens>
         <name>Enter_Emergency_Contact_Info</name>
         <label>Enter Emergency Contact Info</label>
-        <locationX>50</locationX>
+        <locationX>176</locationX>
         <locationY>458</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>FInal_Screen</targetReference>
+            <targetReference>Optional_Information</targetReference>
         </connector>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_First_Name__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_Last_Name__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_Phone__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_Relationship__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_Address__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_City__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_State__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Emergency_Contact_Zip_Code__c</objectFieldReference>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>FInal_Screen</name>
-        <label>FInal Screen</label>
-        <locationX>182</locationX>
-        <locationY>650</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Create_Participant_Intake_Record</targetReference>
-        </connector>
-        <fields>
-            <name>optional</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Optional information that helps us with reporting. If you do not wish to answer, leave the fields blank and select &quot;Submit&quot;.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <name>EmergencyContactInformationHeader</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Emergency Contact Information&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Food_Stamps__c</objectFieldReference>
+            <objectFieldReference>Intake.Emergency_Contact_Same_as_Parent__c</objectFieldReference>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Free_Reduced_Lunch_pick_one__c</objectFieldReference>
+            <objectFieldReference>Intake.Emergency_Contact_First_Name__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.What_is_your_annual_household_income__c</objectFieldReference>
+            <objectFieldReference>Intake.Emergency_Contact_Last_Name__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.How_many_people_live_in_your_household__c</objectFieldReference>
+            <objectFieldReference>Intake.Emergency_Contact_Phone__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
-        <nextOrFinishButtonLabel>Submit</nextOrFinishButtonLabel>
+        <fields>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>Intake.Emergency_Contact_Relationship__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>Intake.Emergency_Contact_Street__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>Intake.Emergency_Contact_City__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>Intake.Emergency_Contact_State__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>Intake.Emergency_Contact_Zip_Code__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Intake.Emergency_Contact_Same_as_Parent__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Intake_Error_Screen</name>
         <label>Intake Error Screen</label>
-        <locationX>490</locationX>
-        <locationY>866</locationY>
+        <locationX>440</locationX>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>ErrorMessage</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 28px; color: rgb(241, 2, 2);&quot;&gt;There was an error with your submission. Please refresh the page and try again.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px; color: rgb(241, 2, 2);&quot;&gt;There was an error with your submission. Please refresh the page and try again or contact support.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -272,106 +340,214 @@
     <screens>
         <name>Intake_Success</name>
         <label>Intake Success</label>
-        <locationX>182</locationX>
-        <locationY>974</locationY>
-        <allowBack>true</allowBack>
+        <locationX>176</locationX>
+        <locationY>890</locationY>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <fields>
             <name>SuccessMessage</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;We&apos;ve received your submission.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Please check your email for instructions to set up your login information. &lt;/span&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt; &lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;We&apos;ve received your submission.&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Please check your email for instructions to set up your login information. &lt;/span&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt; &lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Parent_Guardian_Info</name>
-        <label>Parent/ Guardian Info</label>
-        <locationX>182</locationX>
-        <locationY>134</locationY>
+        <name>Intro_Screen</name>
+        <label>Intro Screen</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Emergency_Contact_Info_Different_From_Parent</targetReference>
+            <targetReference>Parent_Guardian_Info</targetReference>
         </connector>
         <fields>
-            <name>registration</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;Register for The CircEsteem Community to Enroll Children into Courses, Apply for Financial Aid, Track Enrollment Information, and More. &lt;/span&gt;&lt;/p&gt;</fieldText>
+            <name>IntroScreen</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Register for a CircEsteem account here!&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Optional_Information</name>
+        <label>Optional Information</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Assign_Intake_Record_Type</targetReference>
+        </connector>
+        <fields>
+            <name>optional</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Optional information that helps us with reporting. If you do not wish to answer, leave the fields blank and select &quot;Submit&quot;.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_First_Name__c</objectFieldReference>
+            <objectFieldReference>Intake.Food_Stamps__c</objectFieldReference>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_Last_Name__c</objectFieldReference>
+            <objectFieldReference>Intake.Free_or_Reduced_Lunch__c</objectFieldReference>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Relationship__c</objectFieldReference>
+            <objectFieldReference>Intake.Annual_Household_Income__c</objectFieldReference>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_Phone_Number__c</objectFieldReference>
+            <objectFieldReference>Intake.How_Many_People_in_Household__c</objectFieldReference>
+        </fields>
+        <nextOrFinishButtonLabel>Submit</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Parent_Guardian_Info</name>
+        <label>Parent/ Guardian Info</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Enter_Emergency_Contact_Info</targetReference>
+        </connector>
+        <fields>
+            <name>registration</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;Parent Information&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Parent_Guardian_First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Parent/Guardian First Name</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_Email__c</objectFieldReference>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Parent_Guardian_Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Parent/Guardian Last Name</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_Address__c</objectFieldReference>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Parent_Guardian_Relationship</name>
+            <dataType>String</dataType>
+            <fieldText>Parent/Guardian Relationship</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_City__c</objectFieldReference>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Parent_Guardian_Phone</name>
+            <extensionName>flowruntime:phone</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Parent/Guardian Phone</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>required</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>placeholder</name>
+                <value>
+                    <stringValue>123-456-7890</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>pattern</name>
+                <value>
+                    <stringValue>^(\+\d{1,2})?(\s)?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$</stringValue>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_State__c</objectFieldReference>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Parent_Guardian_Email</name>
+            <extensionName>flowruntime:email</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>readonly</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>required</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Parent/Guardian Email</stringValue>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Parent_Guardian_Zip_Code__c</objectFieldReference>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Parent_Guardian_Address</name>
+            <extensionName>flowruntime:address</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>addressLabel</name>
+                <value>
+                    <stringValue>Parent/Guardian Address</stringValue>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>ParticipantIntake.Preferred_Contact__c</objectFieldReference>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Parent_Guardian_Preferred_Contact_Method</name>
+            <choiceReferences>FormParentGuardianPreferredContactChoices</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Parent/Guardian Preferred Contact Method</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>56</locationX>
+        <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Parent_Guardian_Info</targetReference>
+            <targetReference>Get_Intake_Record_Type</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>ParentWelcomeEmail</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
@@ -399,6 +575,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Child__c</objectType>
+    </variables>
+    <variables>
+        <name>Intake</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Form__c</objectType>
     </variables>
     <variables>
         <name>ListofChildIds</name>
