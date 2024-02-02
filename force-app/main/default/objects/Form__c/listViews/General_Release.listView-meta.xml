@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Release</fullName>
+    <columns>NAME</columns>
+    <columns>Child__c</columns>
+    <columns>Parent__c</columns>
+    <columns>Active__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Form__c.General_Release</value>
+    </filters>
+    <label>General Release</label>
+    <sharedTo>
+        <role>Admin</role>
+    </sharedTo>
+</ListView>

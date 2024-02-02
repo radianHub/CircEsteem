@@ -1,20 +1,20 @@
-import { LightningElement, api, wire } from "lwc";
-import { CurrentPageReference, NavigationMixin } from "lightning/navigation";
+import { LightningElement, api, wire } from 'lwc';
+import { CurrentPageReference, NavigationMixin } from 'lightning/navigation';
 
-import signaturePanel from "c/signaturePanel";
+import signaturePanel from 'c/signaturePanel';
 
-import getApp from "@salesforce/apex/UniversalApp.retrieveApp";
-import submitSObj from "@salesforce/apex/UniversalApp.submitApp";
-import getBoolFieldValue from "@salesforce/apex/UniversalApp.queryForBoolean";
-import saveSignature from "@salesforce/apex/SignatureUtils.saveSignature";
-import submitChildObjects from "@salesforce/apex/UniversalApp.submitChildObjects";
+import getApp from '@salesforce/apex/UniversalApp.retrieveApp';
+import submitSObj from '@salesforce/apex/UniversalApp.submitApp';
+import getBoolFieldValue from '@salesforce/apex/UniversalApp.queryForBoolean';
+import saveSignature from '@salesforce/apex/SignatureUtils.saveSignature';
+import submitChildObjects from '@salesforce/apex/UniversalApp.submitChildObjects';
 
 export default class UnivApp extends NavigationMixin(LightningElement) {
-
 	// # PUBLIC PROPERTIES
 	@api recordId;
 	@api appDevName;
 	@api canShowRestart;
+	@api recordIds;
 
 	// # APP DATA
 	appData;
@@ -54,26 +54,24 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	alert;
 	alertType;
 	// Alert Messages
-	REQUIRED_FIELDS = "Required fields are missing.";
-	POST_FIELDS_JSON_PARSE = "Please contact your Salesforce Administrator. The JSON ";
-	FLOW_SUCCESS = "Successfully completed the flow.";
+	REQUIRED_FIELDS = 'Required fields are missing.';
+	POST_FIELDS_JSON_PARSE = 'Please contact your Salesforce Administrator. The JSON ';
+	FLOW_SUCCESS = 'Successfully completed the flow.';
 
 	// # LIFECYCLE HOOKS
 
 	// * ESTABLISH UNIVERSAL APP DATA
 	connectedCallback() {
-		console.log("Connected Callback");
-		console.log("Connected Id: " + this.recordId);
 		this.getApp();
 	}
-	
+
 	// * SET PAGE STYLING
 	renderedCallback() {
 		if (this.appData && !this._cssLoaded && this.appData.CSS__c) {
 			this._cssLoaded = true;
-			let styleElem = document.createElement("style");
+			let styleElem = document.createElement('style');
 			styleElem.innerHTML = this.appData.CSS__c;
-			this.template.querySelector(".rh_style").appendChild(styleElem);
+			this.template.querySelector('.rh_style').appendChild(styleElem);
 		}
 	}
 
@@ -92,127 +90,132 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 	getApp() {
 		getApp({ appDevName: this.appDevName, recordId: this.recordId })
-		.then((result) => {
-			console.log(this.appDevName);
-			if (result.error) {
-				this.alert = result.error;
-				this.alertType = "error";
-			} else if (result.data) {
-				console.log(result.data);
-				this.originalData = result.data;
-				let cloneData = JSON.parse(JSON.stringify(result.data));
-				cloneData.sections.forEach((e) => {
-					if (this.sections.hasOwnProperty(e.Page__c)) {
-						this.sections[e.Page__c].push(e);
-						this.sections[e.Page__c].sort((a, b) => a.Order__c - b.Order__c);
-					} else {
-						this.sections[e.Page__c] = [e];
-					}
-					this.pageIndex.push(e.Page__c);
-				});
-				this.pageIndex = [...new Set(this.pageIndex.sort())];
-				this.pageIndex.sort(function(a, b) {return a - b});
-				this.appData = cloneData.application;
-				this.boolObject = this.appData.Object_with_Boolean__c;
-				this.boolField = this.appData.Boolean_Field__c;
-				this.truePage = this.appData.Page_Redirect_if_True__c;
-				this.falsePage = this.appData.Page_Redirect_if_False__c; 
-				this.page = this.sections[this.pageIndex[0]];
-				this.fieldsetmap = cloneData.fieldsetmap;
-
-			}
-		})
-		.catch((error) => {
-			this.alert = JSON.stringify(error);
-			this.alertType = "error";
-		});
+			.then((result) => {
+				if (result.error) {
+					this.alert = result.error;
+					this.alertType = 'error';
+				} else if (result.data) {
+					this.originalData = result.data;
+					let cloneData = JSON.parse(JSON.stringify(result.data));
+					cloneData.sections.forEach((e) => {
+						if (this.sections.hasOwnProperty(e.Page__c)) {
+							this.sections[e.Page__c].push(e);
+							this.sections[e.Page__c].sort((a, b) => a.Order__c - b.Order__c);
+						} else {
+							this.sections[e.Page__c] = [e];
+						}
+						this.pageIndex.push(e.Page__c);
+					});
+					this.pageIndex = [...new Set(this.pageIndex.sort())];
+					this.pageIndex.sort(function (a, b) {
+						return a - b;
+					});
+					this.appData = cloneData.application;
+					this.boolObject = this.appData.Object_with_Boolean__c;
+					this.boolField = this.appData.Boolean_Field__c;
+					this.truePage = this.appData.Page_Redirect_if_True__c;
+					this.falsePage = this.appData.Page_Redirect_if_False__c;
+					this.page = this.sections[this.pageIndex[0]];
+					this.fieldsetmap = cloneData.fieldsetmap;
+				}
+			})
+			.catch((error) => {
+				this.alert = JSON.stringify(error);
+				this.alertType = 'error';
+			});
 	}
 
 	// * SUBMITS THE RECORD AND CALLS A PAGE REDIRECT BASED ON A RETURNED BOOLEAN VALUE
 	submitSObj() {
 		let urlRecordId;
-		submitSObj({ sObj: this.sObj })
-		.then((result) => {
-			console.log('Submission RecordId '+result.data);
-			if (result.data) {
-				this.alert = this.FLOW_SUCCESS;
-				this.alertType = "success";
-				this.finished = true;
-				urlRecordId = result.data;
-				if (this.sigCaptured) {
-					saveSignature({ relatedId: urlRecordId, data: [this.sigData] })
-				}
-
-				if (this.childObjects.size > 0) {
-					let childObjs = [];
-					this.childObjects.forEach((value, key) => {
-						let obj = {
-							objectName: key,
-							parentField: value.get("parentField"),
-							records: value.get("records")
-						};
-						childObjs.push(obj);
-					});
-					// * SAVE CHILD OBJECTS
-					//console.log(childObjs);
-					submitChildObjects({ childObjs: childObjs, parentId: result.data })
-					.then((childResult) => {
-						console.log(childResult);
-					})
-					.catch((err) => {
-						this.alert = JSON.stringify(err);
-						this.alertType = "error";
-					});
-				}
-
-				if (this.boolField != null && this.boolObject != null) {
-					getBoolFieldValue({ fieldName: this.boolField, objName: this.boolObject, recordId: urlRecordId })
-					.then((result) => {
-						this.boolResult = result[this.boolField];
-						if (this.boolResult && this.truePage != null) {
-							this.appData.vfPageRedirect__c ? this.lwcRedirect(this.truePage) : this.lwcCommPageRedirect(this.truePage);
-						} else if (!this.boolResult && this.falsePage != null) {
-							this.appData.vfPageRedirect__c ? this.lwcRedirect(this.falsePage) : this.lwcCommPageRedirect(this.falsePage);
-						}
-					})
-					.catch((error) => {
-						this.alert = JSON.stringify(error);
-						this.alertType = 'error';
-					});
-				} else if (this.appData.Page_Redirect__c != null) {
-					this.appData.vfPageRedirect__c ? this.lwcRedirect(this.appData.Page_Redirect__c) : this.lwcCommPageRedirect(this.appData.Page_Redirect__c);
-				}
-
-			} else if (result.error) {
-				this.alert = result.error;
-				this.alertType = "error";
-			}
+		submitSObj({
+			sObj: this.sObj,
+			form: this.appDevName,
+			recordIds: this.recordIds,
 		})
-		.catch((error) => {
-			this.alert = JSON.stringify(error);
-			this.alertType = "error";
-		})
-		.finally(() => this.clearPagePopulation());
-		// console.log('Global RecordId '+this.recordId);
+			.then((result) => {
+				if (result.data) {
+					this.alert = this.FLOW_SUCCESS;
+					this.alertType = 'success';
+					this.finished = true;
+					urlRecordId = result.data;
+					if (this.sigCaptured) {
+						saveSignature({ relatedId: urlRecordId, data: [this.sigData] });
+					}
+
+					if (this.childObjects.size > 0) {
+						let childObjs = [];
+						this.childObjects.forEach((value, key) => {
+							let obj = {
+								objectName: key,
+								parentField: value.get('parentField'),
+								records: value.get('records'),
+							};
+							childObjs.push(obj);
+						});
+						// * SAVE CHILD OBJECTS
+						submitChildObjects({ childObjs: childObjs, parentId: result.data })
+							.then((childResult) => {})
+							.catch((err) => {
+								this.alert = JSON.stringify(err);
+								this.alertType = 'error';
+							});
+					}
+
+					if (this.boolField != null && this.boolObject != null) {
+						getBoolFieldValue({
+							fieldName: this.boolField,
+							objName: this.boolObject,
+							recordId: urlRecordId,
+						})
+							.then((result) => {
+								this.boolResult = result[this.boolField];
+								if (this.boolResult && this.truePage != null) {
+									this.appData.vfPageRedirect__c
+										? this.lwcRedirect(this.truePage)
+										: this.lwcCommPageRedirect(this.truePage);
+								} else if (!this.boolResult && this.falsePage != null) {
+									this.appData.vfPageRedirect__c
+										? this.lwcRedirect(this.falsePage)
+										: this.lwcCommPageRedirect(this.falsePage);
+								}
+							})
+							.catch((error) => {
+								this.alert = JSON.stringify(error);
+								this.alertType = 'error';
+							});
+					} else if (this.appData.Page_Redirect__c != null) {
+						this.appData.vfPageRedirect__c
+							? this.lwcRedirect(this.appData.Page_Redirect__c)
+							: this.lwcCommPageRedirect(this.appData.Page_Redirect__c);
+					}
+				} else if (result.error) {
+					this.alert = result.error;
+					this.alertType = 'error';
+				}
+			})
+			.catch((error) => {
+				this.alert = JSON.stringify(error);
+				this.alertType = 'error';
+			})
+			.finally(() => this.clearPagePopulation());
 	}
 
 	// # PRIVATE METHODS
 
 	// * REDIRECTS TO DIFFERENT APP/VF_PAGE
-	lwcRedirect(/*recordId, */vfPage) {
-		console.log('Redirecting to VF Page: ' + vfPage);
+	lwcRedirect(/*recordId, */ vfPage) {
 		this.pageUrl = window.location.origin + '/apex/' + vfPage /*+ '?id=' + recordId*/;
 		window.location.assign(this.pageUrl);
 	}
 
 	// * REDIRECTS TO DIFFERENT APP/COMMUNITY_PAGE
 	lwcCommPageRedirect(commPage) {
-		console.log('Redirecting to Community Page: ' + commPage);
 		this[NavigationMixin.Navigate]({
 			type: 'comm__namedPage',
 			attributes: {
-				name: commPage
-			}
+				name: commPage,
+			},
 		});
 	}
 
@@ -252,10 +255,10 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		}
 		this._pageValues = this._pageFields.filter((f) => this.sObj.hasOwnProperty(f)).map((e) => this.sObj[e]);
 	}
-	
+
 	// * CHECKS FIELD VALIDATION AND SETS THE SOBJ PROPERTY FOR INSERT
 	validateFields(alert, alertType) {
-		let isValid = [...this.template.querySelectorAll("lightning-input-field")].reduce((validSoFar, inp) => {
+		let isValid = [...this.template.querySelectorAll('lightning-input-field')].reduce((validSoFar, inp) => {
 			let valid = inp.reportValidity();
 
 			return validSoFar && valid;
@@ -270,8 +273,8 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	}
 
 	setObjectFields() {
-		this.template.querySelectorAll("lightning-input-field").forEach((e) => {
-			this.sObj[e.fieldName] = e.value;	
+		this.template.querySelectorAll('lightning-input-field').forEach((e) => {
+			this.sObj[e.fieldName] = e.value;
 		});
 	}
 
@@ -281,7 +284,6 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 		const cField = event.target.fieldName;
 		const cValue = event.target.value.toString();
-		console.log("Field: " + cField + ", Value: " + cValue);
 
 		let oIndex;
 		let cRequire = {};
@@ -294,10 +296,8 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		let requireFieldMap = new Map();
 		let unrequireFieldMap = new Map();
 
-		console.log(this.page);
 		this.page.forEach((e) => {
-			if ("conditionalRequire__c" in e) {
-				console.log("Require Sections ", e);
+			if ('conditionalRequire__c' in e) {
 				oIndex = e.Order__c - 1;
 				let cJson = JSON.parse(e.conditionalRequire__c);
 				cRequire[oIndex] = cJson;
@@ -309,26 +309,31 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 				// eslint-disable-next-line no-loop-func
 				keys.forEach((fieldSet) => {
 					if (fieldSet === this.page[key].Section_Field_Set__c) {
-						console.log("Field Set " + fieldSet);
-						console.log("Require Map ", cRequire[key]);
 						cRequire[key].Fields.forEach((e) => {
-							console.log("Require Object ", e);
-							if (cField == e.controllingField && e.controllingValues.includes(cValue) && !e.controllingValues.includes("require")) {
-								console.log("Controlling Value " + e.controllingValues);
-								console.log("Controlling Field " + e.controllingField);
-								console.log("Field to Require " + e.api);
+							if (
+								cField == e.controllingField &&
+								e.controllingValues.includes(cValue) &&
+								!e.controllingValues.includes('require')
+							) {
 								fieldToRequire.push(e.api);
-							} else if (cField == e.controllingField && e.controllingValues.includes("require") && cValue != "") {
-								console.log("Controlling Value " + e.controllingValues);
-								console.log("Controlling Field " + e.controllingField);
-								console.log("Field to Require " + e.api);
+							} else if (
+								cField == e.controllingField &&
+								e.controllingValues.includes('require') &&
+								cValue != ''
+							) {
 								fieldToRequire.push(e.api);
 							}
-							if (cField == e.controllingField && !e.controllingValues.includes(cValue) && !e.controllingValues.includes("require")) {
-								console.log("Field to Unrequire " + e.api);
+							if (
+								cField == e.controllingField &&
+								!e.controllingValues.includes(cValue) &&
+								!e.controllingValues.includes('require')
+							) {
 								fieldToUnrequire.push(e.api);
-							} else if (cField == e.controllingField && e.controllingValues.includes("require") && cValue == "") {
-								console.log("Field to Unrequire " + e.api);
+							} else if (
+								cField == e.controllingField &&
+								e.controllingValues.includes('require') &&
+								cValue == ''
+							) {
 								fieldToUnrequire.push(e.api);
 							}
 						});
@@ -339,7 +344,6 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 										fieldIndex = fieldSetMap[fieldSet].indexOf(section);
 										fieldData = fieldSetMap[fieldSet][fieldIndex];
 										requireFieldMap.set(actionField, fieldData);
-										console.log(fieldData);
 									}
 								});
 							}
@@ -376,7 +380,6 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		this.setPage();
 		const field = event.target.fieldName;
 		const value = event.target.value;
-		console.log("Field: " + field + ", Value: " + value);
 
 		let cRender = [];
 		let cField;
@@ -385,8 +388,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		let sectionUnrender = [];
 
 		this.page.forEach((e) => {
-			if ("conditionalRender__c" in e) {
-				console.log("Render Sections ", e);
+			if ('conditionalRender__c' in e) {
 				let cJson = JSON.parse(e.conditionalRender__c);
 				cRender.push(cJson);
 			}
@@ -398,15 +400,11 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 					cf.actionSections.forEach((aS) => {
 						cField = cf.controllingField;
 						cValue = cf.controllingValue;
-						console.log("Controlling Field: " + cField);
-						console.log("Controlling Value: " + cValue);
-						console.log("Sections to Render: " + aS);
 						sectionRender.push(aS);
 					});
 				}
 				if (field === cf.controllingField && value !== cf.controllingValue) {
 					cf.actionSections.forEach((aS) => {
-						console.log("Section to Unrender " + aS);
 						sectionUnrender.push(aS);
 					});
 				}
@@ -415,10 +413,9 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 		if (sectionRender.length > 0) {
 			sectionRender.forEach((s) => {
-				console.log("Sections " + s);
-				const sectionToRender = this.template.querySelectorAll("." + s);
+				const sectionToRender = this.template.querySelectorAll('.' + s);
 				sectionToRender.forEach((a) => {
-					a.style = "display:block";
+					a.style = 'display:block';
 				});
 				this.page.forEach((p) => {
 					if (p.DeveloperName === s) {
@@ -429,10 +426,9 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		}
 		if (sectionUnrender.length > 0) {
 			sectionUnrender.forEach((s) => {
-				console.log("Sections " + s);
-				const sectionToUnrender = this.template.querySelectorAll("." + s);
+				const sectionToUnrender = this.template.querySelectorAll('.' + s);
 				sectionToUnrender.forEach((a) => {
-					a.style = "display:none";
+					a.style = 'display:none';
 				});
 				this.page.forEach((p) => {
 					if (p.DeveloperName === s) {
@@ -458,9 +454,9 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		const data = e.detail.records;
 
 		const childDataMap = new Map();
-		childDataMap.set("parentField", parentField);
-		childDataMap.set("records", data);
-	
+		childDataMap.set('parentField', parentField);
+		childDataMap.set('records', data);
+
 		if (data.length > 0) {
 			this.childObjects.set(objName, childDataMap);
 		} else {
@@ -474,10 +470,9 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	async clickSignatureButton() {
 		const r = await signaturePanel.open({
 			label: 'Applicant Signature',
-			size: 'small'
+			size: 'small',
 		});
 		if (r) {
-			console.log(JSON.parse(JSON.stringify(r.signatureData.imgData)));
 			this.sigCaptured = r.signed;
 			this.sigURL = r.signatureData.imgURL;
 			this.sigData = r.signatureData.imgData;
@@ -485,7 +480,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	}
 
 	// * HANDLES THE DYNAMIC RENDERING AND REQUIRE OF FIELDS
-	onChangeHandler(event) {	
+	onChangeHandler(event) {
 		this.setPage();
 		this.dynamicRender(event);
 		this.dynamicRequire(event);
@@ -495,14 +490,14 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	restart() {
 		this.pageCurrent = 1;
 		this.setPage();
-		this.alert = "";
+		this.alert = '';
 		this.finished = false;
 	}
 
 	// * GOES TO THE PREVIOUS PAGE
 	previous() {
 		if (!this.finished) {
-			this.alert = "";
+			this.alert = '';
 		}
 		this.setObjectFields();
 		this.pageCurrent--;
@@ -512,10 +507,10 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	// * GOES TO THE NEXT PAGE
 	next() {
 		if (!this.finished) {
-			this.alert = "";
+			this.alert = '';
 		}
 		this.setObjectFields();
-		if (this.validateFields(this.REQUIRED_FIELDS, "error")) {
+		if (this.validateFields(this.REQUIRED_FIELDS, 'error')) {
 			this.pageCurrent++;
 			this.setPage();
 		} else {
@@ -528,9 +523,9 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 	// * SETS THE RECORD ID IF AVAILABLE AND HANDLES THE SUBMISSION OF THE RECORD
 	finish() {
-		this.alert = "";
+		this.alert = '';
 		this.setObjectFields();
-		if (this.validateFields(this.REQUIRED_FIELDS, "error")) {
+		if (this.validateFields(this.REQUIRED_FIELDS, 'error')) {
 			//this.canShowRestart = true;
 			if (this.appData.Post_Submit_Fields__c) {
 				let fieldsJSON;
@@ -539,16 +534,14 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 					Object.keys(fieldsJSON).forEach((field) => (this.sObj[field] = fieldsJSON[field]));
 				} catch (error) {
 					this.alert = error.toString();
-					this.alertType = "error";
+					this.alertType = 'error';
 				}
 			}
 			if (!this.alert) {
-				this.sObj["sobjectType"] = this.appData.Object__c;
+				this.sObj['sobjectType'] = this.appData.Object__c;
 				if (this.recordId) {
-					this.sObj["Id"] = this.recordId;
+					this.sObj['Id'] = this.recordId;
 				}
-				console.log("Submitting SObject");
-				console.log(this.sObj);
 				this.submitSObj();
 			}
 		}
@@ -584,7 +577,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 	// * SHOWS THE SIGNATURE BUTTON
 	get showSignature() {
-		return this.currentPage.find(sec => sec.data.Include_Signature__c);
+		return this.currentPage.find((sec) => sec.data.Include_Signature__c);
 	}
 
 	// * DETERMINES WETHER OR NOT TO SHOW THE NEXT BUTTON
@@ -599,17 +592,20 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 	// * SETS THE ALERT BANNER COLOR
 	get alertClass() {
-		return "rh_alert-div slds-scoped-notification slds-media slds-media_center slds-m-bottom_small slds-theme_" + this.alertType;
+		return (
+			'rh_alert-div slds-scoped-notification slds-media slds-media_center slds-m-bottom_small slds-theme_' +
+			this.alertType
+		);
 	}
 
-	// * SETS THE ALERT CONTAINER 
+	// * SETS THE ALERT CONTAINER
 	get alertSpan() {
-		return "slds-icon_container slds-icon-utility-" + this.alertType;
+		return 'slds-icon_container slds-icon-utility-' + this.alertType;
 	}
 
 	// * SETS THE ALERT ICON
 	get alertIcon() {
-		return "utility:" + this.alertType;
+		return 'utility:' + this.alertType;
 	}
 
 	// * RETURNS THE TOTAL NUMBER OF PAGES
@@ -664,12 +660,16 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 				...this.page.map((s) => {
 					let sect = { data: s };
 					if (!s.DisplayByDefault__c) {
-						sect.display = "display:none";
+						sect.display = 'display:none';
 					}
 					if (s.Section_Field_Set__c) {
-						sect.columnClass = "field-div slds-col slds-size_1-of-1 slds-medium-size_1-of-" + s.Section_Field_Columns__c + " " + s.DeveloperName;
+						sect.columnClass =
+							'field-div slds-col slds-size_1-of-1 slds-medium-size_1-of-' +
+							s.Section_Field_Columns__c +
+							' ' +
+							s.DeveloperName;
 						let cols = parseInt(s.Section_Field_Columns__c, 10);
-						let directionRows = s.Section_Field_Flow__c == "Left Right";
+						let directionRows = s.Section_Field_Flow__c == 'Left Right';
 						let fieldArray = this.fieldsetmap[s.Section_Field_Set__c];
 						let rows = Math.ceil(fieldArray.length / cols);
 						let fieldRows = []; // {id:iterRow, fields:[{field}, {from}, {fieldArray}]}
@@ -680,7 +680,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 								let endIndex = (i + 1) * cols;
 								fieldRows.push({
 									id: i,
-									fields: fieldArray.slice(startIndex, endIndex)
+									fields: fieldArray.slice(startIndex, endIndex),
 								});
 								// Handle top down (columns) scenario
 							} else {
@@ -693,14 +693,14 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 								}
 								fieldRows.push({
 									id: i,
-									fields: fieldSlice
+									fields: fieldSlice,
 								});
 							}
 						}
 						sect.rows = fieldRows;
 					}
 					return sect;
-				})
+				}),
 			];
 		}
 		return curPage;

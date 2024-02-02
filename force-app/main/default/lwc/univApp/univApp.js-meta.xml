@@ -15,9 +15,10 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default,lightning__AppPage,lightning__FlowScreen,lightning__HomePage,lightning__RecordPage,lightning__UtilityBar">
-            <property name="recordId" type="String"></property>
-            <property name="appDevName" type="String"></property>
-            <property name="canShowRestart" type="Boolean"></property>
+            <property name="recordId" type="String" label="recordId"></property>
+            <property name="recordIds" type="String" label="Record Id List" description="A concatenated string of record Ids separated by semi-colons"></property>
+            <property name="appDevName" type="String" label="App API Name" description="Provide the api name of the metadata record for the desired universal app"></property>
+            <property name="canShowRestart" type="Boolean" label="Can Show Restart"></property>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
