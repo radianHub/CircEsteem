@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pickup_Instructions</fullName>
+    <columns>NAME</columns>
+    <columns>Child__c</columns>
+    <columns>Date_and_Time__c</columns>
+    <columns>Details__c</columns>
+    <columns>Program_Engagement__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Form__c.Pickup_Instructions</value>
+    </filters>
+    <label>Pickup Instructions</label>
+</ListView>
