@@ -3,12 +3,15 @@
     <fullName>Active_Programs</fullName>
     <columns>NAME</columns>
     <columns>Accepting_Applications__c</columns>
-    <columns>Associated_School__c</columns>
-    <filterScope>Mine</filterScope>
+    <columns>School__c</columns>
+    <filterScope>Everything</filterScope>
     <filters>
         <field>Accepting_Applications__c</field>
         <operation>equals</operation>
         <value>1</value>
     </filters>
     <label>Programs Currently Accepting Enrollment</label>
+    <sharedTo>
+        <group>All_Portal_Users</group>
+    </sharedTo>
 </ListView>

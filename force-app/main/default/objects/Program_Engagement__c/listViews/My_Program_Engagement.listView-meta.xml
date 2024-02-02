@@ -3,10 +3,8 @@
     <fullName>My_Program_Engagement</fullName>
     <columns>NAME</columns>
     <filterScope>Everything</filterScope>
-    <filters>
-        <field>My_Program_Engagements__c</field>
-        <operation>equals</operation>
-        <value>1</value>
-    </filters>
     <label>My Program Engagements</label>
+    <sharedTo>
+        <group>All_Portal_Users</group>
+    </sharedTo>
 </ListView>
