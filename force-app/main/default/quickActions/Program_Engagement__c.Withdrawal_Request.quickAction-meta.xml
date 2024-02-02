@@ -2,7 +2,7 @@
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldOverrides>
         <field>Child__c</field>
-        <formula>Program_Engagement__c.Child_Contact__c</formula>
+        <formula>Program_Engagement__c.Child__c</formula>
     </fieldOverrides>
     <fieldOverrides>
         <field>Parent__c</field>
