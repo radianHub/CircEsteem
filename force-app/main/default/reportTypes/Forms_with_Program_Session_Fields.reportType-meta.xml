@@ -518,11 +518,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Program_Engagement__c.Child__c</field>
-            <table>Form__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Program_Engagement__c.Account__c</field>
             <table>Form__c</table>
         </columns>
@@ -564,6 +559,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Credit_Amount__c</field>
+            <table>Form__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Program_Engagement__c.Child__c</field>
             <table>Form__c</table>
         </columns>
         <masterLabel>Forms</masterLabel>

@@ -262,6 +262,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Child__c.Things_We_Should_Know__c</field>
+            <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Program_Engagement_Details__c</field>
             <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
         </columns>
@@ -282,7 +287,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Child__c.Allergies__c</field>
+            <field>Engagements_Belong_to_My_Account__c</field>
             <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
         </columns>
         <columns>
@@ -292,17 +297,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Child__c.Things_We_Should_Know__c</field>
+            <field>Child__c.Age__c</field>
             <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Engagements_Belong_to_My_Account__c</field>
+            <field>Child__c.Allergies__c</field>
             <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Child_Contact__c</field>
+            <field>Child__c.Name</field>
             <table>Program__c.Program_Sessions__r.Program_Engagements__r</table>
         </columns>
         <masterLabel>Program Engagements</masterLabel>
