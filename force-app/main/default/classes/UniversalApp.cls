@@ -16,18 +16,18 @@ public with sharing class UniversalApp {
 	// Input    - String DeveloperName of CustomMetadata 'Universal App'
 	private static void queryApps(String appDevName) {
 		apps = [
-			SELECT 
-				Id, 
-				CSS__c, 
-				DeveloperName, 
-				Logo_URL__c, 
-				MasterLabel, 
-				Object__c, 
-				Post_Submit_Fields__c, 
-				Page_Redirect__c, 
-				Object_with_Boolean__c, 
-				Boolean_Field__c, 
-				Page_Redirect_if_True__c, 
+			SELECT
+				Id,
+				CSS__c,
+				DeveloperName,
+				Logo_URL__c,
+				MasterLabel,
+				Object__c,
+				Post_Submit_Fields__c,
+				Page_Redirect__c,
+				Object_with_Boolean__c,
+				Boolean_Field__c,
+				Page_Redirect_if_True__c,
 				Page_Redirect_if_False__c,
 				vfPageRedirect__c
 			FROM Universal_App__mdt
@@ -80,18 +80,22 @@ public with sharing class UniversalApp {
 	}
 
 	/**
-	* @description : Query all fields in a sObject and return the results.
-	* @author Zachary Csotya | 06/28/2022 
-	* @param Id rId 
-	* @param String objName 
-	* @return sObject 
-	**/
+	 * @description : Query all fields in a sObject and return the results.
+	 * @author Zachary Csotya | 06/28/2022
+	 * @param Id rId
+	 * @param String objName
+	 * @return sObject
+	 **/
 	public static sObject queryRecord(Id rId, String objName) {
-		Map<String, Schema.SObjectField> fields = ((SObject) Type.forName('Schema', objName)?.newInstance())?.getSObjectType()?.getDescribe()?.fields?.getMap();
+		Map<String, Schema.SObjectField> fields = ((SObject) Type.forName('Schema', objName)?.newInstance())
+			?.getSObjectType()
+			?.getDescribe()
+			?.fields
+			?.getMap();
 
 		String expr = ' ';
 		SObject obj = null;
-		for (Integer i = 0 ; i < fields.values().size() - 1 ; i++) {
+		for (Integer i = 0; i < fields.values().size() - 1; i++) {
 			expr += fields.values()[i] + ', ';
 		}
 		expr += fields.values()[fields.values().size() - 1];
@@ -102,26 +106,26 @@ public with sharing class UniversalApp {
 	}
 
 	/**
-	* @description : Query all fields in a sObject and return the results.
-	* @author Zachary Csotya | 08/02/2022 
-	* @param String fieldName
-	* @param String objName 
-	* @param String recordId 
-	* @return sObject 
-	**/
-    @AuraEnabled
+	 * @description : Query all fields in a sObject and return the results.
+	 * @author Zachary Csotya | 08/02/2022
+	 * @param String fieldName
+	 * @param String objName
+	 * @param String recordId
+	 * @return sObject
+	 **/
+	@AuraEnabled
 	public static sObject queryForBoolean(String fieldName, String objName, String recordId) {
 		List<SObject> obj = null;
 		String qry = 'SELECT ' + fieldName + ' FROM ' + objName + ' WHERE Id = ' + '\'' + recordId + '\'';
-        system.debug(qry);
+		system.debug(qry);
 		obj = Database.query(qry);
-        system.debug('Queried Records '+obj.size());
+		system.debug('Queried Records ' + obj.size());
 
-        if (obj.size() == 1) {
-            return obj[0];     
-        } else {
-            return null;
-        }
+		if (obj.size() == 1) {
+			return obj[0];
+		} else {
+			return null;
+		}
 	}
 
 	// Method   - retrieveApp
@@ -153,7 +157,11 @@ public with sharing class UniversalApp {
 				} else {
 					Map<String, List<Object>> fieldsetmap = new Map<String, List<Object>>();
 
-					Map<String, Schema.FieldSet> objectFieldSetMap = ((SObject) Type.forName('Schema', application.Object__c)?.newInstance())
+					Map<String, Schema.FieldSet> objectFieldSetMap = ((SObject) Type.forName(
+								'Schema',
+								application.Object__c
+							)
+							?.newInstance())
 						?.getSObjectType()
 						?.getDescribe()
 						?.fieldSets
@@ -172,12 +180,18 @@ public with sharing class UniversalApp {
 									if (fieldSetting.Universal_App_Section__c == s.Id) {
 										if (mapFieldSetting.containsKey(sfs)) {
 											if (!mapFieldSetting.get(sfs).containsKey(fieldSetting.Field_Name__c)) {
-												mapFieldSetting.get(sfs).put(fieldSetting.Field_Name__c, fieldSetting.Expected_Field_Label__c);
+												mapFieldSetting.get(sfs)
+													.put(
+														fieldSetting.Field_Name__c,
+														fieldSetting.Expected_Field_Label__c
+													);
 											}
 										} else {
 											mapFieldSetting.put(
 												sfs,
-												new Map<String, String>{ fieldSetting.Field_Name__c => fieldSetting.Expected_Field_Label__c }
+												new Map<String, String>{
+													fieldSetting.Field_Name__c => fieldSetting.Expected_Field_Label__c
+												}
 											);
 										}
 									}
@@ -222,7 +236,7 @@ public with sharing class UniversalApp {
 										'hasAltLabel' => hasAltLabel,
 										'altLabel' => altLabel,
 										'isBool' => member.getType().name() == 'BOOLEAN' ? true : false
-									};	
+									};
 									if (recordId != null) {
 										fieldMember.put('value', fieldValues.get(member.getFieldPath()));
 									}
@@ -239,7 +253,14 @@ public with sharing class UniversalApp {
 							ret.put('error', String.format(NULL_FIELDSETS, new List<Object>{ nullFieldSets }));
 						}
 
-						ret.put('data', new Map<String, Object>{ 'application' => application, 'sections' => sects, 'fieldsetmap' => fieldsetmap });
+						ret.put(
+							'data',
+							new Map<String, Object>{
+								'application' => application,
+								'sections' => sects,
+								'fieldsetmap' => fieldsetmap
+							}
+						);
 					}
 				}
 			}
@@ -251,12 +272,61 @@ public with sharing class UniversalApp {
 	}
 
 	@AuraEnabled
-	public static Map<String, Object> submitApp(SObject sObj) {
+	public static Map<String, Object> submitApp(SObject sObj, String form, String recordIds) {
 		Map<String, Object> ret = new Map<String, Object>();
 
 		try {
-			upsert sObj;
-			ret.put('data', sObj.Id);
+			switch on form {
+				when 'General_Release_Form' {
+					List<Form__c> generalReleasesToInsert = new List<Form__c>();
+					List<Id> childIds = new List<Id>();
+					List<String> childIdStrings = recordIds.split(';');
+
+					for (String childIdString : childIdStrings) {
+						Id childId = (Id) childIdString.trim();
+						childIds.add(childId);
+					}
+
+					Form__c releaseForm = (Form__c) sObj;
+
+					for (Id childId : childIds) {
+						Form__c childReleaseForm = releaseForm.clone(false, true, true);
+						childReleaseForm.Parent_Guardian_Email__c = UserInfo.getUserEmail();
+						childReleaseForm.RecordTypeId = Fetch.recordTypeIdFromDeveloperName(
+							Form__c.SObjectType,
+							'General_Release'
+						);
+						childReleaseForm.Child__c = childId;
+
+						generalReleasesToInsert.add(childReleaseForm);
+					}
+
+					System.debug('generalReleasesToInsert ' + generalReleasesToInsert);
+					for (Form__c release : generalReleasesToInsert) {
+						System.debug('release ' + release);
+					}
+
+					upsert generalReleasesToInsert;
+					ret.put('data', generalReleasesToInsert);
+					// upsert newForm;
+					// ret.put('data', newForm.Id);
+				}
+				when 'General_Release_Form_Bday_and_Workshop' {
+					Form__c newForm = (Form__c) sObj;
+
+					newForm.RecordTypeId = Fetch.recordTypeIdFromDeveloperName(
+						Form__c.SObjectType,
+						'Birthday_Workshop'
+					);
+
+					upsert newForm;
+					ret.put('data', newForm.Id);
+				}
+				when else {
+					upsert sObj;
+					ret.put('data', sObj.Id);
+				}
+			}
 		} catch (Exception e) {
 			ret.put('error', e.getTypeName() + ' | ' + e.getMessage() + ' | ' + e.getStackTraceString());
 		}
