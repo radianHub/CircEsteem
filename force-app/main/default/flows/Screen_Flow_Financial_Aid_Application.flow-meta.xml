@@ -2,52 +2,6 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>59.0</apiVersion>
     <assignments>
-        <name>Add_to_Collection</name>
-        <label>Add to Collection</label>
-        <locationX>176</locationX>
-        <locationY>1598</locationY>
-        <assignmentItems>
-            <assignToReference>faaChildProgramRequestCollection</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>faaChildProgramRequest</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Another_Child_to_Enroll</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assign_Child_Information_to_Variable</name>
-        <label>Assign Child Information to Variable</label>
-        <locationX>176</locationX>
-        <locationY>1490</locationY>
-        <assignmentItems>
-            <assignToReference>faaChildProgramRequest.Child__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>child.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>faaChildProgramRequest.Name</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>faaChildProgramRequestName</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>faaChildProgramRequest.Financial_Aid_Application__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>financialAidApplication.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Add_to_Collection</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Assign_DCL</name>
         <label>Assign DCL</label>
         <locationX>396</locationX>
@@ -63,7 +17,7 @@
             <assignToReference>CDL.LinkedEntityId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>financialAidApplication.Id</elementReference>
+                <elementReference>financialAidForm.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -83,63 +37,58 @@
         <locationX>176</locationX>
         <locationY>566</locationY>
         <assignmentItems>
-            <assignToReference>financialAidApplication.Household_Account__c</assignToReference>
+            <assignToReference>financialAidForm.Annual_Household_Income_Before_Taxes__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Contact.Account.Id</elementReference>
+                <elementReference>Annual_Household_Income_Before_Taxes</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>financialAidApplication.Parent__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Contact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>financialAidApplication.Optional_Letter__c</assignToReference>
+            <assignToReference>financialAidForm.Letter__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>cover_letter</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>financialAidApplication.Name</assignToReference>
+            <assignToReference>financialAidForm.Parent__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>financialAidApplicationName</elementReference>
+                <elementReference>Get_Contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>financialAidForm.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Financial_Aid_Record_Type.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>financialAidForm.Household__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Contact.Account.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>financialAidForm.From_Portal__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>financialAidForm.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>New</stringValue>
             </value>
         </assignmentItems>
         <connector>
             <targetReference>Create_Financial_Aid_Record</targetReference>
         </connector>
     </assignments>
-    <decisions>
-        <name>Another_Child_to_Enroll</name>
-        <label>Another Child to Enroll?</label>
-        <locationX>176</locationX>
-        <locationY>1706</locationY>
-        <defaultConnector>
-            <targetReference>Create_Children_Requests</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Yes</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>I_would_like_to_enroll_another_child</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>child_information</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
     <decisions>
         <name>Did_Upload_Documents</name>
         <label>Did Upload Documents?</label>
@@ -160,7 +109,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>child_information</targetReference>
+                <targetReference>thank_you</targetReference>
             </connector>
             <label>No</label>
         </rules>
@@ -211,7 +160,7 @@
     </formulas>
     <interviewLabel>Screen Flow: Financial Aid Application {!$Flow.CurrentDateTime}</interviewLabel>
     <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
-    <label>Screen Flow: Financial Aid Application</label>
+    <label>Financial Aid Application</label>
     <loops>
         <name>Create_DCLs</name>
         <label>Create DCLs</label>
@@ -251,19 +200,9 @@
         <locationX>308</locationX>
         <locationY>1190</locationY>
         <connector>
-            <targetReference>child_information</targetReference>
-        </connector>
-        <inputReference>CDLCollection</inputReference>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_Children_Requests</name>
-        <label>Create Children Requests</label>
-        <locationX>308</locationX>
-        <locationY>1814</locationY>
-        <connector>
             <targetReference>thank_you</targetReference>
         </connector>
-        <inputReference>faaChildProgramRequestCollection</inputReference>
+        <inputReference>CDLCollection</inputReference>
     </recordCreates>
     <recordCreates>
         <name>Create_Financial_Aid_Record</name>
@@ -273,13 +212,13 @@
         <connector>
             <targetReference>Did_Upload_Documents</targetReference>
         </connector>
-        <inputReference>financialAidApplication</inputReference>
+        <inputReference>financialAidForm</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_Contact</name>
         <label>Get Contact</label>
         <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>file_upload_and_cover_letter</targetReference>
@@ -296,65 +235,39 @@
         <object>Contact</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <screens>
-        <name>child_information</name>
-        <label>child information</label>
+    <recordLookups>
+        <name>Get_Financial_Aid_Record_Type</name>
+        <label>Get Financial Aid Record Type</label>
         <locationX>176</locationX>
-        <locationY>1382</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assign_Child_Information_to_Variable</targetReference>
+            <targetReference>Assign_to_Financial_Aid_Application_Variable</targetReference>
         </connector>
-        <fields>
-            <name>child_info</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Child Information&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;INSTRUCTIONS: If you have multiple children that you would like to enroll, please check the box at the end of the screen and select &quot;Next&quot;. You will be returned to this screen and prompted to submit information for another child. Once you&apos;re done, leave the box unchecked and click &quot;Next&quot;.&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Select_a_Child</name>
-            <choiceReferences>childChoiceSet</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Select a Child</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>faaChildProgramRequest.CircEsteem_Program_Choice_1__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>faaChildProgramRequest.CircEsteem_Program_Choice_2__c</objectFieldReference>
-        </fields>
-        <fields>
-            <fieldType>ObjectProvided</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>faaChildProgramRequest.CircEsteem_Program_Choice_3__c</objectFieldReference>
-        </fields>
-        <fields>
-            <name>I_would_like_to_enroll_another_child</name>
-            <dataType>Boolean</dataType>
-            <fieldText>I would like to enroll another child</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Financial_Aid</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Form__c</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <screens>
         <name>file_upload_and_cover_letter</name>
         <label>file upload and cover letter</label>
         <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationY>242</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -412,12 +325,12 @@
         <name>household_information</name>
         <label>household information</label>
         <locationX>176</locationX>
-        <locationY>458</locationY>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Assign_to_Financial_Aid_Application_Variable</targetReference>
+            <targetReference>Get_Financial_Aid_Record_Type</targetReference>
         </connector>
         <fields>
             <name>household_header</name>
@@ -425,52 +338,35 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Annual_Household_Income_Before_Taxes</name>
+            <dataType>Currency</dataType>
+            <fieldText>Annual Household Income Before Taxes</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>financialAidApplication.Annual_Household_Income_Before_Taxes__c</objectFieldReference>
+            <scale>0</scale>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>financialAidApplication.Household_Size_Number_of_Adults__c</objectFieldReference>
+            <objectFieldReference>financialAidForm.Household_Size_Number_of_Adults__c</objectFieldReference>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>financialAidApplication.Household_Size_Number_of_Children__c</objectFieldReference>
+            <objectFieldReference>financialAidForm.Household_Size_Number_of_Children__c</objectFieldReference>
         </fields>
-        <nextOrFinishButtonLabel>Submit Household Information</nextOrFinishButtonLabel>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>Initial_Application</name>
-        <label>Initial Application</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Get_Contact</targetReference>
-        </connector>
-        <fields>
-            <name>CE_Financial_Aid</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;Start Financial Aid Application&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <nextOrFinishButtonLabel>Start</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Submit</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>thank_you</name>
         <label>thank you</label>
-        <locationX>308</locationX>
-        <locationY>1922</locationY>
+        <locationX>176</locationX>
+        <locationY>1382</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -486,10 +382,10 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Initial_Application</targetReference>
+            <targetReference>Get_Contact</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>CDL</name>
         <dataType>SObject</dataType>
@@ -513,6 +409,22 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Child__c</objectType>
+    </variables>
+    <variables>
+        <name>childContact</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>childContactCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
     </variables>
     <variables>
         <name>documentIds</name>
@@ -544,5 +456,13 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Financial_Aid_Application__c</objectType>
+    </variables>
+    <variables>
+        <name>financialAidForm</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Form__c</objectType>
     </variables>
 </Flow>

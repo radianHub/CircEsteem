@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birthday_Workshop_Release</fullName>
+    <columns>NAME</columns>
+    <columns>Child_1_First_Name__c</columns>
+    <columns>Child_1_Last_Name__c</columns>
+    <columns>Child_2_Date_of_Birth__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Form__c.Birthday_Workshop</value>
+    </filters>
+    <label>Birthday/Workshop Release</label>
+    <sharedTo>
+        <role>Admin</role>
+        <role>Partnerships_Manager_Director</role>
+    </sharedTo>
+</ListView>
