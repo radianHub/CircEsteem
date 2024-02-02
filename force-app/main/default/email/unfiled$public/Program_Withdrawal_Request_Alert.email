@@ -1,0 +1,3 @@
+A new program withdrawal request has been submitted for {!Form__c.Child__c}.
+
+View the request here: {!Form__c.Link}

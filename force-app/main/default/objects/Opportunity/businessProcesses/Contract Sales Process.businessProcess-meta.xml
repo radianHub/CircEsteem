@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract Sales Process</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Contract Signed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Initial Contact</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Negotiation%2FReview</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>No Response - Need Follow-Up</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Payment Recieved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Proposal%2FPrice Quote</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Responded with Questions</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>
