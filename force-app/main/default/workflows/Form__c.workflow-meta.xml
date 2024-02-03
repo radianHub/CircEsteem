@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
-        <fullName>Alert_for_Parent_General_Release_Form_and_No_Contact_was_Found</fullName>
-        <description>Alert for Parent General Release Form and No Contact was Found</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>developer+circesteem@radianhub.com</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/General_Release_Form_with_No_Contact_Found</template>
-    </alerts>
-    <alerts>
         <fullName>Alert_to_Parent_with_Absent_Children</fullName>
         <description>Alert to Parent with Absent Children</description>
         <protected>false</protected>
@@ -37,77 +26,4 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/New_Birthday_Workshop_Release_Form</template>
     </alerts>
-    <alerts>
-        <fullName>Financial_Aid_Approved</fullName>
-        <description>Financial Aid Approved</description>
-        <protected>false</protected>
-        <recipients>
-            <field>Parent__c</field>
-            <type>contactLookup</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Financial_Aid_Approved_1706424823942</template>
-    </alerts>
-    <alerts>
-        <fullName>Financial_Aid_Form_Submission_Alert_for_Internal_Staff</fullName>
-        <description>Financial Aid Form Submission Alert for Internal Staff</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>developer+circesteem@radianhub.com</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Financial_Aid_Form_Submission</template>
-    </alerts>
-    <alerts>
-        <fullName>Financial_Aid_Rejected</fullName>
-        <description>Financial Aid Rejected</description>
-        <protected>false</protected>
-        <recipients>
-            <field>Parent__c</field>
-            <type>contactLookup</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Financial_Aid_Rejected_1706424645064</template>
-    </alerts>
-    <alerts>
-        <fullName>Notify_CircEsteem_Team_on_Withdrawal_Request_Submission</fullName>
-        <description>Notify CircEsteem Team on Withdrawal Request Submission</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>developer+circesteem@radianhub.com</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>DefaultWorkflowUser</senderType>
-        <template>unfiled$public/Program_Withdrawal_Request_Alert</template>
-    </alerts>
-    <alerts>
-        <fullName>Program_Application_Submission_Notification</fullName>
-        <description>Program Application Submission Notification</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Program_Application_Submission_Notification</template>
-    </alerts>
-    <fieldUpdates>
-        <fullName>Status_Approved</fullName>
-        <field>Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>Status Approved</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_Rejected</fullName>
-        <field>Status__c</field>
-        <name>Status Rejected</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
-    </fieldUpdates>
 </Workflow>
