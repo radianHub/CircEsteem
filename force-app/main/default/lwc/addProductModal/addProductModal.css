@@ -1,0 +1,31 @@
+.product {
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-wrapper {
+    width: 400px;
+    height: 400px;
+
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 10px;
+    background-color: grey;
+    overflow: hidden;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 15px;
+    max-width: 40%;
+    max-height: 400px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.details::-webkit-scrollbar {
+    display: none;
+}
