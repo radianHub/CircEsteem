@@ -1,0 +1,63 @@
+<template>
+	<c-error-panel
+		lwc:if={error}
+		errors={error}
+		type="banner"></c-error-panel>
+
+	<lightning-spinner
+		lwc:if={isLoading}
+		alternative-text="Loading"
+		size="medium"></lightning-spinner>
+
+	<lightning-card
+		title="Products"
+		icon-name="standard:product">
+		<div slot="actions">
+			<div lwc:if={cart}>
+				<button
+					class="slds-button slds-button_neutral slds-p-vertical--xx-small"
+					onclick={handleClickCart}>
+					<lightning-icon
+						icon-name="utility:cart"
+						size="small"></lightning-icon>
+					<lightning-formatted-number
+						class="slds-m-left--small"
+						value={cart.Total__c}
+						format-style="currency"
+						currency-code="USD"></lightning-formatted-number>
+				</button>
+			</div>
+		</div>
+		<!-- <div> -->
+		<div class="product-list slds-p-horizontal--large">
+			<template
+				if:true={pricebookEntries}
+				for:each={pricebookEntries}
+				for:item="entry">
+				<div
+					key={entry.Id}
+					class="product">
+					<div
+						class="image-wrapper"
+						onclick={handleClickProduct}
+						data-id={entry.Id}>
+						<img src={entry.Product2.DisplayUrl} />
+					</div>
+					<h1 class="slds-m-left--small">{entry.Name}</h1>
+					<lightning-formatted-number
+						class="slds-m-left--small"
+						value={entry.UnitPrice}
+						format-style="currency"
+						currency-code="USD"></lightning-formatted-number>
+					<!-- <button
+							class="slds-button slds-button_brand slds-button_stretch"
+							onclick={handleClickAdd}
+							data-id={entry.Id}>
+							Add
+						</button> -->
+				</div>
+			</template>
+		</div>
+		<!-- </div> -->
+	</lightning-card>
+</template>

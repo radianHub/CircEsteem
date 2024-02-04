@@ -1,0 +1,29 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.product {
+    /* min-width: 300px; */
+    /* min-height: 300px; */
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.product .image-wrapper {
+    width: 250px;
+    height: 250px;
+    background-color: grey;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.product h1 {
+    font-weight: bold;
+    font-size: 1.25em;
+}

@@ -2,9 +2,25 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
     <assignments>
+        <name>Assign_Cart</name>
+        <label>Assign Cart</label>
+        <locationX>50</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>CartId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_User_Cart.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Cart_Product</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_to_Variable</name>
         <label>Assign to Variable</label>
-        <locationX>138</locationX>
+        <locationX>336</locationX>
         <locationY>755</locationY>
         <assignmentItems>
             <assignToReference>stationRecord.Name</assignToReference>
@@ -39,9 +55,56 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Does_Program_Have_Cost</name>
+        <label>Does Program Have Cost?</label>
+        <locationX>380</locationX>
+        <locationY>1247</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Program_Session__r.Program__r.Price__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_User</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_Open_Cart</name>
+        <label>Has Open Cart?</label>
+        <locationX>182</locationX>
+        <locationY>1571</locationY>
+        <defaultConnector>
+            <targetReference>Create_Cart</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_User_Cart</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Cart</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Program_Has_Activity_Stations</name>
         <label>Program Has Activity Stations?</label>
-        <locationX>182</locationX>
+        <locationX>380</locationX>
         <locationY>431</locationY>
         <defaultConnector>
             <targetReference>Reassign_Owner</targetReference>
@@ -69,7 +132,7 @@
     <loops>
         <name>Loop_Through_Stations</name>
         <label>Loop Through Stations</label>
-        <locationX>50</locationX>
+        <locationX>248</locationX>
         <locationY>647</locationY>
         <collectionReference>Get_Activity_Stations_Related_to_Program</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -100,9 +163,70 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <name>Add_Cart_Product</name>
+        <label>Add Cart Product</label>
+        <locationX>182</locationX>
+        <locationY>1871</locationY>
+        <inputAssignments>
+            <field>Cart__c</field>
+            <value>
+                <elementReference>CartId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Price__c</field>
+            <value>
+                <elementReference>$Record.Program_Session__r.Program__r.Price__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Program_Engagement__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quantity__c</field>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputAssignments>
+        <object>Cart_Product__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Cart</name>
+        <label>Create Cart</label>
+        <locationX>314</locationX>
+        <locationY>1679</locationY>
+        <assignRecordIdToReference>CartId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Add_Cart_Product</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>User__c</field>
+            <value>
+                <elementReference>Get_Parent_User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Cart__c</object>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Stations</name>
         <label>Create Stations</label>
-        <locationX>50</locationX>
+        <locationX>248</locationX>
         <locationY>947</locationY>
         <connector>
             <targetReference>Reassign_Owner</targetReference>
@@ -112,7 +236,7 @@
     <recordLookups>
         <name>Get_Activity_Stations_Related_to_Program</name>
         <label>Get Activity Stations Related to Program</label>
-        <locationX>182</locationX>
+        <locationX>380</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -131,9 +255,30 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Parent_User</name>
+        <label>Get Parent User</label>
+        <locationX>182</locationX>
+        <locationY>1355</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_User_Cart</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Child__r.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Record_Type</name>
         <label>Get Record Type</label>
-        <locationX>50</locationX>
+        <locationX>248</locationX>
         <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -158,11 +303,42 @@
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_User_Cart</name>
+        <label>Get User Cart</label>
+        <locationX>182</locationX>
+        <locationY>1463</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Has_Open_Cart</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>User__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Parent_User.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Cart__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Reassign_Owner</name>
         <label>Reassign Owner</label>
-        <locationX>182</locationX>
+        <locationX>380</locationX>
         <locationY>1139</locationY>
+        <connector>
+            <targetReference>Does_Program_Have_Cost</targetReference>
+        </connector>
         <inputAssignments>
             <field>OwnerId</field>
             <value>
@@ -172,7 +348,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>56</locationX>
+        <locationX>254</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Activity_Stations_Related_to_Program</targetReference>
@@ -182,6 +358,13 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <variables>
+        <name>CartId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>stationCollection</name>
         <dataType>SObject</dataType>

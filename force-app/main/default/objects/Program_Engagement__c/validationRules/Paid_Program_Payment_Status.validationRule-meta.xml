@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Paid_Program_Payment_Status</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    Program_Session__r.Program__r.Price__c &gt; 0,
+    ISBLANK(TEXT(Payment_Status__c))
+)</errorConditionFormula>
+    <errorMessage>Payment status is required for a paid program</errorMessage>
+</ValidationRule>
