@@ -59,7 +59,7 @@
     <formulas>
         <name>ProgramEngagementName</name>
         <dataType>String</dataType>
-        <expression>{!$Record.Program_Session__r.Name} + &quot; - &quot; + {!$Record.Child__r.Name}</expression>
+        <expression>{!$Record.Program_Session__r.Name} + &quot; - &quot; + {!$Record.Child__r.FirstName} + &quot; &quot; + {!$Record.Child__r.LastName}</expression>
     </formulas>
     <interviewLabel>Program Engagement Before Insert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Engagement Before Insert</label>
