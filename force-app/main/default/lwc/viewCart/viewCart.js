@@ -8,8 +8,10 @@ import getCart from '@salesforce/apex/ViewCartController.getCart';
 
 import STRIPE_TRANSACTION_ID_FIELD from '@salesforce/schema/Cart__c.Stripe_Transaction_Id__c';
 import ID_FIELD from '@salesforce/schema/Cart__c.Id';
+import STATUS_FIELD from "@salesforce/schema/Cart__c.Status__c";
 
 import getSettings from '@salesforce/apex/ViewCartController.getSettings';
+
 
 export default class ViewCart extends LightningModal {
 	@api cartId;
@@ -24,12 +26,14 @@ export default class ViewCart extends LightningModal {
 	// # APEX
 
 	// *
+	
 	@wire(getCart, { cartId: '$cartId' })
 	wiredGetCart(value) {
 		this.wiredCart = value;
 		let { data, error } = value;
 
 		if (data) {
+			console.log('wiredGetCart', data);
 			this.cart = data;
 
 			this.loadingData = false;
@@ -44,98 +48,107 @@ export default class ViewCart extends LightningModal {
 	wiredSetting;
 
 	cartCheckout() {
-		let body = '';
-
+		
+		let body = "";
+		
 		let currentItem = 0;
-
+		body += encodeURIComponent("cancel_url") 
+		+ "=" + 
+		encodeURIComponent("https://circesteem--eddev.sandbox.my.site.com/s/shop") + "&";
+			
+		body += encodeURIComponent("success_url") 
+		+ "=" + 
+		encodeURIComponent("https://circesteem--eddev.sandbox.my.site.com/s/shop") + "&";
+		
 		this.cart.Cart_Products__r.forEach((product) => {
-			body +=
-				encodeURIComponent('cancel_url') +
-				'=' +
-				encodeURIComponent(this.wiredSetting.data.Failure_Redirect__c) +
-				'&';
-
-			body +=
-				encodeURIComponent('success_url') +
-				'=' +
-				encodeURIComponent(this.wiredSetting.data.Success_Redirect__c) +
-				'&';
-
-			body +=
-				encodeURIComponent('line_items[' + currentItem + '][price_data][currency]') +
-				'=' +
-				encodeURIComponent('usd') +
-				'&';
-
-			body +=
-				encodeURIComponent('line_items[' + currentItem + '][price_data][product_data][name]') +
-				'=' +
-				encodeURIComponent(product.Name) +
-				'&';
-
-			body +=
-				encodeURIComponent('line_items[' + currentItem + '][price_data][unit_amount]') +
-				'=' +
-				encodeURIComponent(String(product.Price_Cents__c)) +
-				'&';
-
-			body +=
-				encodeURIComponent('line_items[' + currentItem + '][quantity]') +
-				'=' +
-				encodeURIComponent(String(product.Quantity__c)) +
-				'&';
-
-			body += encodeURIComponent('mode') + '=' + encodeURIComponent('payment') + '&';
-
-			body +=
-				encodeURIComponent('payment_method_types[' + currentItem + ']') +
-				'=' +
-				encodeURIComponent('card') +
-				'&';
+			body += encodeURIComponent("line_items[" 
+			+ currentItem + 
+			"][price_data][currency]") 
+			+ "=" + 
+			encodeURIComponent("usd") + 
+			"&";
+			
+			body += encodeURIComponent("line_items[" 
+			+ currentItem + 
+			"][price_data][product_data][name]") 
+			+ "=" + 
+			encodeURIComponent(product.Name) + 
+			"&";
+			
+			body += 
+			encodeURIComponent("line_items[" 
+			+ currentItem + 
+			"][price_data][unit_amount]") 
+			+ "=" + encodeURIComponent(String(product.Price_Cents__c)) + 
+			"&";
+			
+			body += 
+			encodeURIComponent("line_items[" 
+			+ currentItem + 
+			"][quantity]") 
+			+ "=" + 
+			encodeURIComponent(String(product.Quantity__c)) + 
+			"&";
+	
+			console.log(currentItem);
 			currentItem++;
 		});
+		body += 
+		encodeURIComponent("payment_method_types[0]") 
+		+ "=" + 
+		encodeURIComponent("card") + 
+		"&";
 
+		body += 
+		encodeURIComponent("mode") 
+		+ "=" + encodeURIComponent("payment") + "&";
+		
 		body = body.slice(0, -1);
-
+		
+		
 		console.log(this.wiredSetting.data.Bearer_Token__c);
 		let authorization = 'Bearer ' + this.wiredSetting.data.Bearer_Token__c;
 		console.log(authorization);
 
 		const response = fetch('https://api.stripe.com/v1/checkout/sessions', {
-			method: 'POST',
+			method: "POST",
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
+				"Content-Type": "application/x-www-form-urlencoded",
 				Authorization: `Bearer ${this.wiredSetting.data.Bearer_Token__c}`,
-				'Accept-Encoding': "gzip, deflate, br'",
+				"Accept-Encoding": "gzip, deflate, br'",
 				Accept: '*/*',
 			},
-			body: body,
-		})
-			.then((resp) => resp.json())
-			.then((repos) => {
+			body: body
+		}).then((resp)=> resp.json())
+			.then(repos => {
 				this.loadingData = false;
+				console.log(repos);
 				const fields = {};
 				fields[STRIPE_TRANSACTION_ID_FIELD.fieldApiName] = repos.id;
 				fields[ID_FIELD.fieldApiName] = this.cartId;
+				fields[STATUS_FIELD.fieldApiName] = 'Checkout Initiated';
 
 				const recordInput = {
 					fields,
 				};
 
-				updateRecord(recordInput).then(() => {
+				updateRecord(recordInput)
+				.then(() => {
+					
 					this.loadingData = false;
 					const toastEvent = new ShowToastEvent({
 						title: 'Success!',
 						message: 'Please Complete Checkout in the New Window',
-						variant: 'success',
-					});
+						variant: 'success'
+					  });
 					this.dispatchEvent(toastEvent);
-				});
-				window.open(repos.url, '_blank');
-			})
-			.catch((error) => {
-				console.log('error', error);
+				})
+				
+				window.open(repos.url, "_blank");
+				this.close();
 			});
+
+		
 	}
 
 	// # HANDLERS
