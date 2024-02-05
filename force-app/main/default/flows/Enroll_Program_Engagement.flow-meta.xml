@@ -576,6 +576,7 @@
         <object>Program_Session__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>application_submitted</name>
         <label>application submitted</label>
@@ -606,7 +607,7 @@
         </connector>
         <fields>
             <name>Not_Able_to_Create_Application</name>
-            <fieldText>&lt;p&gt;We&apos;re sorry, {!Loop_Through_Children.Name}, does not meet the age requirement to apply for this program. Please contact us at [] if there is a special case, or see if one of our other open programs is appropriate. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you chose another child to apply for, click next to create their application. &lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;We&apos;re sorry, {!Loop_Through_Children.Name}, does not meet the age requirement to apply for this program. Please contact us at &lt;span style=&quot;background-color: rgb(255, 255, 255); font-family: sans-serif; color: rgb(51, 51, 51);&quot;&gt;info@circesteem.org&lt;/span&gt; if there is a special case, or see if one of our other open programs is appropriate.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you chose another child to apply for, click next to create their application.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -654,7 +655,7 @@
         </connector>
         <fields>
             <name>Not_Able_to_Enroll</name>
-            <fieldText>&lt;p&gt;We&apos;re sorry, {!Loop_through_Household_Children.Name}, does not meet the age requirement to enroll in this program. Please contact us at [] if there is a special case, or see if one of our other open programs is appropriate.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you chose another child to enroll, click next to enroll them.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;We&apos;re sorry, {!Loop_through_Household_Children.Name}, does not meet the age requirement to enroll in this program. Please contact us at &lt;span style=&quot;background-color: rgb(255, 255, 255); font-family: sans-serif; color: rgb(51, 51, 51);&quot;&gt;info@circesteem.org&lt;/span&gt; if there is a special case, or see if one of our other open programs is appropriate.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you chose another child to enroll, click next to enroll them.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
