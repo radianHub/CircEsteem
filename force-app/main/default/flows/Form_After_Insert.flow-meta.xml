@@ -844,7 +844,7 @@
         <connector>
             <targetReference>Does_Parent_Already_Have_a_Contact</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>Email</field>
             <operator>EqualTo</operator>
