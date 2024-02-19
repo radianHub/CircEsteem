@@ -42,6 +42,71 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>attendanceForm.Attended_Session__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>attedanceReports</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>attendanceForm</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Selected_Children</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Assign_Form_Values</name>
+        <label>Copy 1 of Assign Form Values</label>
+        <locationX>528</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>attendanceForm.Child__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Find_Program_Engagement.Child__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>attendanceForm.Program_Session__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Find_Program_Engagement.Program_Session__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>attendanceForm.Program_Engagement__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Find_Program_Engagement.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>attendanceForm.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Attendance_Record_Type.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>attendanceForm.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Find_Program_Engagement.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>attendanceForm.Attended_Session__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>attedanceReports</assignToReference>
             <operator>Add</operator>
             <value>
@@ -58,7 +123,7 @@
         <locationX>396</locationX>
         <locationY>566</locationY>
         <defaultConnector>
-            <targetReference>Loop_Through_Selected_Children</targetReference>
+            <targetReference>Find_Program_Engagement</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -128,6 +193,27 @@
         <locationY>1058</locationY>
         <inputReference>attedanceReports</inputReference>
     </recordCreates>
+    <recordLookups>
+        <name>Find_Program_Engagement</name>
+        <label>Find Program Engagement</label>
+        <locationX>528</locationX>
+        <locationY>674</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Assign_Form_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_Children.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Program_Engagement__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Active_Program_Engagements</name>
         <label>Get Active Program Engagements</label>
@@ -218,11 +304,6 @@
         <connector>
             <targetReference>Get_Attendance_Record_Type</targetReference>
         </connector>
-        <fields>
-            <name>report</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;Take Attendance&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
