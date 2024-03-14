@@ -4,7 +4,7 @@
     <assignments>
         <name>Add_Program_Engagement_to_List</name>
         <label>Add Program Engagement to List</label>
-        <locationX>2162</locationX>
+        <locationX>2514</locationX>
         <locationY>1772</locationY>
         <assignmentItems>
             <assignToReference>ProgramEngagementsToInsert</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Assign_Number_of_Children</name>
         <label>Assign Number of Children</label>
-        <locationX>1733</locationX>
+        <locationX>1931</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>NumberofChildren</assignToReference>
@@ -36,7 +36,7 @@
     <assignments>
         <name>Assign_to_Form_Variable</name>
         <label>Assign to Form Variable</label>
-        <locationX>534</locationX>
+        <locationX>622</locationX>
         <locationY>1772</locationY>
         <assignmentItems>
             <assignToReference>NewProgramApplication.Child__c</assignToReference>
@@ -87,7 +87,7 @@
     <assignments>
         <name>New_Program_Engagement_Info</name>
         <label>New Program Engagement Info</label>
-        <locationX>2162</locationX>
+        <locationX>2514</locationX>
         <locationY>1664</locationY>
         <assignmentItems>
             <assignToReference>NewProgramEngagement.Child__c</assignToReference>
@@ -117,7 +117,7 @@
     <decisions>
         <name>Age_Requirements</name>
         <label>Are there Age Requirements?</label>
-        <locationX>2162</locationX>
+        <locationX>2514</locationX>
         <locationY>1106</locationY>
         <defaultConnector>
             <targetReference>New_Program_Engagement_Info</targetReference>
@@ -140,16 +140,38 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>Get_Program_Session.Override_Age_Requirements__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Does_Child_Meet_Requirements</targetReference>
             </connector>
             <label>Age Required</label>
         </rules>
+        <rules>
+            <name>Override_Requirements</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Program_Session.Override_Age_Requirements__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_Program_Engagement_Info</targetReference>
+            </connector>
+            <label>Override Requirements</label>
+        </rules>
     </decisions>
     <decisions>
         <name>Are_there_Age_Requirements</name>
         <label>Are there Age Requirements?</label>
-        <locationX>534</locationX>
+        <locationX>622</locationX>
         <locationY>1214</locationY>
         <defaultConnector>
             <targetReference>Assign_to_Form_Variable</targetReference>
@@ -172,16 +194,38 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>Get_Program_Session.Override_Age_Requirements__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Does_Child_Meet_Age_Requirements</targetReference>
             </connector>
             <label>Age is Required</label>
         </rules>
+        <rules>
+            <name>Override_Age_Required</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Program_Session.Override_Age_Requirements__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_Form_Variable</targetReference>
+            </connector>
+            <label>Override Age Required</label>
+        </rules>
     </decisions>
     <decisions>
         <name>Child_in_Selected_Group</name>
         <label>Child in Selected Group?</label>
-        <locationX>2338</locationX>
+        <locationX>2734</locationX>
         <locationY>998</locationY>
         <defaultConnector>
             <targetReference>Loop_through_Household_Children</targetReference>
@@ -238,7 +282,7 @@
     <decisions>
         <name>Does_Child_Meet_Requirements</name>
         <label>Does Child Meet Requirements?</label>
-        <locationX>1986</locationX>
+        <locationX>2250</locationX>
         <locationY>1214</locationY>
         <defaultConnector>
             <targetReference>Does_Not_Meet_Age</targetReference>
@@ -270,7 +314,7 @@
     <decisions>
         <name>Has_Household_Children</name>
         <label>Has Household Children?</label>
-        <locationX>1733</locationX>
+        <locationX>1931</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>NoChildrenScreen</targetReference>
@@ -295,7 +339,7 @@
     <decisions>
         <name>Have_Enrollments_Been_Created</name>
         <label>Have Enrollments Been Created?</label>
-        <locationX>1810</locationX>
+        <locationX>2074</locationX>
         <locationY>2156</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -317,7 +361,7 @@
     <decisions>
         <name>Is_Application_Required</name>
         <label>Is Application Required?</label>
-        <locationX>996</locationX>
+        <locationX>1128</locationX>
         <locationY>782</locationY>
         <defaultConnector>
             <targetReference>Loop_through_Household_Children</targetReference>
@@ -364,7 +408,7 @@
     <decisions>
         <name>Was_Child_Selected</name>
         <label>Was Child Selected</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>1106</locationY>
         <defaultConnector>
             <targetReference>Loop_Through_Children</targetReference>
@@ -414,7 +458,7 @@
     <loops>
         <name>Loop_through_Household_Children</name>
         <label>Loop through Household Children</label>
-        <locationX>1810</locationX>
+        <locationX>2074</locationX>
         <locationY>890</locationY>
         <collectionReference>Get_Household_Children</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -461,7 +505,7 @@
     <recordCreates>
         <name>Insert_Program_Engagements</name>
         <label>Insert Program Engagements</label>
-        <locationX>1810</locationX>
+        <locationX>2074</locationX>
         <locationY>2048</locationY>
         <connector>
             <targetReference>Have_Enrollments_Been_Created</targetReference>
@@ -502,7 +546,7 @@
     <recordLookups>
         <name>Get_Child_Record_Type</name>
         <label>Get Child Record Type</label>
-        <locationX>1733</locationX>
+        <locationX>1931</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -530,7 +574,7 @@
     <recordLookups>
         <name>Get_Household_Children</name>
         <label>Get Household Children</label>
-        <locationX>1733</locationX>
+        <locationX>1931</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -558,7 +602,7 @@
     <recordLookups>
         <name>Get_Program_Session</name>
         <label>Get Program Session</label>
-        <locationX>996</locationX>
+        <locationX>1128</locationX>
         <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -616,7 +660,7 @@
     <screens>
         <name>ChildInformation</name>
         <label>ChildInformation</label>
-        <locationX>996</locationX>
+        <locationX>1128</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -644,7 +688,7 @@
     <screens>
         <name>Does_Not_Meet_Age</name>
         <label>Does Not Meet Age</label>
-        <locationX>2074</locationX>
+        <locationX>2338</locationX>
         <locationY>1322</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -664,7 +708,7 @@
     <screens>
         <name>Error</name>
         <label>Error</label>
-        <locationX>2206</locationX>
+        <locationX>2470</locationX>
         <locationY>2156</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -680,7 +724,7 @@
     <screens>
         <name>NoChildrenScreen</name>
         <label>NoChildrenScreen</label>
-        <locationX>2470</locationX>
+        <locationX>2734</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -696,7 +740,7 @@
     <screens>
         <name>Success</name>
         <label>Success</label>
-        <locationX>1678</locationX>
+        <locationX>1942</locationX>
         <locationY>2264</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -710,13 +754,13 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>1607</locationX>
+        <locationX>1805</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Child_Record_Type</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>NewProgramApplication</name>
         <dataType>SObject</dataType>
