@@ -12,12 +12,16 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Open_for_Enrollment__c</field>
+                <behavior>Readonly</behavior>
+                <field>Maximum_Age__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Minimum_Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Override_Age_Requirements__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -26,12 +30,12 @@
                 <field>Program__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Application_Required__c</field>
+                <behavior>Edit</behavior>
+                <field>Open_for_Enrollment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Maximum_Age__c</field>
+                <field>Application_Required__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
