@@ -5,7 +5,7 @@
         <name>Assign_Cart</name>
         <label>Assign Cart</label>
         <locationX>50</locationX>
-        <locationY>1679</locationY>
+        <locationY>1895</locationY>
         <assignmentItems>
             <assignToReference>CartId</assignToReference>
             <operator>Assign</operator>
@@ -58,7 +58,7 @@
         <name>Does_Program_Have_Cost</name>
         <label>Does Program Have Cost?</label>
         <locationX>380</locationX>
-        <locationY>1247</locationY>
+        <locationY>1463</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes2</name>
@@ -80,7 +80,7 @@
         <name>Has_Open_Cart</name>
         <label>Has Open Cart?</label>
         <locationX>182</locationX>
-        <locationY>1571</locationY>
+        <locationY>1787</locationY>
         <defaultConnector>
             <targetReference>Create_Cart</targetReference>
         </defaultConnector>
@@ -107,7 +107,7 @@
         <locationX>380</locationX>
         <locationY>431</locationY>
         <defaultConnector>
-            <targetReference>Reassign_Owner</targetReference>
+            <targetReference>Get_Financial_Aid_Form_Record_Type</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -127,6 +127,11 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
     <interviewLabel>Program Engagement After Insert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Engagement After Insert</label>
     <loops>
@@ -166,7 +171,7 @@
         <name>Add_Cart_Product</name>
         <label>Add Cart Product</label>
         <locationX>182</locationX>
-        <locationY>1871</locationY>
+        <locationY>2087</locationY>
         <inputAssignments>
             <field>Cart__c</field>
             <value>
@@ -204,7 +209,7 @@
         <name>Create_Cart</name>
         <label>Create Cart</label>
         <locationX>314</locationX>
-        <locationY>1679</locationY>
+        <locationY>1895</locationY>
         <assignRecordIdToReference>CartId</assignRecordIdToReference>
         <connector>
             <targetReference>Add_Cart_Product</targetReference>
@@ -229,10 +234,52 @@
         <locationX>248</locationX>
         <locationY>947</locationY>
         <connector>
-            <targetReference>Reassign_Owner</targetReference>
+            <targetReference>Get_Financial_Aid_Form_Record_Type</targetReference>
         </connector>
         <inputReference>stationCollection</inputReference>
     </recordCreates>
+    <recordLookups>
+        <name>Find_Financial_Aid_Form</name>
+        <label>Find Financial Aid Form</label>
+        <locationX>380</locationX>
+        <locationY>1247</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Reassign_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Financial_Aid_Form_Record_Type.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Expiration_Date__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>today</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Household__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Form__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Activity_Stations_Related_to_Program</name>
         <label>Get Activity Stations Related to Program</label>
@@ -255,10 +302,38 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Financial_Aid_Form_Record_Type</name>
+        <label>Get Financial Aid Form Record Type</label>
+        <locationX>380</locationX>
+        <locationY>1139</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Find_Financial_Aid_Form</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Financial Aid</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Form__c</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Parent_User</name>
         <label>Get Parent User</label>
         <locationX>182</locationX>
-        <locationY>1355</locationY>
+        <locationY>1571</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_User_Cart</targetReference>
@@ -307,7 +382,7 @@
         <name>Get_User_Cart</name>
         <label>Get User Cart</label>
         <locationX>182</locationX>
-        <locationY>1463</locationY>
+        <locationY>1679</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Has_Open_Cart</targetReference>
@@ -335,10 +410,16 @@
         <name>Reassign_Owner</name>
         <label>Reassign Owner</label>
         <locationX>380</locationX>
-        <locationY>1139</locationY>
+        <locationY>1355</locationY>
         <connector>
             <targetReference>Does_Program_Have_Cost</targetReference>
         </connector>
+        <inputAssignments>
+            <field>Financial_Aid_Form__c</field>
+            <value>
+                <elementReference>Find_Financial_Aid_Form.Id</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>OwnerId</field>
             <value>
