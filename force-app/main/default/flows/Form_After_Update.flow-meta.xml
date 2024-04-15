@@ -4,7 +4,7 @@
         <name>Send_Approved_Email</name>
         <label>Send Approved Email</label>
         <locationX>50</locationX>
-        <locationY>647</locationY>
+        <locationY>755</locationY>
         <actionName>Form__c.Financial_Aid_Approved</actionName>
         <actionType>emailAlert</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -38,7 +38,7 @@
     <decisions>
         <name>Form_Record_Type</name>
         <label>Form Record Type</label>
-        <locationX>1194</locationX>
+        <locationX>1238</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -185,6 +185,11 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>addYear</name>
+        <dataType>Date</dataType>
+        <expression>ADDMONTHS(TODAY(),12)</expression>
+    </formulas>
     <interviewLabel>Form After Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Form After Update</label>
     <processMetadataValues>
@@ -282,7 +287,7 @@
         <locationX>50</locationX>
         <locationY>539</locationY>
         <connector>
-            <targetReference>Send_Approved_Email</targetReference>
+            <targetReference>Add_Expiration_Date</targetReference>
         </connector>
         <inputAssignments>
             <field>Credit_Percentage__c</field>
@@ -306,6 +311,22 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordUpdates>
+        <name>Add_Expiration_Date</name>
+        <label>Add Expiration Date</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Send_Approved_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Expiration_Date__c</field>
+            <value>
+                <elementReference>addYear</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Set_Program_Engagement_Status</name>
         <label>Set Program Engagement Status</label>
         <locationX>1634</locationX>
@@ -322,7 +343,7 @@
         <inputReference>$Record.Program_Engagement__r</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1068</locationX>
+        <locationX>1112</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Form_Record_Type</targetReference>
