@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldOverrides>
-        <field>CircEsteem_Program__c</field>
-        <formula>Program_Engagement__c.CircEsteem_Program__c</formula>
-    </fieldOverrides>
-    <fieldOverrides>
-        <field>Class__c</field>
-        <formula>Program_Engagement__c.Class__c</formula>
-    </fieldOverrides>
-    <fieldOverrides>
-        <field>Parent__c</field>
-        <formula>$User.ContactId</formula>
-    </fieldOverrides>
-    <fieldOverrides>
-        <field>Program_Engagement__c</field>
-        <formula>Program_Engagement__c.Id</formula>
-    </fieldOverrides>
     <label>Notify Us of Absenses</label>
     <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
