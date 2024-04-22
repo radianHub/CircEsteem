@@ -3,5 +3,5 @@
     <customSettingsType>Hierarchy</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <label>Stripe Bearer Token</label>
-    <visibility>Protected</visibility>
+    <visibility>Public</visibility>
 </CustomObject>
