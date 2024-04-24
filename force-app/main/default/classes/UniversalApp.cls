@@ -117,9 +117,7 @@ public with sharing class UniversalApp {
 	public static sObject queryForBoolean(String fieldName, String objName, String recordId) {
 		List<SObject> obj = null;
 		String qry = 'SELECT ' + fieldName + ' FROM ' + objName + ' WHERE Id = ' + '\'' + recordId + '\'';
-		system.debug(qry);
 		obj = Database.query(qry);
-		system.debug('Queried Records ' + obj.size());
 
 		if (obj.size() == 1) {
 			return obj[0];
@@ -209,7 +207,6 @@ public with sharing class UniversalApp {
 
 						if (recordId != null) {
 							fieldValues = queryRecord(recordId, application.Object__c);
-							System.debug(fieldValues);
 						}
 
 						for (String fs : mapfieldset.keySet()) {
@@ -247,7 +244,6 @@ public with sharing class UniversalApp {
 								nullFieldSets.addAll(new List<String>(mapfieldset.get(fs)));
 							}
 						}
-						system.debug(fieldsetmap);
 
 						if (nullFieldSets.size() > 0) {
 							ret.put('error', String.format(NULL_FIELDSETS, new List<Object>{ nullFieldSets }));
@@ -301,11 +297,6 @@ public with sharing class UniversalApp {
 						generalReleasesToInsert.add(childReleaseForm);
 					}
 
-					System.debug('generalReleasesToInsert ' + generalReleasesToInsert);
-					for (Form__c release : generalReleasesToInsert) {
-						System.debug('release ' + release);
-					}
-
 					upsert generalReleasesToInsert;
 					ret.put('data', generalReleasesToInsert);
 					// upsert newForm;
@@ -336,9 +327,6 @@ public with sharing class UniversalApp {
 
 	@AuraEnabled
 	public static void submitChildObjects(List<childRecordsWrapper> childObjs, Id parentId) {
-		System.debug('start submitChildObjects');
-		System.debug(childObjs);
-		//System.debug(JSON.serialize(childObjs));
 		try {
 			List<SObject> records = new List<SObject>();
 			for (childRecordsWrapper wrapper : childObjs) {
@@ -355,7 +343,6 @@ public with sharing class UniversalApp {
 
 	@AuraEnabled
 	public static Map<String, Object> getChildObjectFields(String ObjectName, String FieldSetName) {
-		System.debug('start getChildObjectFields for: ' + ObjectName + ': ' + FieldSetName);
 		Map<String, Object> ret = new Map<String, Object>();
 
 		Map<String, List<Object>> fieldsetmap = new Map<String, List<Object>>();
@@ -403,7 +390,6 @@ public with sharing class UniversalApp {
 			//fieldsetmap.put(FieldSetName, fieldMembers);
 
 			ret.put('fielddata', fieldMembers);
-			System.debug(ret);
 		}
 
 		return ret;
