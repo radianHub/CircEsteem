@@ -1,0 +1,17 @@
+.cartProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.cartProducts .product {
+    display: flex;
+    gap: 15px;
+}
+
+.cartProducts .product .details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

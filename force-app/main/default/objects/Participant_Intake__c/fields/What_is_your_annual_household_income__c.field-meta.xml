@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_is_your_annual_household_income__c</fullName>
+    <externalId>false</externalId>
+    <label>What is your annual household income?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>$0-$16,900</fullName>
+                <default>false</default>
+                <label>$0-$16,900</label>
+            </value>
+            <value>
+                <fullName>$16,901-21,300</fullName>
+                <default>false</default>
+                <label>$16,901-21,300</label>
+            </value>
+            <value>
+                <fullName>$21,301-25,750</fullName>
+                <default>false</default>
+                <label>$21,301-25,750</label>
+            </value>
+            <value>
+                <fullName>$25,751-30,170</fullName>
+                <default>false</default>
+                <label>$25,751-30,170</label>
+            </value>
+            <value>
+                <fullName>$30,171-34,190</fullName>
+                <default>false</default>
+                <label>$30,171-34,190</label>
+            </value>
+            <value>
+                <fullName>$34,591-39,000</fullName>
+                <default>false</default>
+                <label>$34,591-39,000</label>
+            </value>
+            <value>
+                <fullName>$39,001-43,430</fullName>
+                <default>false</default>
+                <label>$39,001-43,430</label>
+            </value>
+            <value>
+                <fullName>$43,431-45,000</fullName>
+                <default>false</default>
+                <label>$43,431-45,000</label>
+            </value>
+            <value>
+                <fullName>$45,001-75,000</fullName>
+                <default>false</default>
+                <label>$45,001-75,000</label>
+            </value>
+            <value>
+                <fullName>$75,001-100,000</fullName>
+                <default>false</default>
+                <label>$75,001-100,000</label>
+            </value>
+            <value>
+                <fullName>Over $100,000</fullName>
+                <default>false</default>
+                <label>Over $100,000</label>
+            </value>
+            <value>
+                <fullName>I prefer not to answer</fullName>
+                <default>false</default>
+                <label>I prefer not to answer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

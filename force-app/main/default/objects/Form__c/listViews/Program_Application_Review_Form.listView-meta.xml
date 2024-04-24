@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Program_Application_Review_Form</fullName>
+    <columns>NAME</columns>
+    <filterScope>Queue</filterScope>
+    <label>North Program Application Review</label>
+    <queue>North_Program_Application_Review</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+        <role>Admin</role>
+        <role>CYC_Uptown_Coordinator</role>
+        <role>CYC_Uptown_Manager_Directors</role>
+    </sharedTo>
+</ListView>

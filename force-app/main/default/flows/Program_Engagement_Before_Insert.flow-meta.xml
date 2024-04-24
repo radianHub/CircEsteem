@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Set_Name</name>
+        <label>Set Name</label>
+        <locationX>182</locationX>
+        <locationY>587</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ProgramEngagementName</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Paid_Status</name>
+        <label>Set Paid Status</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Payment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Paid</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Name</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Program_Has_a_Price</name>
+        <label>Program Has a Price?</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Set_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Program_Session__r.Program__r.Price__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Paid_Status</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>ProgramEngagementName</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Program_Session__r.Name} + &quot; - &quot; + {!$Record.Child__r.FirstName} + &quot; &quot; + {!$Record.Child__r.LastName}</expression>
+    </formulas>
+    <interviewLabel>Program Engagement Before Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Program Engagement Before Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Program_Has_a_Price</targetReference>
+        </connector>
+        <object>Program_Engagement__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

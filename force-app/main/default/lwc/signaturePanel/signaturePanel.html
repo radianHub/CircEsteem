@@ -1,0 +1,22 @@
+<template>
+    <lightning-modal-body>
+        <div class="canvas-container">
+            <p>Please provide your signature below.</p>
+            <canvas id="sPanel" style="border:1px solid black;"></canvas>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div class="btn-container">
+            <lightning-button 
+                variant="brand-outline" 
+                label="Clear" 
+                onclick={clickClearBtn}>
+            </lightning-button>
+            <lightning-button 
+                variant="brand" 
+                label="Save" 
+                onclick={clickSaveBtn}>
+            </lightning-button>
+        </div>
+    </lightning-modal-footer>
+</template>

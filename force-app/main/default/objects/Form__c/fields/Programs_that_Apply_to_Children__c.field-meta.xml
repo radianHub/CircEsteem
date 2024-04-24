@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Programs_that_Apply_to_Children__c</fullName>
+    <externalId>false</externalId>
+    <label>Programs that Apply to Children</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>North (Uptown) - CYC (ages 8-18)</fullName>
+                <default>false</default>
+                <label>North (Uptown) - CYC (ages 8-18)</label>
+            </value>
+            <value>
+                <fullName>North (Uptown) - CYC - Minis (ages 5-7)</fullName>
+                <default>false</default>
+                <label>North (Uptown) - CYC - Minis (ages 5-7)</label>
+            </value>
+            <value>
+                <fullName>North (Uptown) - CYC - Tots (ages 3-5)</fullName>
+                <default>false</default>
+                <label>North (Uptown) - CYC - Tots (ages 3-5)</label>
+            </value>
+            <value>
+                <fullName>North (Uptown) - Performance Troupe - Club</fullName>
+                <default>false</default>
+                <label>North (Uptown) - Performance Troupe - Club</label>
+            </value>
+            <value>
+                <fullName>North (Uptown) - Performance Troupe - Team</fullName>
+                <default>false</default>
+                <label>North (Uptown) - Performance Troupe - Team</label>
+            </value>
+            <value>
+                <fullName>West (Humboldt Park) - CYC (ages 8-18)</fullName>
+                <default>false</default>
+                <label>West (Humboldt Park) - CYC (ages 8-18)</label>
+            </value>
+            <value>
+                <fullName>West (Humboldt Park) - CYC - Minis (ages 5-7)</fullName>
+                <default>false</default>
+                <label>West (Humboldt Park) - CYC - Minis (ages 5-7)</label>
+            </value>
+            <value>
+                <fullName>West (Humboldt Park) - Performance Troupe - Club</fullName>
+                <default>false</default>
+                <label>West (Humboldt Park) - Performance Troupe - Club</label>
+            </value>
+            <value>
+                <fullName>HomeWork &amp; CircusWork - Uptown</fullName>
+                <default>false</default>
+                <label>HomeWork &amp; CircusWork - Uptown</label>
+            </value>
+            <value>
+                <fullName>HomeWork &amp; CircusWork - Gage Park (Sawyer)</fullName>
+                <default>false</default>
+                <label>HomeWork &amp; CircusWork - Gage Park (Sawyer)</label>
+            </value>
+            <value>
+                <fullName>HomeWork &amp; CircusWork - Garfield Park (Hefferan)</fullName>
+                <default>false</default>
+                <label>HomeWork &amp; CircusWork - Garfield Park (Hefferan)</label>
+            </value>
+            <value>
+                <fullName>HomeWork &amp; CircusWork - Humboldt Park (Morton)</fullName>
+                <default>false</default>
+                <label>HomeWork &amp; CircusWork - Humboldt Park (Morton)</label>
+            </value>
+            <value>
+                <fullName>HomeWork &amp; CircusWork - North Lawndale (Kellman)</fullName>
+                <default>false</default>
+                <label>HomeWork &amp; CircusWork - North Lawndale (Kellman)</label>
+            </value>
+            <value>
+                <fullName>HomeWork &amp; CircusWork - Rogers Park (Jordan)</fullName>
+                <default>false</default>
+                <label>HomeWork &amp; CircusWork - Rogers Park (Jordan)</label>
+            </value>
+            <value>
+                <fullName>Summer Camp</fullName>
+                <default>false</default>
+                <label>Summer Camp</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

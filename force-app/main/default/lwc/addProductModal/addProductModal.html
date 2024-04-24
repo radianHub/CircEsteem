@@ -1,0 +1,71 @@
+<template>
+	<lightning-modal-header label={header}></lightning-modal-header>
+	<lightning-modal-body class="slds-is-relative">
+		<c-error-panel
+			errors={error}
+			type="banner"></c-error-panel>
+
+		<lightning-spinner
+			lwc:if={isLoading}
+			alternative-text="Loading"
+			size="medium"></lightning-spinner>
+
+		<div class="product">
+			<div class="image-wrapper">
+				<img
+					lwc:if={imageURL}
+					src={imageURL} />
+			</div>
+			<div class="details">
+				<!-- <lightning-formatted-number
+					class="slds-m-left--small"
+					value={price}
+					format-style="currency"
+					currency-code="USD"></lightning-formatted-number> -->
+				<lightning-input
+					type="number"
+					label="Quantity"
+					value={quantity}
+					onchange={handleChangeQuantity}></lightning-input>
+				<button
+					class="slds-button slds-button_brand slds-button_stretch"
+					onclick={handleClickAddToCart}>
+					Add to Cart
+				</button>
+
+				<lightning-accordion allow-multiple-sections-open>
+					<lightning-accordion-section
+						name="shipping"
+						label="Shipping">
+						<p>
+							All orders are processed within 1-2 business days. Orders are not shipped or delivered on
+							weekends or holidays. If we are experiencing a high volume of orders, shipments may be
+							delayed by a few days. Please allow 2-5 additional days in transit for delivery. If there
+							will be a significant delay in shipment of your order, we will contact you via email or
+							telephone.
+						</p>
+					</lightning-accordion-section>
+
+					<lightning-accordion-section
+						name="returns"
+						label="Returns">
+						<p>
+							You have 14 calendar days to return an item from the date you received it. Only items that
+							have been purchased directly from the CircEsteem shop can be returned via mail. Please
+							contact us via info@circesteem.org with your order number for a return label.
+						</p>
+					</lightning-accordion-section>
+
+					<lightning-accordion-section
+						name="exchanges"
+						label="Exchanges">
+						<p>
+							Are reviewed on a case-by-case basis. Please email info@circesteem.org with your order
+							number and description of your situation/request.
+						</p>
+					</lightning-accordion-section>
+				</lightning-accordion>
+			</div>
+		</div>
+	</lightning-modal-body>
+</template>
