@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Min_Max_Age_Requirement</fullName>
+    <active>true</active>
+    <description>The minimum age cannot be larger than the maximum age.</description>
+    <errorConditionFormula>AND(
+
+NOT(ISBLANK( Minimum_Age__c)),
+
+NOT(ISBLANK( Maximum_Age__c )),
+
+(Maximum_Age__c &lt;= Minimum_Age__c)
+
+)</errorConditionFormula>
+    <errorMessage>The maximum age cannot be less than the minimum age</errorMessage>
+</ValidationRule>
