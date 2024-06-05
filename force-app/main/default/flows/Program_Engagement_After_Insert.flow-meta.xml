@@ -215,15 +215,15 @@
             <targetReference>Add_Cart_Product</targetReference>
         </connector>
         <inputAssignments>
-            <field>Status__c</field>
+            <field>Contact__c</field>
             <value>
-                <stringValue>Open</stringValue>
+                <elementReference>Get_Parent_User.ContactId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>User__c</field>
+            <field>Status__c</field>
             <value>
-                <elementReference>Get_Parent_User.Id</elementReference>
+                <stringValue>Open</stringValue>
             </value>
         </inputAssignments>
         <object>Cart__c</object>
@@ -389,10 +389,10 @@
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>User__c</field>
+            <field>Contact__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Parent_User.Id</elementReference>
+                <elementReference>Get_Parent_User.ContactId</elementReference>
             </value>
         </filters>
         <filters>
@@ -438,7 +438,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>CartId</name>
         <dataType>String</dataType>
