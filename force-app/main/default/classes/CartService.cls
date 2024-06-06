@@ -1,11 +1,15 @@
 public with sharing class CartService {
+
 	public static List<Cart__c> getUserCart(Id userId) {
 		try {
+			Id uCon = ContactService.getIdFromUser(userId);
 			return [
 				SELECT Id, Total__c
 				FROM Cart__c
-				WHERE User__c = :userId AND Status__c = 'Open'
-			];
+				WHERE Contact__c = :uCon AND Status__c = 'Open'
+			];	
+		} catch (QueryException e) {
+			throw new AuraHandledException('No contact associated with the current user.');
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
 		}
@@ -13,10 +17,14 @@ public with sharing class CartService {
 
 	public static Cart__c createUserCart(Id userId) {
 		try {
-			Cart__c cart = new Cart__c(User__c = userId);
+			Cart__c cart = new Cart__c(
+				Contact__c = ContactService.getIdFromUser(userId)
+			);
 			insert cart;
 
 			return getUserCart(userId)[0];
+		} catch (QueryException e) {
+			throw new AuraHandledException('No contact associated with the current user.');
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
 		}
