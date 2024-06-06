@@ -21,4 +21,8 @@ public with sharing class ContactService {
 
         return inactiveForm;
     }
+
+    public static Id getIdFromUser(String userId) {
+        return [SELECT ContactId FROM User WHERE Id = :userId].ContactId; 
+    }
 }
