@@ -4,8 +4,8 @@
     <assignments>
         <name>Add_Program_Engagement_to_List</name>
         <label>Add Program Engagement to List</label>
-        <locationX>2514</locationX>
-        <locationY>1772</locationY>
+        <locationX>2998</locationX>
+        <locationY>1988</locationY>
         <assignmentItems>
             <assignToReference>ProgramEngagementsToInsert</assignToReference>
             <operator>Add</operator>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Assign_Number_of_Children</name>
         <label>Assign Number of Children</label>
-        <locationX>1931</locationX>
+        <locationX>2294</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>NumberofChildren</assignToReference>
@@ -87,8 +87,8 @@
     <assignments>
         <name>New_Program_Engagement_Info</name>
         <label>New Program Engagement Info</label>
-        <locationX>2514</locationX>
-        <locationY>1664</locationY>
+        <locationX>2998</locationX>
+        <locationY>1880</locationY>
         <assignmentItems>
             <assignToReference>NewProgramEngagement.Child__c</assignToReference>
             <operator>Assign</operator>
@@ -110,6 +110,20 @@
                 <elementReference>$User.Account_Id__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewProgramEngagement.Payment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Paid</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewProgramEngagement.CircEsteem_Program__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Program_Session.Program__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Add_Program_Engagement_to_List</targetReference>
         </connector>
@@ -117,8 +131,8 @@
     <decisions>
         <name>Age_Requirements</name>
         <label>Are there Age Requirements?</label>
-        <locationX>2514</locationX>
-        <locationY>1106</locationY>
+        <locationX>2998</locationX>
+        <locationY>1322</locationY>
         <defaultConnector>
             <targetReference>New_Program_Engagement_Info</targetReference>
         </defaultConnector>
@@ -225,8 +239,8 @@
     <decisions>
         <name>Child_in_Selected_Group</name>
         <label>Child in Selected Group?</label>
-        <locationX>2734</locationX>
-        <locationY>998</locationY>
+        <locationX>3460</locationX>
+        <locationY>1106</locationY>
         <defaultConnector>
             <targetReference>Loop_through_Household_Children</targetReference>
         </defaultConnector>
@@ -242,7 +256,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Age_Requirements</targetReference>
+                <targetReference>Is_Child_Already_Enrolled</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -282,8 +296,8 @@
     <decisions>
         <name>Does_Child_Meet_Requirements</name>
         <label>Does Child Meet Requirements?</label>
-        <locationX>2250</locationX>
-        <locationY>1214</locationY>
+        <locationX>2734</locationX>
+        <locationY>1430</locationY>
         <defaultConnector>
             <targetReference>Does_Not_Meet_Age</targetReference>
         </defaultConnector>
@@ -314,7 +328,7 @@
     <decisions>
         <name>Has_Household_Children</name>
         <label>Has Household Children?</label>
-        <locationX>1931</locationX>
+        <locationX>2294</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>NoChildrenScreen</targetReference>
@@ -339,8 +353,8 @@
     <decisions>
         <name>Have_Enrollments_Been_Created</name>
         <label>Have Enrollments Been Created?</label>
-        <locationX>2074</locationX>
-        <locationY>2156</locationY>
+        <locationX>2558</locationX>
+        <locationY>2456</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Collection_Variable_is_Not_Empty</name>
@@ -361,7 +375,7 @@
     <decisions>
         <name>Is_Application_Required</name>
         <label>Is Application Required?</label>
-        <locationX>1128</locationX>
+        <locationX>1370</locationX>
         <locationY>782</locationY>
         <defaultConnector>
             <targetReference>Loop_through_Household_Children</targetReference>
@@ -381,6 +395,31 @@
                 <targetReference>Get_Application_Record_Type</targetReference>
             </connector>
             <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Child_Already_Enrolled</name>
+        <label>Is Child Already Enrolled?</label>
+        <locationX>3218</locationX>
+        <locationY>1214</locationY>
+        <defaultConnector>
+            <targetReference>Already_Enrolled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Existing_Enrollment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>tVarExistingProgEngagementId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Age_Requirements</targetReference>
+            </connector>
+            <label>No Existing Enrollment</label>
         </rules>
     </decisions>
     <decisions>
@@ -458,12 +497,12 @@
     <loops>
         <name>Loop_through_Household_Children</name>
         <label>Loop through Household Children</label>
-        <locationX>2074</locationX>
+        <locationX>2558</locationX>
         <locationY>890</locationY>
         <collectionReference>Get_Household_Children</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Child_in_Selected_Group</targetReference>
+            <targetReference>Existing_Program_Engagement</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Insert_Program_Engagements</targetReference>
@@ -505,8 +544,8 @@
     <recordCreates>
         <name>Insert_Program_Engagements</name>
         <label>Insert Program Engagements</label>
-        <locationX>2074</locationX>
-        <locationY>2048</locationY>
+        <locationX>2558</locationX>
+        <locationY>2348</locationY>
         <connector>
             <targetReference>Have_Enrollments_Been_Created</targetReference>
         </connector>
@@ -515,6 +554,36 @@
         </faultConnector>
         <inputReference>ProgramEngagementsToInsert</inputReference>
     </recordCreates>
+    <recordLookups>
+        <name>Existing_Program_Engagement</name>
+        <label>Existing Program Engagement</label>
+        <locationX>3460</locationX>
+        <locationY>998</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Child_in_Selected_Group</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Child__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Loop_through_Household_Children.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Program_Session__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Program_Session.Id</elementReference>
+            </value>
+        </filters>
+        <object>Program_Engagement__c</object>
+        <outputAssignments>
+            <assignToReference>tVarExistingProgEngagementId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
     <recordLookups>
         <name>Get_Application_Record_Type</name>
         <label>Get Application Record Type</label>
@@ -546,7 +615,7 @@
     <recordLookups>
         <name>Get_Child_Record_Type</name>
         <label>Get Child Record Type</label>
-        <locationX>1931</locationX>
+        <locationX>2294</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -574,7 +643,7 @@
     <recordLookups>
         <name>Get_Household_Children</name>
         <label>Get Household Children</label>
-        <locationX>1931</locationX>
+        <locationX>2294</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -602,7 +671,7 @@
     <recordLookups>
         <name>Get_Program_Session</name>
         <label>Get Program Session</label>
-        <locationX>1128</locationX>
+        <locationX>1370</locationX>
         <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -621,6 +690,26 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Already_Enrolled</name>
+        <label>Already Enrolled</label>
+        <locationX>3438</locationX>
+        <locationY>1322</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>ChildInformation</targetReference>
+        </connector>
+        <fields>
+            <name>Already_Enrolled_Msg</name>
+            <fieldText>&lt;p&gt;We&apos;re sorry, {!Loop_through_Household_Children.Name}, has already been enrolled in this class.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you&apos;d like to choose another child to enroll, click next to enroll them.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <screens>
         <name>application_submitted</name>
         <label>application submitted</label>
@@ -660,7 +749,7 @@
     <screens>
         <name>ChildInformation</name>
         <label>ChildInformation</label>
-        <locationX>1128</locationX>
+        <locationX>1370</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -679,7 +768,6 @@
             <dataType>String</dataType>
             <fieldText>Children</fieldText>
             <fieldType>MultiSelectCheckboxes</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -688,8 +776,8 @@
     <screens>
         <name>Does_Not_Meet_Age</name>
         <label>Does Not Meet Age</label>
-        <locationX>2338</locationX>
-        <locationY>1322</locationY>
+        <locationX>2822</locationX>
+        <locationY>1538</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -708,8 +796,8 @@
     <screens>
         <name>Error</name>
         <label>Error</label>
-        <locationX>2470</locationX>
-        <locationY>2156</locationY>
+        <locationX>2954</locationX>
+        <locationY>2456</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -724,7 +812,7 @@
     <screens>
         <name>NoChildrenScreen</name>
         <label>NoChildrenScreen</label>
-        <locationX>2734</locationX>
+        <locationX>3218</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -740,8 +828,8 @@
     <screens>
         <name>Success</name>
         <label>Success</label>
-        <locationX>1942</locationX>
-        <locationY>2264</locationY>
+        <locationX>2426</locationX>
+        <locationY>2564</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -754,13 +842,13 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>1805</locationX>
+        <locationX>2168</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Child_Record_Type</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>NewProgramApplication</name>
         <dataType>SObject</dataType>
@@ -806,6 +894,13 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>tVarExistingProgEngagementId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
 </Flow>

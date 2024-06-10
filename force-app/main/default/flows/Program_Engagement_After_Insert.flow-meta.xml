@@ -5,7 +5,7 @@
         <name>Assign_Cart</name>
         <label>Assign Cart</label>
         <locationX>50</locationX>
-        <locationY>1895</locationY>
+        <locationY>2003</locationY>
         <assignmentItems>
             <assignToReference>CartId</assignToReference>
             <operator>Assign</operator>
@@ -80,7 +80,7 @@
         <name>Has_Open_Cart</name>
         <label>Has Open Cart?</label>
         <locationX>182</locationX>
-        <locationY>1787</locationY>
+        <locationY>1895</locationY>
         <defaultConnector>
             <targetReference>Create_Cart</targetReference>
         </defaultConnector>
@@ -171,7 +171,7 @@
         <name>Add_Cart_Product</name>
         <label>Add Cart Product</label>
         <locationX>182</locationX>
-        <locationY>2087</locationY>
+        <locationY>2195</locationY>
         <inputAssignments>
             <field>Cart__c</field>
             <value>
@@ -209,7 +209,7 @@
         <name>Create_Cart</name>
         <label>Create Cart</label>
         <locationX>314</locationX>
-        <locationY>1895</locationY>
+        <locationY>2003</locationY>
         <assignRecordIdToReference>CartId</assignRecordIdToReference>
         <connector>
             <targetReference>Add_Cart_Product</targetReference>
@@ -218,6 +218,12 @@
             <field>Contact__c</field>
             <value>
                 <elementReference>Get_Parent_User.ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>tVarProgramCartRtId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -300,6 +306,36 @@
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Station__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Cart_Record_Type</name>
+        <label>Get Cart Record Type</label>
+        <locationX>182</locationX>
+        <locationY>1787</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Has_Open_Cart</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cart__c</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Program</stringValue>
+            </value>
+        </filters>
+        <object>RecordType</object>
+        <outputAssignments>
+            <assignToReference>tVarProgramCartRtId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
     </recordLookups>
     <recordLookups>
         <name>Get_Financial_Aid_Form_Record_Type</name>
@@ -385,7 +421,7 @@
         <locationY>1679</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Has_Open_Cart</targetReference>
+            <targetReference>Get_Cart_Record_Type</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -438,7 +474,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>CartId</name>
         <dataType>String</dataType>
@@ -461,5 +497,12 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Station__c</objectType>
+    </variables>
+    <variables>
+        <name>tVarProgramCartRtId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>

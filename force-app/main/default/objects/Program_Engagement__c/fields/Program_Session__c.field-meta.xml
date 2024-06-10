@@ -4,6 +4,15 @@
     <deleteConstraint>Restrict</deleteConstraint>
     <externalId>false</externalId>
     <label>Program Session</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Program_Session__c.Program__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.CircEsteem_Program__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>Program_Session__c</referenceTo>
     <relationshipLabel>Program Engagements</relationshipLabel>
     <relationshipName>Program_Engagements</relationshipName>

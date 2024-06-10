@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Status__c</fullName>
+    <fullName>Recurrence__c</fullName>
     <externalId>false</externalId>
-    <label>Status</label>
+    <label>Recurrence</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
@@ -12,24 +12,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Open</fullName>
-                <default>true</default>
-                <label>Open</label>
+                <fullName>month</fullName>
+                <default>false</default>
+                <label>month</label>
             </value>
             <value>
-                <fullName>Paid</fullName>
+                <fullName>week</fullName>
                 <default>false</default>
-                <label>Paid</label>
-            </value>
-            <value>
-                <fullName>Checkout Initiated</fullName>
-                <default>false</default>
-                <label>Checkout Initiated</label>
-            </value>
-            <value>
-                <fullName>Payment Plan</fullName>
-                <default>false</default>
-                <label>Payment Plan</label>
+                <label>week</label>
             </value>
         </valueSetDefinition>
     </valueSet>

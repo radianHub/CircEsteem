@@ -16,9 +16,4 @@ public with sharing class ViewCartController {
 			throw new AuraHandledException(e.getMessage());
 		}
 	}
-
-	@AuraEnabled(cacheable=true)
-	public static Stripe_Bearer_Token__c getSettings() {
-		return Stripe_Bearer_Token__c.getOrgDefaults();
-	}
 }

@@ -39,7 +39,7 @@ public class StripeResponse{
 		public cls_customer_details customer_details;
 		public cls_customer_email customer_email;
 		public Integer expires_at;	//1706997377
-		public cls_invoice invoice;
+		public String invoice;
 		public cls_invoice_creation invoice_creation;
 		public boolean livemode;
 		public cls_locale locale;
@@ -61,7 +61,7 @@ public class StripeResponse{
 		public cls_shipping_rate shipping_rate;
 		public String status;	//complete
 		public cls_submit_type submit_type;
-		public cls_subscription subscription;
+		public String subscription;
 		public String success_url;	//https://www.radianhub.com
 		public cls_total_details total_details;
 		public String ui_mode;	//hosted
@@ -138,8 +138,6 @@ public class StripeResponse{
 	}
 	public class cls_customer_email {
 	}
-	public class cls_invoice {
-	}
 	public class cls_invoice_creation {
 		public boolean enabled;
 		public cls_invoice_data invoice_data;
@@ -162,6 +160,7 @@ public class StripeResponse{
 	public class cls_issuer {
 	}
 	public class cls_metadata {
+		public String subscriptionInfo;
 	}
 	public class cls_rendering_options {
 	}
@@ -196,8 +195,6 @@ public class StripeResponse{
 	}
 	public class cls_submit_type {
 	}
-	public class cls_subscription {
-	}
 	public class cls_total_details {
 		public Integer amount_discount;	//0
 		public Integer amount_shipping;	//0
@@ -213,6 +210,16 @@ public class StripeResponse{
 	}
 	public class cls_idempotency_key {
 	}
+
+	public class cls_subscriptionInfo {
+		public String frequency;
+		public Integer length;
+
+		public cls_subscriptionInfo parse(String json) {
+			return (cls_subscriptionInfo) System.JSON.deserialize(json, cls_subscriptionInfo.class);
+		}
+	}
+
 	public static StripeResponse parse(String json){
 		return (StripeResponse) System.JSON.deserialize(json, StripeResponse.class);
 	}

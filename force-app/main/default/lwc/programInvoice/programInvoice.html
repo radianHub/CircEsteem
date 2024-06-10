@@ -1,0 +1,62 @@
+<template>
+	<c-error-panel
+		errors={error}
+		type="banner">
+	</c-error-panel>
+	<div
+		lwc:if={isLoading}
+		style="height: 200px; position: relative">
+		<lightning-spinner
+			alternative-text="Loading"
+			size="medium"
+			variant="brand">
+		</lightning-spinner>
+	</div>
+	<div lwc:else>
+		<div class="container">
+			<template
+				lwc:if={cartProducts}
+				for:each={cartProducts}
+				for:item="product">
+				<div
+					key={product.Id}
+					class="products">
+					<div>{product.Name}</div>
+					<lightning-formatted-number
+						class="slds-m-left--small"
+						value={product.Price__c}
+						format-style="currency"
+						currency-code="USD">
+					</lightning-formatted-number>
+				</div>
+			</template>
+			<div class="products total">
+				<div>Total</div>
+				<div>{total}</div>
+			</div>
+			<lightning-combobox
+				class="rest"
+				name="payFrequency"
+				label="Payment Frequency"
+				value={frequency}
+				options={paymentFrequency}
+				required
+				onchange={selectFrequencyOption}>
+			</lightning-combobox>
+			<div class="rest btns">
+				<lightning-button
+					variant="brand"
+					name="pay"
+					label="Pay"
+					onclick={clickPayBtn}
+                    disabled={lockBtns}>
+				</lightning-button>
+			</div>
+			<c-payment-processor
+				cart-data={cart}
+				payment-type={frequency}
+				onsenttocheckout={sentToCheckout}>
+			</c-payment-processor>
+		</div>
+	</div>
+</template>

@@ -10,13 +10,26 @@ global without sharing class StripeCallbackClass {
 		StripeResponse stripeResponse = (StripeResponse) JSON.deserialize(formattedJSONString, StripeResponse.class);
 
 		Cart__c cart = [
-			SELECT Id, Status__c
+			SELECT Id, Status__c, Stripe_Subscription_Id__c, Recurrence__c, Length__c
 			FROM Cart__c
 			WHERE Stripe_Transaction_Id__c = :stripeResponse.data.objectz.id
 		];
+		
+		if (stripeResponse.data.objectz.mode == 'subscription') {
+			StripeResponse.cls_subscriptionInfo subInfo = new StripeResponse.cls_subscriptionInfo().parse(stripeResponse.data.objectz.metadata.subscriptionInfo);
+			
+			cart.Status__c = 'Payment Plan';
+			
+			// TODO: MAKE CALL TO GET INVOICE DATA
 
-		cart.Status__c = 'Paid';
 
-		update cart;
+			// TODO: MAKE CALL TO CREATE SUBSCRIPTION SCHEDULE
+
+			
+		} else { 
+			cart.Status__c = 'Paid';
+			update cart;
+		}
+
 	}
 }

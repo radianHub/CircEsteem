@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Program</fullName>
+    <active>true</active>
+    <label>Program</label>
+    <picklistValues>
+        <picklist>Recurrence__c</picklist>
+        <values>
+            <fullName>month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>week</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Checkout Initiated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Plan</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
