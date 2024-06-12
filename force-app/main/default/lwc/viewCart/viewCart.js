@@ -180,6 +180,11 @@ export default class ViewCart extends LightningModal {
 		processor.sendPayment();
 	}
 
+	// *
+	senToCheckout(e) {
+		this.loadingData = !e.detail.sent;
+	}
+
 	// # HELPERS
 
 	// # GETTERS
