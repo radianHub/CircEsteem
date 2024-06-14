@@ -33,9 +33,22 @@
 						data-id={cartProduct.Id}></lightning-button-icon>
 				</div>
 			</template>
+			<template
+				lwc:if={credits}
+				for:each={credits}
+				for:item="credit">
+				<div
+					key={credit.Id}>
+					<div class="creditLine">
+						<div>Apply my credit of ${credit.Credits_Available__c}</div>
+						<lightning-input type="checkbox-button" name={credit.Type__c} data-id={credit.Id} value={credit.Credits_Available__c} onchange={clickCreditBox}></lightning-input>
+					</div>
+				</div>
+			</template>
 		</div>
 		<c-payment-processor
 			cart-data={cart}
+			credits={appliedCredits}
 			payment-type="In Full"
 			onsenttocheckout={sentToCheckout}>
 		</c-payment-processor>

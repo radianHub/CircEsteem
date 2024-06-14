@@ -19,12 +19,12 @@ public with sharing class ProgramInvoiceController {
     }
 
     @AuraEnabled(cacheable=true)
-    public static Program__c getProgram(String sessionId) {
-        try {
-            return ProgramService.getProgramFromSession(sessionId);
-        }
-        catch (Exception ex) {
-            throw new AuraHandledException(ex.getMessage());
-        }
-    }
+	public static List<Credit__c> getCredits(Id contactId) {
+		try {
+			return CreditService.getCredits(contactId);
+		}
+		catch (Exception ex) {
+			throw new AuraHandledException(ex.getMessage());
+		}	
+	}
 }

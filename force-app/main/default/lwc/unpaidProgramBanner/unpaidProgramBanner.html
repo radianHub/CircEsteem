@@ -1,0 +1,11 @@
+<template>
+    <div if:true={displayBanner}>
+        <template
+            for:each={cart}
+            for:item=cart>
+            <div key={cart.Id} class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                You have an unpaid program enrollment waiting &nbsp; <a href={cart.uri}>here</a>.
+            </div> 
+        </template>
+    </div>
+</template>

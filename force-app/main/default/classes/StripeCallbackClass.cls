@@ -21,7 +21,7 @@ global without sharing class StripeCallbackClass {
 		// * CREATE INVOICE RECORD AGAINST CART
 		Invoice__c inv = new Invoice__c(
 			Cart__c = cart.Id,
-			Amount__c = stripeResponse.data.objectz.amount_total
+			Amount__c = stripeResponse.data.objectz.amount_total / 100
 		);
 
 		// * PROCESS ADDITIONAL DATA IF CHECKOUT IS A SUBSCRIPTION

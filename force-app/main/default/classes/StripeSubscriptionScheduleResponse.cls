@@ -22,17 +22,17 @@ public class StripeSubscriptionScheduleResponse{
 	public String status;	//active
 	public String subscription;	//sub_1PQf13CsC2AzqBfw58IgnwFB
 	public cls_test_clock test_clock;
-	class cls_application {
+	public class cls_application {
 	}
-	class cls_canceled_at {
+	public class cls_canceled_at {
 	}
-	class cls_completed_at {
+	public class cls_completed_at {
 	}
 	public class cls_current_phase {
 		public Integer end_date;	//1718756776
 		public Integer start_date;	//1718151976
 	}
-	class cls_default_settings {
+	public class cls_default_settings {
 		public cls_application_fee_percent application_fee_percent;
 		public cls_automatic_tax automatic_tax;
 		public String billing_cycle_anchor;	//automatic
@@ -45,35 +45,36 @@ public class StripeSubscriptionScheduleResponse{
 		public cls_on_behalf_of on_behalf_of;
 		public cls_transfer_data transfer_data;
 	}
-	class cls_application_fee_percent {
+	public class cls_application_fee_percent {
 	}
-	class cls_automatic_tax {
+	public class cls_automatic_tax {
 		public boolean enabled;
 		public cls_liability liability;
 	}
-	class cls_liability {
+	public class cls_liability {
 	}
-	class cls_billing_thresholds {
+	public class cls_billing_thresholds {
 	}
-	class cls_default_source {
+	public class cls_default_source {
 	}
-	class cls_description {
+	public class cls_description {
 	}
-	class cls_invoice_settings {
+	public class cls_invoice_settings {
 	}
-	class cls_account_tax_ids {
+	public class cls_account_tax_ids {
 	}
-	class cls_days_until_due {
+	public class cls_days_until_due {
 	}
-	class cls_issuer {
+	public class cls_issuer {
 		public String type;	//self
 	}
-	class cls_on_behalf_of {
+	public class cls_on_behalf_of {
 	}
-	class cls_transfer_data {
+	public class cls_transfer_data {
 	}
-	class cls_metadata {
+	public class cls_metadata {
 	}
+
 	public class cls_phases {
 		public cls_add_invoice_items[] add_invoice_items;
 		public cls_application_fee_percent application_fee_percent;
@@ -97,19 +98,19 @@ public class StripeSubscriptionScheduleResponse{
 		public cls_transfer_data transfer_data;
 		public cls_trial_end trial_end;
 	}
-	class cls_add_invoice_items {
+	public class cls_add_invoice_items {
 	}
-	class cls_billing_cycle_anchor {
+	public class cls_billing_cycle_anchor {
 	}
-	class cls_collection_method {
+	public class cls_collection_method {
 	}
-	class cls_coupon {
+	public class cls_coupon {
 	}
-	class cls_default_payment_method {
+	public class cls_default_payment_method {
 	}
-	class cls_default_tax_rates {
+	public class cls_default_tax_rates {
 	}
-	class cls_discounts {
+	public class cls_discounts {
 	}
 	public class cls_items {
 		public cls_billing_thresholds billing_thresholds;
@@ -120,16 +121,23 @@ public class StripeSubscriptionScheduleResponse{
 		public Integer quantity;	//1
 		public cls_tax_rates[] tax_rates;
 	}
-	class cls_tax_rates {
+	public class cls_tax_rates {
 	}
-	class cls_trial_end {
+	public class cls_trial_end {
 	}
-	class cls_released_at {
+	public class cls_released_at {
 	}
-	class cls_released_subscription {
+	public class cls_released_subscription {
 	}
-	class cls_renewal_interval {
+	public class cls_renewal_interval {
 	}
-	class cls_test_clock {
+	public class cls_test_clock {
+	}
+
+	public static StripeSubscriptionScheduleResponse parse(String json) {
+		return (StripeSubscriptionScheduleResponse) System.JSON.deserialize(
+            json,
+            StripeSubscriptionScheduleResponse.class
+        );
 	}
 }

@@ -3,66 +3,67 @@
 //
 
 public class StripeResponse{
-	public String id;	//evt_1OfUiuJd1N4rpXZivk8Azvrh
-	public String objecta;	//event
-	public String api_version;	//2020-03-02
-	public Integer created;	//1706910996
+	public String id;	//evt_1PRLvmCsC2AzqBfwU4Ll0MfK
+	public String objectz;	//event
+	public String api_version;	//2024-04-10
+	public Integer created;	//1718316942
 	public cls_data data;
 	public boolean livemode;
-	public Integer pending_webhooks;	//1
+	public Integer pending_webhooks;	//3
 	public cls_request request;
 	public String type;	//checkout.session.completed
 	public class cls_data {
 		public cls_object objectz;
 	}
 	public class cls_object {
-		public String id;	//cs_test_a1tSPvITdXXrCGDyLkcVJZ7kGjS7O6argyHS4qoK5R49v4GxzpDpMBbj5o
+		public String id;	//cs_test_b1d0kUlu2bmjRy6XTr1DRnLFOgCfoMQLStgIDf5hqPtqEN3mPIt7V9PyER
 		public String objectz;	//checkout.session
 		public cls_after_expiration after_expiration;
 		public cls_allow_promotion_codes allow_promotion_codes;
-		public Integer amount_subtotal;	//1200
-		public Integer amount_total;	//1200
+		public Integer amount_subtotal;	//70000
+		public Integer amount_total;	//70000
 		public cls_automatic_tax automatic_tax;
 		public cls_billing_address_collection billing_address_collection;
-		public String cancel_url;	//https://www.radianhub.com
+		public String cancel_url;	//https://circesteem--rhdev.sandbox.my.site.com/s/shop
 		public cls_client_reference_id client_reference_id;
 		public cls_client_secret client_secret;
 		public cls_consent consent;
 		public cls_consent_collection consent_collection;
-		public Integer created;	//1706910977
+		public Integer created;	//1718316937
 		public String currencyz;	//usd
 		public cls_currency_conversion currency_conversion;
 		public cls_custom_fields[] custom_fields;
 		public cls_custom_text custom_text;
-		public String customer;	//cus_PUTgDFoXuV28Xu
-		public String customer_creation;	//always
+		public String customer;
+		public String customer_creation;	//if_required
 		public cls_customer_details customer_details;
 		public cls_customer_email customer_email;
-		public Integer expires_at;	//1706997377
+		public Integer expires_at;	//1718403337
 		public String invoice;
 		public cls_invoice_creation invoice_creation;
 		public boolean livemode;
 		public cls_locale locale;
 		public cls_metadata metadata;
 		public String mode;	//payment
-		public String payment_intent;	//pi_3OfUibJd1N4rpXZi0HOqfzUF
+		public String payment_intent;	//pi_3PRLvlCsC2AzqBfw1kITzjtm
 		public cls_payment_link payment_link;
-		public String payment_method_collection;	//always
+		public String payment_method_collection;	//if_required
 		public cls_payment_method_configuration_details payment_method_configuration_details;
 		public cls_payment_method_options payment_method_options;
 		public String[] payment_method_types;
 		public String payment_status;	//paid
 		public cls_phone_number_collection phone_number_collection;
 		public cls_recovered_from recovered_from;
+		public cls_saved_payment_method_options saved_payment_method_options;
 		public cls_setup_intent setup_intent;
-		public cls_shipping shipping;
 		public cls_shipping_address_collection shipping_address_collection;
+		public cls_shipping_cost shipping_cost;
+		public cls_shipping_details shipping_details;
 		public cls_shipping_options[] shipping_options;
-		public cls_shipping_rate shipping_rate;
 		public String status;	//complete
 		public cls_submit_type submit_type;
 		public String subscription;
-		public String success_url;	//https://www.radianhub.com
+		public String success_url;	//https://circesteem--rhdev.sandbox.my.site.com/s/shop
 		public cls_total_details total_details;
 		public String ui_mode;	//hosted
 		public cls_url url;
@@ -110,27 +111,21 @@ public class StripeResponse{
 	}
 	public class cls_customer_details {
 		public cls_address address;
-		public String email;	//adam.podraza@radianhub.com
-		public String name;	//Adam Podraza
+		public String email;	//zachary.csotya@radianhub.com
+		public String name;	//Zac Test
 		public cls_phone phone;
 		public String tax_exempt;	//none
 		public cls_tax_ids[] tax_ids;
 	}
 	public class cls_address {
-		public cls_city city;
+		public String city;	//San Francisco
 		public String country;	//US
-		public cls_line1 line1;
+		public String line1;	//123 Market Street
 		public cls_line2 line2;
-		public String postal_code;	//46321
-		public cls_state state;
-	}
-	public class cls_city {
-	}
-	public class cls_line1 {
+		public String postal_code;	//94105
+		public String state;	//CA
 	}
 	public class cls_line2 {
-	}
-	public class cls_state {
 	}
 	public class cls_phone {
 	}
@@ -159,9 +154,6 @@ public class StripeResponse{
 	}
 	public class cls_issuer {
 	}
-	public class cls_metadata {
-		public String subscriptionInfo;
-	}
 	public class cls_rendering_options {
 	}
 	public class cls_locale {
@@ -171,27 +163,27 @@ public class StripeResponse{
 	public class cls_payment_method_configuration_details {
 	}
 	public class cls_payment_method_options {
+		public cls_card card;
 	}
-	public class cls_payment_method_types {
-		public String card;	//c
-		public String one;	//a
-		public String two;	//r
-		public String three;	//d
+	public class cls_card {
+		public String request_three_d_secure;	//automatic
 	}
 	public class cls_phone_number_collection {
 		public boolean enabled;
 	}
 	public class cls_recovered_from {
 	}
-	public class cls_setup_intent {
+	public class cls_saved_payment_method_options {
 	}
-	public class cls_shipping {
+	public class cls_setup_intent {
 	}
 	public class cls_shipping_address_collection {
 	}
-	public class cls_shipping_options {
+	public class cls_shipping_cost {
 	}
-	public class cls_shipping_rate {
+	public class cls_shipping_details {
+	}
+	public class cls_shipping_options {
 	}
 	public class cls_submit_type {
 	}
@@ -210,6 +202,9 @@ public class StripeResponse{
 	}
 	public class cls_idempotency_key {
 	}
+	public class cls_metadata {
+		public String subscriptionInfo;
+	}
 
 	public class cls_subscriptionInfo {
 		public String frequency;
@@ -219,10 +214,4 @@ public class StripeResponse{
 			return (cls_subscriptionInfo) System.JSON.deserialize(json, cls_subscriptionInfo.class);
 		}
 	}
-
-	public static StripeResponse parse(String json){
-		return (StripeResponse) System.JSON.deserialize(json, StripeResponse.class);
-	}
-
-	
 }

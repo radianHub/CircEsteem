@@ -16,4 +16,14 @@ public with sharing class ViewCartController {
 			throw new AuraHandledException(e.getMessage());
 		}
 	}
+
+	@AuraEnabled(cacheable=true)
+	public static List<Credit__c> getCredits(Id contactId) {
+		try {
+			return CreditService.getCredits(contactId);
+		}
+		catch (Exception ex) {
+			throw new AuraHandledException(ex.getMessage());
+		}	
+	}
 }

@@ -3,15 +3,26 @@
 //
 
 public class StripeInvoiceResponse{
-	public cls_objectz objectz;
-	public class cls_objectz {
-		public String id;	//in_1PQGpyCsC2AzqBfwsfsSkg5r
+	public String id;	//evt_1PRMrGCsC2AzqBfwn2lK6uLt
+	public String objectz;	//event
+	public String api_version;	//2024-04-10
+	public Integer created;	//1718320505
+	public cls_data data;
+	public boolean livemode;
+	public Integer pending_webhooks;	//1
+	public cls_request request;
+	public String type;	//invoice.payment_succeeded
+	public class cls_data {
+		public cls_object objectz;
+	}
+	public class cls_object {
+		public String id;	//in_1PRMrDCsC2AzqBfwcpw4MWaz
 		public String objectz;	//invoice
 		public String account_country;	//US
 		public String account_name;	//Zachary Csotya
 		public cls_account_tax_ids account_tax_ids;
-		public Integer amount_due;	//6364
-		public Integer amount_paid;	//6364
+		public Integer amount_due;	//1000
+		public Integer amount_paid;	//1000
 		public Integer amount_remaining;	//0
 		public Integer amount_shipping;	//0
 		public cls_application application;
@@ -21,12 +32,12 @@ public class StripeInvoiceResponse{
 		public boolean auto_advance;
 		public cls_automatic_tax automatic_tax;
 		public String billing_reason;	//subscription_create
-		public String charge;	//ch_3PQGpyCsC2AzqBfw1ed7nOcG
+		public String charge;	//ch_3PRMrDCsC2AzqBfw0R3NPWJq
 		public String collection_method;	//charge_automatically
-		public Integer created;	//1718059034
+		public Integer created;	//1718320503
 		public String currencyz;	//usd
 		public cls_custom_fields custom_fields;
-		public String customer;	//cus_QGoShX5KKHPJPV
+		public String customer;	//cus_QHwk7CL9X6lkuh
 		public cls_customer_address customer_address;
 		public String customer_email;	//zachary.csotya@radianhub.com
 		public String customer_name;	//Zac Test
@@ -41,12 +52,12 @@ public class StripeInvoiceResponse{
 		public cls_discount discount;
 		public cls_discounts[] discounts;
 		public cls_due_date due_date;
-		public Integer effective_at;	//1718059034
+		public Integer effective_at;	//1718320503
 		public Integer ending_balance;	//0
 		public cls_footer footer;
 		public cls_from_invoice from_invoice;
-		public String hosted_invoice_url;	//https://invoice.stripe.com/i/acct_1P9aDTCsC2AzqBfw/test_YWNjdF8xUDlhRFRDc0MyQXpxQmZ3LF9RR29TNG5qdnJCanhLb01NM2JPd3ZudzdRbDk5d2U0LDEwODU5OTgzNw0200tk452RQM?s=ap
-		public String invoice_pdf;	//https://pay.stripe.com/invoice/acct_1P9aDTCsC2AzqBfw/test_YWNjdF8xUDlhRFRDc0MyQXpxQmZ3LF9RR29TNG5qdnJCanhLb01NM2JPd3ZudzdRbDk5d2U0LDEwODU5OTgzNw0200tk452RQM/pdf?s=ap
+		public String hosted_invoice_url;	//https://invoice.stripe.com/i/acct_1P9aDTCsC2AzqBfw/test_YWNjdF8xUDlhRFRDc0MyQXpxQmZ3LF9RSHdrYk9TazRsZGh5YUZQQ204M2QxdTVaZUNuQmhDLDEwODg2MTMwNg02007Xa7vqYL?s=ap
+		public String invoice_pdf;	//https://pay.stripe.com/invoice/acct_1P9aDTCsC2AzqBfw/test_YWNjdF8xUDlhRFRDc0MyQXpxQmZ3LF9RSHdrYk9TazRsZGh5YUZQQ204M2QxdTVaZUNuQmhDLDEwODg2MTMwNg02007Xa7vqYL/pdf?s=ap
 		public cls_issuer issuer;
 		public cls_last_finalization_error last_finalization_error;
 		public cls_latest_revision latest_revision;
@@ -54,14 +65,14 @@ public class StripeInvoiceResponse{
 		public boolean livemode;
 		public cls_metadata metadata;
 		public cls_next_payment_attempt next_payment_attempt;
-		public String numberz;	//D4265F70-0001
+		public String numberz;	//46CBF54A-0001
 		public cls_on_behalf_of on_behalf_of;
 		public boolean paid;
 		public boolean paid_out_of_band;
-		public String payment_intent;	//pi_3PQGpyCsC2AzqBfw19slIclj
+		public String payment_intent;	//pi_3PRMrDCsC2AzqBfw0uDIP0za
 		public cls_payment_settings payment_settings;
-		public Integer period_end;	//1718059034
-		public Integer period_start;	//1718059034
+		public Integer period_end;	//1718320503
+		public Integer period_start;	//1718320503
 		public Integer post_payment_credit_notes_amount;	//0
 		public Integer pre_payment_credit_notes_amount;	//0
 		public cls_quote quote;
@@ -73,37 +84,43 @@ public class StripeInvoiceResponse{
 		public cls_statement_descriptor statement_descriptor;
 		public String status;	//paid
 		public cls_status_transitions status_transitions;
-		public String subscription;	//sub_1PQGpyCsC2AzqBfwcQcUHVdj
+		public String subscription;	//sub_1PRMrDCsC2AzqBfwzGdcGqGM
 		public cls_subscription_details subscription_details;
-		public Integer subtotal;	//6364
-		public Integer subtotal_excluding_tax;	//6364
+		public Integer subtotal;	//1000
+		public Integer subtotal_excluding_tax;	//1000
 		public cls_tax tax;
-		public cls_test_clock test_clock;
-		public Integer total;	//6364
+		public String test_clock;
+		public Integer total;	//1000
 		public cls_total_discount_amounts[] total_discount_amounts;
-		public Integer total_excluding_tax;	//6364
+		public Integer total_excluding_tax;	//1000
 		public cls_total_tax_amounts[] total_tax_amounts;
 		public cls_transfer_data transfer_data;
-		public Integer webhooks_delivered_at;	//1718059034
+		public Integer webhooks_delivered_at;	//1718320503
 	}
-	class cls_account_tax_ids {
+
+
+
+
+
+
+	public class cls_account_tax_ids {
 	}
-	class cls_application {
+	public class cls_application {
 	}
-	class cls_application_fee_amount {
+	public class cls_application_fee_amount {
 	}
-	class cls_automatic_tax {
+	public class cls_automatic_tax {
 		public boolean enabled;
 		public cls_liability liability;
 		public cls_status status;
 	}
-	class cls_liability {
+	public class cls_liability {
 	}
-	class cls_status {
+	public class cls_status {
 	}
-	class cls_custom_fields {
+	public class cls_custom_fields {
 	}
-	class cls_customer_address {
+	public class cls_customer_address {
 		public String city;	//San Francisco
 		public String country;	//US
 		public String line1;	//123 Market Street
@@ -111,57 +128,57 @@ public class StripeInvoiceResponse{
 		public String postal_code;	//94105
 		public String state;	//CA
 	}
-	class cls_line2 {
+	public class cls_line2 {
 	}
-	class cls_customer_phone {
+	public class cls_customer_phone {
 	}
-	class cls_customer_shipping {
+	public class cls_customer_shipping {
 	}
-	class cls_customer_tax_ids {
+	public class cls_customer_tax_ids {
 	}
-	class cls_default_payment_method {
+	public class cls_default_payment_method {
 	}
-	class cls_default_source {
+	public class cls_default_source {
 	}
-	class cls_default_tax_rates {
+	public class cls_default_tax_rates {
 	}
-	class cls_description {
+	public class cls_description {
 	}
-	class cls_discount {
+	public class cls_discount {
 	}
-	class cls_discounts {
+	public class cls_discounts {
 	}
-	class cls_due_date {
+	public class cls_due_date {
 	}
-	class cls_footer {
+	public class cls_footer {
 	}
-	class cls_from_invoice {
+	public class cls_from_invoice {
 	}
-	class cls_issuer {
+	public class cls_issuer {
 		public String type;	//self
 	}
-	class cls_last_finalization_error {
+	public class cls_last_finalization_error {
 	}
-	class cls_latest_revision {
+	public class cls_latest_revision {
 	}
 	public class cls_lines {
 		public String objectz;	//list
-		public cls_data[] data;
+		public cls_lines_data[] data;
 		public boolean has_more;
-		public Integer total_count;	//2
-		public String url;	///v1/invoices/in_1PQGpyCsC2AzqBfwsfsSkg5r/lines
+		public Integer total_count;	//1
+		public String url;	///v1/invoices/in_1PRMrDCsC2AzqBfwcpw4MWaz/lines
 	}
-	public class cls_data {
-		public String id;	//il_1PQGpyCsC2AzqBfwHIi1VQTi
+	public class cls_lines_data {
+		public String id;	//il_1PRMrDCsC2AzqBfwfM24sVnD
 		public String objectz;	//line_item
-		public Integer amount;	//3182
-		public Integer amount_excluding_tax;	//3182
+		public Integer amount;	//1000
+		public Integer amount_excluding_tax;	//1000
 		public String currencyz;	//usd
-		public String description;	//1 × Tight Rope - Zac Test Child (at $31.81818181818182 / month)
+		public String description;	//1 × Tranoline - Zac Test 2 Child (at $10.00 / month)
 		public cls_discount_amounts[] discount_amounts;
 		public boolean discountable;
 		public cls_discounts[] discounts;
-		public String invoice;	//in_1PQGpyCsC2AzqBfwsfsSkg5r
+		public String invoice;	//in_1PRMrDCsC2AzqBfwcpw4MWaz
 		public boolean livemode;
 		public cls_metadata metadata;
 		public cls_period period;
@@ -170,30 +187,30 @@ public class StripeInvoiceResponse{
 		public boolean proration;
 		public cls_proration_details proration_details;
 		public Integer quantity;	//1
-		public String subscription;	//sub_1PQGpyCsC2AzqBfwcQcUHVdj
-		public String subscription_item;	//si_QGoSrlVdo3YaEN
+		public String subscription;	//sub_1PRMrDCsC2AzqBfwzGdcGqGM
+		public String subscription_item;	//si_QHwkmHGM6WeTZi
 		public cls_tax_amounts[] tax_amounts;
 		public cls_tax_rates[] tax_rates;
 		public String type;	//subscription
-		public String unit_amount_excluding_tax;	//3181.818181818182
+		public String unit_amount_excluding_tax;	//1000
 	}
-	class cls_discount_amounts {
+	public class cls_discount_amounts {
 	}
-	class cls_metadata {
+	public class cls_metadata {
 	}
-	class cls_period {
-		public Integer endz;	//1720651034
-		public Integer start;	//1718059034
+	public class cls_period {
+		public Integer endz;	//1720912503
+		public Integer start;	//1718320503
 	}
-	class cls_plan {
-		public String id;	//price_1PQGpVCsC2AzqBfwYYzZel3M
+	public class cls_plan {
+		public String id;	//price_1PRMqxCsC2AzqBfwPdBa1t2E
 		public String objectz;	//plan
 		public boolean active;
 		public cls_aggregate_usage aggregate_usage;
-		public cls_amount amount;
-		public String amount_decimal;	//3181.818181818182
+		public Integer amount;	//1000
+		public String amount_decimal;	//1000
 		public String billing_scheme;	//per_unit
-		public Integer created;	//1718059005
+		public Integer created;	//1718320487
 		public String currencyz;	//usd
 		public String interval;	//month
 		public Integer interval_count;	//1
@@ -201,52 +218,50 @@ public class StripeInvoiceResponse{
 		public cls_metadata metadata;
 		public cls_meter meter;
 		public cls_nickname nickname;
-		public String product;	//prod_QGkvTS2SjoCoTU
+		public String product;	//prod_QHwWVYWwiImnlN
 		public cls_tiers_mode tiers_mode;
 		public cls_transform_usage transform_usage;
 		public cls_trial_period_days trial_period_days;
 		public String usage_type;	//licensed
 	}
-	class cls_aggregate_usage {
+	public class cls_aggregate_usage {
 	}
-	class cls_amount {
+	public class cls_meter {
 	}
-	class cls_meter {
+	public class cls_nickname {
 	}
-	class cls_nickname {
+	public class cls_tiers_mode {
 	}
-	class cls_tiers_mode {
+	public class cls_transform_usage {
 	}
-	class cls_transform_usage {
-	}
-	class cls_trial_period_days {
+	public class cls_trial_period_days {
 	}
 	public class cls_price {
-		public String id;	//price_1PQGpVCsC2AzqBfwYYzZel3M
+		public String id;	//price_1PRMqxCsC2AzqBfwPdBa1t2E
 		public String objectz;	//price
 		public boolean active;
 		public String billing_scheme;	//per_unit
-		public Integer created;	//1718059005
+		public Integer created;	//1718320487
 		public String currencyz;	//usd
 		public cls_custom_unit_amount custom_unit_amount;
 		public boolean livemode;
 		public cls_lookup_key lookup_key;
 		public cls_metadata metadata;
 		public cls_nickname nickname;
-		public String product;	//prod_QGkvTS2SjoCoTU
+		public String product;	//prod_QHwWVYWwiImnlN
 		public cls_recurring recurring;
 		public String tax_behavior;	//unspecified
 		public cls_tiers_mode tiers_mode;
 		public cls_transform_quantity transform_quantity;
 		public String type;	//recurring
-		public cls_unit_amount unit_amount;
-		public String unit_amount_decimal;	//3181.818181818182
+		public Integer unit_amount;	//1000
+		public String unit_amount_decimal;	//1000
 	}
-	class cls_custom_unit_amount {
+	public class cls_custom_unit_amount {
 	}
-	class cls_lookup_key {
+	public class cls_lookup_key {
 	}
-	class cls_recurring {
+	public class cls_recurring {
 		public cls_aggregate_usage aggregate_usage;
 		public String interval;	//month
 		public Integer interval_count;	//1
@@ -254,31 +269,29 @@ public class StripeInvoiceResponse{
 		public cls_trial_period_days trial_period_days;
 		public String usage_type;	//licensed
 	}
-	class cls_transform_quantity {
+	public class cls_transform_quantity {
 	}
-	class cls_unit_amount {
-	}
-	class cls_proration_details {
+	public class cls_proration_details {
 		public cls_credited_items credited_items;
 	}
-	class cls_credited_items {
+	public class cls_credited_items {
 	}
-	class cls_tax_amounts {
+	public class cls_tax_amounts {
 	}
-	class cls_tax_rates {
+	public class cls_tax_rates {
 	}
-	class cls_next_payment_attempt {
+	public class cls_next_payment_attempt {
 	}
-	class cls_on_behalf_of {
+	public class cls_on_behalf_of {
 	}
-	class cls_payment_settings {
+	public class cls_payment_settings {
 		public cls_default_mandate default_mandate;
 		public cls_payment_method_options payment_method_options;
 		public cls_payment_method_types payment_method_types;
 	}
-	class cls_default_mandate {
+	public class cls_default_mandate {
 	}
-	class cls_payment_method_options {
+	public class cls_payment_method_options {
 		public cls_acss_debit acss_debit;
 		public cls_bancontact bancontact;
 		public cls_card card;
@@ -287,58 +300,58 @@ public class StripeInvoiceResponse{
 		public cls_sepa_debit sepa_debit;
 		public cls_us_bank_account us_bank_account;
 	}
-	class cls_acss_debit {
+	public class cls_acss_debit {
 	}
-	class cls_bancontact {
+	public class cls_bancontact {
 	}
-	class cls_card {
+	public class cls_card {
 		public String request_three_d_secure;	//automatic
 	}
-	class cls_customer_balance {
+	public class cls_customer_balance {
 	}
-	class cls_konbini {
+	public class cls_konbini {
 	}
-	class cls_sepa_debit {
+	public class cls_sepa_debit {
 	}
-	class cls_us_bank_account {
+	public class cls_us_bank_account {
 	}
-	class cls_payment_method_types {
+	public class cls_payment_method_types {
 	}
-	class cls_quote {
+	public class cls_quote {
 	}
-	class cls_receipt_number {
+	public class cls_receipt_number {
 	}
-	class cls_rendering {
+	public class cls_rendering {
 	}
-	class cls_shipping_cost {
+	public class cls_shipping_cost {
 	}
-	class cls_shipping_details {
+	public class cls_shipping_details {
 	}
-	class cls_statement_descriptor {
+	public class cls_statement_descriptor {
 	}
-	class cls_status_transitions {
-		public Integer finalized_at;	//1718059034
+	public class cls_status_transitions {
+		public Integer finalized_at;	//1718320503
 		public cls_marked_uncollectible_at marked_uncollectible_at;
-		public Integer paid_at;	//1718059035
+		public Integer paid_at;	//1718320505
 		public cls_voided_at voided_at;
 	}
-	class cls_marked_uncollectible_at {
+	public class cls_marked_uncollectible_at {
 	}
-	class cls_voided_at {
+	public class cls_voided_at {
 	}
-	class cls_subscription_details {
+	public class cls_subscription_details {
 		public cls_metadata metadata;
 	}
-	class cls_tax {
+	public class cls_tax {
 	}
-	class cls_test_clock {
+	public class cls_total_discount_amounts {
 	}
-	class cls_total_discount_amounts {
+	public class cls_total_tax_amounts {
 	}
-	class cls_total_tax_amounts {
+	public class cls_transfer_data {
 	}
-	class cls_transfer_data {
+	public class cls_request {
+		public String id;	//req_7hu6wdWmepKDMp
+		public String idempotency_key;	//d292077c-3793-40e2-a098-603e3f5ad476
 	}
-
-	
 }

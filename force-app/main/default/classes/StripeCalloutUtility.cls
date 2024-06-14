@@ -3,7 +3,7 @@
  * @Class Purpose  : Make http call-outs to the stripe api.
  * @Author         : Zachary Csotya
  * @Developed On   : 
- * @Last Modified  : 06/11/2024
+ * @Last Modified  : 06/13/2024
 **/
 public with sharing class StripeCalloutUtility {
 	private static String baseStripeUrl = 'https://api.stripe.com/';
@@ -67,7 +67,7 @@ public with sharing class StripeCalloutUtility {
             }
             body += key + '=' + payload.get(key);
         }
-        return EncodingUtil.urlEncode(body, 'UTF-8');
+        return body;
     }
 
 	/**
@@ -93,18 +93,15 @@ public with sharing class StripeCalloutUtility {
         );
 
         // * DESERIALIZE THE SUBSCRIPTION SCHEDULE RESPONSE
-        String scheduleJson = scheduleResp.toString().replaceAll('object', 'objectz');
+        String scheduleJson = scheduleResp.getBody().toString().replaceAll('object', 'objectz');
         scheduleJson = scheduleJson.replaceAll('currency', 'currencyz');
-        StripeSubscriptionScheduleResponse scheduleData = (StripeSubscriptionScheduleResponse) System.JSON.deserialize(
-            scheduleJson,
-            StripeSubscriptionScheduleResponse.class
-        );
+        StripeSubscriptionScheduleResponse scheduleData = StripeSubscriptionScheduleResponse.parse(scheduleJson);
 
         // * BUILD PAYLOAD TO UPDATE THE SUBSCRIPTION SCHEDULE
         Map<String, Object> schedUpdatePayload = new Map<String, Object>();
         schedUpdatePayload.put('end_behavior', 'cancel');
         schedUpdatePayload.put('phases[0][start_date]', scheduleData.phases[0].start_date);
-        schedUpdatePayload.put('phases[0],[iterations]', iterations);
+        schedUpdatePayload.put('phases[0][iterations]', iterations);
 
         Integer i = 0;
         for (StripeSubscriptionScheduleResponse.cls_items item : scheduleData.phases[0].items) {
