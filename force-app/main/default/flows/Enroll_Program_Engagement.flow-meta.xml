@@ -326,6 +326,31 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Does_Program_Have_a_Cost</name>
+        <label>Does Program Have a Cost?</label>
+        <locationX>2558</locationX>
+        <locationY>2456</locationY>
+        <defaultConnector>
+            <targetReference>Have_Enrollments_Been_Created</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Cost</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Program_Session.Program__r.Price__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Program_Payment_Screen</targetReference>
+            </connector>
+            <label>Has Cost</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Has_Household_Children</name>
         <label>Has Household Children?</label>
         <locationX>2294</locationX>
@@ -354,7 +379,7 @@
         <name>Have_Enrollments_Been_Created</name>
         <label>Have Enrollments Been Created?</label>
         <locationX>2558</locationX>
-        <locationY>2456</locationY>
+        <locationY>2756</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Collection_Variable_is_Not_Empty</name>
@@ -547,7 +572,7 @@
         <locationX>2558</locationX>
         <locationY>2348</locationY>
         <connector>
-            <targetReference>Have_Enrollments_Been_Created</targetReference>
+            <targetReference>Does_Program_Have_a_Cost</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Error</targetReference>
@@ -768,6 +793,7 @@
             <dataType>String</dataType>
             <fieldText>Children</fieldText>
             <fieldType>MultiSelectCheckboxes</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -826,10 +852,50 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <name>Program_Payment_Screen</name>
+        <label>Program Payment</label>
+        <locationX>2426</locationX>
+        <locationY>2564</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Have_Enrollments_Been_Created</targetReference>
+        </connector>
+        <fields>
+            <name>ProgramInvoice</name>
+            <extensionName>c:programInvoice</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>cartId</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>contactId</name>
+                <value>
+                    <elementReference>$User.ContactId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>programSessionId</name>
+                <value>
+                    <elementReference>Get_Program_Session.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>Success</name>
         <label>Success</label>
         <locationX>2426</locationX>
-        <locationY>2564</locationY>
+        <locationY>2864</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -895,6 +961,14 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>rVarCartProduct</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Cart_Product__c</objectType>
     </variables>
     <variables>
         <name>tVarExistingProgEngagementId</name>

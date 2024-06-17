@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>cartId</name>
+                    <value>a03E100000OCBYPIA5</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>contactId</name>
+                    <value>003E100000NAd9eIAD</value>
+                </componentInstanceProperties>
+                <componentName>programInvoice</componentName>
+                <identifier>c_programInvoice</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Program Invoice</masterLabel>
+    <template>
+        <name>flexipage:defaultAppHomeTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>
