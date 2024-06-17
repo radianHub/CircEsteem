@@ -153,12 +153,12 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Read</externalSharingModel>
-    <label>CircEsteem Program</label>
+    <label>Program</label>
     <nameField>
         <label>Program Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>CircEsteem Programs</pluralLabel>
+    <pluralLabel>Programs</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

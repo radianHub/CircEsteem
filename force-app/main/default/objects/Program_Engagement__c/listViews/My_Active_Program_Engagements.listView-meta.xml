@@ -15,5 +15,5 @@
         <operation>equals</operation>
         <value>Active</value>
     </filters>
-    <label>My Active Program Engagements</label>
+    <label>My Active Enrollments</label>
 </ListView>
