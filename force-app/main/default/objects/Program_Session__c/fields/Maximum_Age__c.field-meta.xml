@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Maximum_Age__c</fullName>
     <externalId>false</externalId>
-    <formula>Program__r.Maximun_Age__c</formula>
+    <formula>Program__r.Maximum_Age__c</formula>
     <label>Maximum Age</label>
     <precision>18</precision>
     <required>false</required>

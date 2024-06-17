@@ -26,6 +26,11 @@
                 <default>false</default>
                 <label>Checkout Initiated</label>
             </value>
+            <value>
+                <fullName>Payment Plan</fullName>
+                <default>false</default>
+                <label>Payment Plan</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

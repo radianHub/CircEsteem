@@ -10,6 +10,7 @@ import NAME_FIELD from '@salesforce/schema/Cart_Product__c.Name';
 import PRICE_FIELD from '@salesforce/schema/Cart_Product__c.Price__c';
 import QUANTITY_FIELD from '@salesforce/schema/Cart_Product__c.Quantity__c';
 import CART_FIELD from '@salesforce/schema/Cart_Product__c.Cart__c';
+import PRODUCT_FIELD from '@salesforce/schema/Cart_Product__c.Product__c';
 
 export default class AddProductModal extends LightningModal {
 	@api productId;
@@ -50,6 +51,7 @@ export default class AddProductModal extends LightningModal {
 		fields[PRICE_FIELD.fieldApiName] = this.product.UnitPrice;
 		fields[QUANTITY_FIELD.fieldApiName] = this.quantity;
 		fields[CART_FIELD.fieldApiName] = this.cartId;
+		fields[PRODUCT_FIELD.fieldApiName] = this.product.Product2.Id;
 
 		let cartProduct = {
 			apiName: CART_PRODUCT_OBJECT.objectApiName,

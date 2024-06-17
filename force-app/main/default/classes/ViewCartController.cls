@@ -8,17 +8,22 @@ public with sharing class ViewCartController {
 		}
 	}
 
-	@AuraEnabled
-	public static void cartCheckout(Id cartId) {
-		try {
-			System.debug('checkout cart ' + cartId);
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
-	}
+	// @AuraEnabled
+	// public static void cartCheckout(Id cartId) {
+	// 	try {
+	// 		System.debug('checkout cart ' + cartId);
+	// 	} catch (Exception e) {
+	// 		throw new AuraHandledException(e.getMessage());
+	// 	}
+	// }
 
 	@AuraEnabled(cacheable=true)
-	public static Stripe_Bearer_Token__c getSettings() {
-		return Stripe_Bearer_Token__c.getOrgDefaults();
+	public static List<Credit__c> getCredits(Id contactId) {
+		try {
+			return CreditService.getCredits(contactId);
+		}
+		catch (Exception ex) {
+			throw new AuraHandledException(ex.getMessage());
+		}	
 	}
 }

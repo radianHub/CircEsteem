@@ -10,3 +10,7 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+# APEX Class
+**/classes/ProgramService.cls
+**/classes/ProgramService.cls-meta.xml

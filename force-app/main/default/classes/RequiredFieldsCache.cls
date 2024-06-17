@@ -164,7 +164,9 @@ public class RequiredFieldsCache {
 			SetupEntityAccess.ParentId => getGenericParentProvider(PermissionSet.sObjectType),
 			SetupEntityAccess.SetupEntityId => SObjectFactory.provideQueriedParent('SELECT Id FROM ApexClass WHERE NamespacePrefix = null LIMIT 1')
 		},
-		StreamingChannel.sObjectType => new Map<SObjectField, Object>{ StreamingChannel.Name => SObjectFactory.provideUniqueString('/u/TestChannel') },
+		StreamingChannel.sObjectType => new Map<SObjectField, Object>{ 
+			StreamingChannel.Name => SObjectFactory.provideUniqueString('/u/TestChannel') 
+		},
 		User.sObjectType => new Map<SObjectField, Object>{
 			User.LastName => 'Doe',
 			User.LocaleSidKey => 'en_US',
@@ -186,6 +188,25 @@ public class RequiredFieldsCache {
 			UserProvisioningRequest.Operation => 'Read',
 			UserProvisioningRequest.ApprovalStatus => 'Denied'
 		},
-		UserRole.sObjectType => new Map<SObjectField, Object>{ UserRole.Name => 'Some Role' }
+		UserRole.sObjectType => new Map<SObjectField, Object>{ UserRole.Name => 'Some Role' 
+		},
+		Program__c.sObjectType => new Map<SObjectField, Object>{
+			Program__c.Name => 'Some Program',
+			Program__c.Size__c => 20,
+			Program__c.Price__c => 200,
+			Program__c.Accepting_Applications__c => true,
+			Program__c.Payment_Frequency__c => 'Weekly;Monthly;In Full',
+			Program__c.Maximum_Age__c => 20,
+			Program__c.Minimum_Age__c => 2
+		},
+		Program_Session__c.sObjectType => new Map<SObjectField, Object>{
+			Program_Session__c.Name => 'Some Session'
+		},
+		Cart_Product__c.sObjectType => new Map<SObjectField, Object>{
+			Cart_Product__c.Name => 'Cart Product Test',
+			Cart_Product__c.Quantity__c => 1,
+			Cart_Product__c.Price__c => 200
+		}
+
 	};
 }

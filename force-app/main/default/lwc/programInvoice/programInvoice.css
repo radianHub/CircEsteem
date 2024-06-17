@@ -1,0 +1,44 @@
+div:has(> .container) {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 600px;
+    padding: 2em 8em;
+}
+
+.products {
+    padding: .25em;
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+}
+
+.total {
+    border-top: 1px solid black;
+    font-weight: bold;
+}
+
+.rest {
+    padding: .5em 2em;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+}
+
+.credits {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.creditLine {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}

@@ -6,6 +6,7 @@
     <label>Financial Aid Form</label>
     <lookupFilter>
         <active>true</active>
+        <errorMessage>Must be a financial aid form</errorMessage>
         <filterItems>
             <field>Form__c.RecordTypeId</field>
             <operation>equals</operation>
