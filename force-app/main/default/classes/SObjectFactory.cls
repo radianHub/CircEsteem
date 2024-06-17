@@ -6,7 +6,7 @@ public class SObjectFactory {
 				ADMIN_USER = [
 					SELECT Id
 					FROM User
-					WHERE IsActive = TRUE AND Profile.Name = 'Counsyl System Admin'
+					WHERE IsActive = TRUE AND Profile.Name = 'System Administrator'
 					LIMIT 1
 				];
 			return ADMIN_USER;
@@ -84,6 +84,9 @@ public class SObjectFactory {
 	// providers
 	public static IFieldProvider provideStandardProfile() {
 		return new SObjectFieldProviders.QueryParentProvider('SELECT Id FROM Profile WHERE Name = \'Standard User\' LIMIT 1');
+	}
+	public static IFieldProvider provideCommunityProfile() {
+		return new SObjectFieldProviders.QueryParentProvider('SELECT Id FROM Profile WHERE Name = \'Parent Community User\' LIMIT 1');
 	}
 
 	public static IFieldProvider provideUniqueNumber() {

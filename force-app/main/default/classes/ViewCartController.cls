@@ -8,14 +8,14 @@ public with sharing class ViewCartController {
 		}
 	}
 
-	@AuraEnabled
-	public static void cartCheckout(Id cartId) {
-		try {
-			System.debug('checkout cart ' + cartId);
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
-	}
+	// @AuraEnabled
+	// public static void cartCheckout(Id cartId) {
+	// 	try {
+	// 		System.debug('checkout cart ' + cartId);
+	// 	} catch (Exception e) {
+	// 		throw new AuraHandledException(e.getMessage());
+	// 	}
+	// }
 
 	@AuraEnabled(cacheable=true)
 	public static List<Credit__c> getCredits(Id contactId) {
