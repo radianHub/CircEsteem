@@ -3,10 +3,14 @@
     <actionCalls>
         <name>Send_Email_Alert_to_Staff</name>
         <label>Send Email Alert to Staff</label>
-        <locationX>334</locationX>
-        <locationY>1463</locationY>
+        <locationX>574</locationX>
+        <locationY>1511</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>errorMessage</targetReference>
+        </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
@@ -35,6 +39,8 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
     <assignments>
@@ -72,7 +78,7 @@
     <assignments>
         <name>Add_to_Products_to_Product_Line_Items</name>
         <label>Add to Products to Product Line Items</label>
-        <locationX>490</locationX>
+        <locationX>970</locationX>
         <locationY>755</locationY>
         <assignmentItems>
             <assignToReference>productLineItems</assignToReference>
@@ -101,10 +107,20 @@
             <targetReference>Add_to_List</targetReference>
         </connector>
     </assignments>
+    <customErrors>
+        <name>errorMessage</name>
+        <label>errorMessage</label>
+        <locationX>1626</locationX>
+        <locationY>539</locationY>
+        <customErrorMessages>
+            <errorMessage>Something went wrong, please try again.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
     <decisions>
         <name>Cart_Record_Type</name>
         <label>Cart Record Type</label>
-        <locationX>334</locationX>
+        <locationX>574</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -141,7 +157,7 @@
     <decisions>
         <name>Status</name>
         <label>Status?</label>
-        <locationX>608</locationX>
+        <locationX>1232</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Other</defaultConnectorLabel>
         <rules>
@@ -195,7 +211,7 @@
     <loops>
         <name>Loop_Through_Cart_Products</name>
         <label>Loop Through Cart Products</label>
-        <locationX>402</locationX>
+        <locationX>882</locationX>
         <locationY>647</locationY>
         <collectionReference>Get_Cart_Products</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -242,12 +258,15 @@
     <recordLookups>
         <name>Get_Cart_Products</name>
         <label>Get Cart Products</label>
-        <locationX>334</locationX>
+        <locationX>574</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Cart_Record_Type</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>errorMessage</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Cart__c</field>
@@ -269,6 +288,10 @@
         <connector>
             <targetReference>Update_Program_Engagement</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>errorMessage</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -289,10 +312,14 @@
         <connector>
             <targetReference>Send_Email_Alert_to_Staff</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>errorMessage</targetReference>
+        </faultConnector>
         <inputReference>ProgramEngagementsToUpdate</inputReference>
     </recordUpdates>
     <start>
-        <locationX>482</locationX>
+        <locationX>1106</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Status</targetReference>
