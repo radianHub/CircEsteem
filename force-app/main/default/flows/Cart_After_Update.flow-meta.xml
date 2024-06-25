@@ -8,7 +8,6 @@
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <faultConnector>
-            <isGoTo>true</isGoTo>
             <targetReference>errorMessage</targetReference>
         </faultConnector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -20,6 +19,9 @@
         </inputParameters>
         <inputParameters>
             <name>senderType</name>
+            <value>
+                <stringValue>DefaultWorkflowUser</stringValue>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>emailSubject</name>
@@ -110,8 +112,8 @@
     <customErrors>
         <name>errorMessage</name>
         <label>errorMessage</label>
-        <locationX>1626</locationX>
-        <locationY>539</locationY>
+        <locationX>1362</locationX>
+        <locationY>1619</locationY>
         <customErrorMessages>
             <errorMessage>Something went wrong, please try again.</errorMessage>
             <isFieldError>false</isFieldError>
@@ -265,6 +267,7 @@
             <targetReference>Cart_Record_Type</targetReference>
         </connector>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>errorMessage</targetReference>
         </faultConnector>
         <filterLogic>and</filterLogic>
